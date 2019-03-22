@@ -1,6 +1,7 @@
 package AppService;
 
 import AppModel.Price;
+import AppUtil.FilePath;
 import AppUtil.Lang;
 
 import java.util.HashMap;
@@ -9,30 +10,39 @@ public class SettingManager {
 
     private static SettingManager ourInstance = new SettingManager();
 
-    public static SettingManager getInstance() {
+    public static SettingManager i() {
         return ourInstance;
     }
 
-    private Lang language;
+    static void setInstance(SettingManager newInstance) {
+        ourInstance = newInstance;
+    }
+
+    private SettingManager() {}
+
+    private Lang Language = Lang.English;
     private int TableCount;
-    private long TimeLimit;
-    private long TimeExcess;
-    private int ExcessFine;
-    private int ServiceCharge;
-    private boolean SeperateKA;
+    private long TimeLimit = 100;
+    private long TimeExcess = 10;
+    private double ExcessFine = 50;
+    private double ServiceCharge;
+    private boolean SeparateKA;
     private HashMap<String, Price> PriceMap = new HashMap<>();
 
-    private SettingManager() {
-        //TODO: Load settings from file
+
+    private void updateFile() {
+        SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path, true);
+
     }
 
     //region getter setter
+
     public Lang getLanguage() {
-        return language;
+        return Language;
     }
 
     public void setLanguage(Lang language) {
-        this.language = language;
+        Language = language;
     }
 
     public int getTableCount() {
@@ -59,28 +69,28 @@ public class SettingManager {
         TimeExcess = timeExcess;
     }
 
-    public int getExcessFine() {
+    public double getExcessFine() {
         return ExcessFine;
     }
 
-    public void setExcessFine(int excessFine) {
+    public void setExcessFine(double excessFine) {
         ExcessFine = excessFine;
     }
 
-    public int getServiceCharge() {
+    public double getServiceCharge() {
         return ServiceCharge;
     }
 
-    public void setServiceCharge(int serviceCharge) {
+    public void setServiceCharge(double serviceCharge) {
         ServiceCharge = serviceCharge;
     }
 
-    public boolean isSeperateKA() {
-        return SeperateKA;
+    public boolean isSeparateKA() {
+        return SeparateKA;
     }
 
-    public void setSeperateKA(boolean seperateKA) {
-        SeperateKA = seperateKA;
+    public void setSeperateKA(boolean separateKA) {
+        SeparateKA = separateKA;
     }
 
     public Price getPrice(String name) {

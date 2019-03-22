@@ -2,8 +2,8 @@ package AppModel;
 
 public class Price {
     private String Name;
-    private int PriceKids;
-    private int PriceAdult;
+    private double PriceKids;
+    private double PriceAdult;
 
     public String getName() {
         return Name;
@@ -13,19 +13,19 @@ public class Price {
         Name = name;
     }
 
-    public int getPriceKids() {
+    public double getPriceKids() {
         return PriceKids;
     }
 
-    public void setPriceKids(int priceKids) {
+    public void setPriceKids(double priceKids) {
         PriceKids = priceKids;
     }
 
-    public int getPriceAdult() {
+    public double getPriceAdult() {
         return PriceAdult;
     }
 
-    public void setPriceAdult(int priceAdult) {
+    public void setPriceAdult(double priceAdult) {
         PriceAdult = priceAdult;
     }
 }

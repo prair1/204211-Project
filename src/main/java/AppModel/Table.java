@@ -1,17 +1,24 @@
 package AppModel;
 
+import AppService.Logger;
+import AppService.SettingManager;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import static java.time.temporal.ChronoUnit.SECONDS;
 
 abstract class Table {
 
     int Id;
-    int TableNum ;
+    int TableNum;
     String Type;
     LocalDateTime TimeCreated;
     LocalDateTime TimeStarted;
-    int TotalHead;
-    int KidHead;
-    int AdultHead;
+    public LocalDateTime TimeFinished;
+    int TotalHeads;
+    int KidHeads;
+    int AdultHeads;
 
     //region getter-setter
 
@@ -43,32 +50,82 @@ abstract class Table {
         return TimeStarted;
     }
 
-    public int getTotalHead() {
-        return TotalHead;
+    public int getTotalHeads() {
+        return TotalHeads;
     }
 
-    public void setTotalHead(int totalHead) {
+    public void setTotalHeads(int totalHeads) {
         if (this instanceof TableBooking)
-            TotalHead = totalHead;
+            TotalHeads = totalHeads;
         else
-            TotalHead = KidHead + AdultHead;
+            TotalHeads = KidHeads + AdultHeads;
     }
 
-    public int getKidHead() {
-        return KidHead;
+    public int getKidHeads() {
+        return KidHeads;
     }
 
-    public void setKidHead(int kidHead) {
-        KidHead = kidHead;
+    public void setKidHeads(int kidHeads) {
+        KidHeads = kidHeads;
     }
 
-    public int getAdultHead() {
-        return AdultHead;
+    public int getAdultHeads() {
+        return AdultHeads;
     }
 
-    public void setAdultHead(int adultHead) {
-        AdultHead = adultHead;
+    public void setAdultHeads(int adultHeads) {
+        AdultHeads = adultHeads;
     }
 
     //endregion
+
+    public void doFinished() {
+        TimeFinished = LocalDateTime.now();
+    }
+
+    public long calExcessSeconds() {
+        return TimeStarted.until(TimeFinished.minus(SettingManager.i().getTimeLimit(), SECONDS), SECONDS);
+    }
+
+    public double calExcessFine() {
+        if (calExcessSeconds() > 0)
+            return Math.ceil((double) calExcessSeconds() / SettingManager.i().getTimeExcess()) * SettingManager.i().getExcessFine();
+        else
+            return 0;
+    }
+
+    public void toLog() {
+        String log;
+        if (SettingManager.i().isSeparateKA())
+            log = String.format("Customer %d (Created on %s)\n" +
+                            "Table number: %d\n" +
+                            "Type: %s\n" +
+                            "Time started: %s\n" +
+                            "Time finished: %s\n" +
+                            "Heads: %d (Kids: %d, Adult: %d)",
+                    Id,
+                    TimeCreated.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")),
+                    TableNum,
+                    Type,
+                    TimeStarted.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                    TimeFinished.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                    TotalHeads,
+                    KidHeads,
+                    AdultHeads);
+        else
+            log = String.format("Customer %d (Created on %s)\n" +
+                            "Table number: %d\n" +
+                            "Type: %s\n" +
+                            "Time started: %s\n" +
+                            "Time finished: %s\n" +
+                            "Heads: %d",
+                    Id,
+                    TimeCreated.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")),
+                    TableNum,
+                    Type,
+                    TimeStarted.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                    TimeFinished.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                    TotalHeads);
+        Logger.i().addLog(log);
+    }
 }
