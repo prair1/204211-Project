@@ -11,13 +11,8 @@ import javafx.scene.control.Label;
 
 public class FXMLController implements Initializable {
 
-    @FXML
-    private Label label;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
-        label.setText("Hello, JavaFX " + javafxVersion + "\nRunning on Java " + javaVersion + "." + "\nsave file is at " + SaverAndLoader.getFile(""));
+
     }
 }

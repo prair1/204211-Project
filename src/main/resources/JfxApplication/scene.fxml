@@ -9,31 +9,31 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLController">
     <children>
-      <ImageView fitHeight="136.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
-         <StackPane.margin>
-            <Insets top="40.0" />
-         </StackPane.margin>
-         <image>
-            <Image url="@../Image/Untitled.png" />
-         </image>
-      </ImageView>
-      <JFXButton ripplerFill="#e83d3d" style="-fx-background-color: #1c91ff;" text="Start">
-         <StackPane.margin>
-            <Insets top="120.0" />
-         </StackPane.margin>
-         <font>
-            <Font name="SansSerif Regular" size="31.0" />
-         </font>
-      </JFXButton>
-      <JFXButton ripplerFill="#ff8605" style="-fx-background-color: #1c91ff;" text="TH" StackPane.alignment="BOTTOM_LEFT">
-         <StackPane.margin>
-            <Insets bottom="5.0" left="5.0" />
-         </StackPane.margin>
-      </JFXButton>
-      <JFXButton layoutX="10.0" layoutY="385.0" ripplerFill="#ff8605" style="-fx-background-color: #1c91ff;" text="EN" StackPane.alignment="BOTTOM_LEFT">
-         <StackPane.margin>
-            <Insets bottom="5.0" left="40.0" />
-         </StackPane.margin>
-      </JFXButton>
+        <ImageView fitHeight="136.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
+            <StackPane.margin>
+                <Insets top="40.0" />
+            </StackPane.margin>
+            <image>
+                <Image url="@../Image/Untitled.png" />
+            </image>
+        </ImageView>
+        <JFXButton ripplerFill="#e83d3d" style="-fx-background-color: #1c91ff;" text="Start">
+            <StackPane.margin>
+                <Insets top="120.0" />
+            </StackPane.margin>
+            <font>
+                <Font name="SansSerif Regular" size="31.0" />
+            </font>
+        </JFXButton>
+        <JFXButton ripplerFill="#ff8605" style="-fx-background-color: #1c91ff;" text="TH" StackPane.alignment="BOTTOM_LEFT">
+            <StackPane.margin>
+                <Insets bottom="5.0" left="5.0" />
+            </StackPane.margin>
+        </JFXButton>
+        <JFXButton layoutX="10.0" layoutY="385.0" ripplerFill="#ff8605" style="-fx-background-color: #1c91ff;" text="EN" StackPane.alignment="BOTTOM_LEFT">
+            <StackPane.margin>
+                <Insets bottom="5.0" left="40.0" />
+            </StackPane.margin>
+        </JFXButton>
     </children>
 </StackPane>
