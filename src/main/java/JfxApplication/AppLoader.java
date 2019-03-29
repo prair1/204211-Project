@@ -16,7 +16,7 @@ public class AppLoader extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
-        stage.setTitle("JavaFX and Gradle");
+        stage.setTitle("Table Manager");
         stage.setScene(scene);
         stage.show();
     }
