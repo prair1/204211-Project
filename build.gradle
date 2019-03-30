@@ -9,6 +9,11 @@ version 'PROJECT'
 
 sourceCompatibility = 1.8
 
+apply plugin: 'java'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 repositories {
     mavenCentral()
 }
