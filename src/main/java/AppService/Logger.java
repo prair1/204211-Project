@@ -16,15 +16,10 @@ public class Logger {
 
     private Logger() {
         try {
-            System.out.print("Hi");
-            writer = new FileWriter(SaverAndLoader.getFile("log.txt"), true);
+            writer = new FileWriter(SaverAndLoader.getFile("log " +
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy @ HH.mm.ss")) + ".txt"), true);
 
-            writer.append("...............................................\n\n\n" +
-                    "-----------------------------------------------\n" +
-                    "***********************************************\n" +
-                    "Session " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")) +
-                    "\n***********************************************\n" +
-                    "-----------------------------------------------\n");
+            writer.append(String.format("Session %s%n", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss"))));
             writer.flush();
         }
         catch (IOException e) {
@@ -35,7 +30,7 @@ public class Logger {
 
     public void addLog(String text) {
         try {
-            writer.append(text + "\n-----------------------------------------------\n");
+            writer.append(String.format("-----------------------------------------------%n%s%n-----------------------------------------------%n", text));
             writer.flush();
         }
         catch (IOException e) {
