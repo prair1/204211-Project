@@ -4,6 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import AppService.SaverAndLoader;
+import AppService.SettingManager;
+import AppUtil.Lang;
+import AppUtil.Text;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,16 +30,18 @@ public class FXMLControllerSetup implements Initializable {
 
     @FXML
     private void THButtonClick() {
-        StartBtn.setText("เริ่ม");
+        SettingManager.i().setLanguage(Lang.Thai);
+        langChange();
     }
 
     @FXML
     private void ENButtonClick() {
-        StartBtn.setText("Start");
+        SettingManager.i().setLanguage(Lang.English);
+        langChange();
     }
 
     private void langChange() {
-        StartBtn.setText("Hi")
+        StartBtn.setText(Text.START.get());
     }
 
 }

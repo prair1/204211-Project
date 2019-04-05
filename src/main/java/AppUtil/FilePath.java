@@ -5,7 +5,7 @@ public enum FilePath {
     TABLE ("tables.json");
 
     public final String path;
-    private FilePath(String path) {
+    FilePath(String path) {
         this.path = path;
     }
 }
