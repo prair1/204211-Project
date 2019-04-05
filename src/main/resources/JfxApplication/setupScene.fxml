@@ -19,7 +19,7 @@
                 <Insets bottom="5.0" left="40.0" />
             </StackPane.margin>
         </JFXButton>
-      <JFXButton prefHeight="40.0" prefWidth="100.0" ripplerFill="#eb783b" style="-fx-background-color: #1c91ff;" text="Start" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="TOP" depthTest="DISABLE" prefHeight="40.0" prefWidth="100.0" ripplerFill="#832c00" style="-fx-background-color: #1c91ff;" text="Start" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <StackPane.margin>
             <Insets top="100.0" />
          </StackPane.margin>
@@ -27,7 +27,7 @@
             <Insets />
          </opaqueInsets>
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </JFXButton>
         <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_CENTER">
