@@ -35,4 +35,8 @@ public class FXMLControllerSetup implements Initializable {
         StartBtn.setText("Start");
     }
 
+    private void langChange() {
+        StartBtn.setText("Hi")
+    }
+
 }

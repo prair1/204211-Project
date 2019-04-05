@@ -5,25 +5,31 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView fitHeight="204.0" fitWidth="204.0" layoutX="198.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Image/Logo.png" />
-         </image>
-      </ImageView>
-      <JFXButton style="-fx-background-color: #1f58a7;" text="EN" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="40.0" />
-      <JFXButton layoutX="8.0" layoutY="361.0" style="-fx-background-color: #1f58a7;" text="TH" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
-      <JFXButton layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="90.0" ripplerFill="#a41b90" snapToPixel="false" style="-fx-background-color: #1f58a7;" text="Start" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <effect>
-            <Shadow />
-         </effect>
-      </JFXButton>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerSetup">
+    <children>
+        <ImageView fitHeight="204.0" fitWidth="204.0" layoutX="198.0" layoutY="14.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../Image/Logo.png"/>
+            </image>
+        </ImageView>
+        <JFXButton fx:id="ENBtn" onMouseClicked="#ENButtonClick" style="-fx-background-color: #1f58a7;" text="EN" textFill="WHITE" AnchorPane.bottomAnchor="5.0"
+                   AnchorPane.leftAnchor="40.0"/>
+        <JFXButton fx:id="THBtn" onMouseClicked="#THButtonClick" layoutX="8.0" layoutY="361.0" style="-fx-background-color: #1f58a7;" text="TH" textFill="WHITE"
+                   AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0"/>
+        <JFXButton fx:id="StartBtn" layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                   minWidth="-Infinity" prefHeight="50.0" prefWidth="90.0" ripplerFill="#a41b90" snapToPixel="false"
+                   style="-fx-background-color: #1f58a7;" text="Start" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="20.0"/>
+            </font>
+            <effect>
+                <Shadow/>
+            </effect>
+        </JFXButton>
+    </children>
 </AnchorPane>
