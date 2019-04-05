@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,10 +17,13 @@
       </ImageView>
       <JFXButton style="-fx-background-color: #1f58a7;" text="EN" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="40.0" />
       <JFXButton layoutX="8.0" layoutY="361.0" style="-fx-background-color: #1f58a7;" text="TH" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
-      <JFXButton layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="90.0" ripplerFill="#a41b90" style="-fx-background-color: #1f58a7;" text="Start" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXButton layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="90.0" ripplerFill="#a41b90" snapToPixel="false" style="-fx-background-color: #1f58a7;" text="Start" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
+         <effect>
+            <Shadow />
+         </effect>
       </JFXButton>
    </children>
 </AnchorPane>
