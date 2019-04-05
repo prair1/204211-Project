@@ -43,6 +43,7 @@ public class SettingManager {
 
     public void setLanguage(Lang language) {
         Language = language;
+        updateFile();
     }
 
     public int getTableCount() {
@@ -51,6 +52,7 @@ public class SettingManager {
 
     public void setTableCount(int tableCount) {
         TableCount = tableCount;
+        updateFile();
     }
 
     public long getTimeLimit() {
@@ -59,6 +61,7 @@ public class SettingManager {
 
     public void setTimeLimit(long timeLimit) {
         TimeLimit = timeLimit;
+        updateFile();
     }
 
     public long getTimeExcess() {
@@ -67,6 +70,7 @@ public class SettingManager {
 
     public void setTimeExcess(long timeExcess) {
         TimeExcess = timeExcess;
+        updateFile();
     }
 
     public double getExcessFine() {
@@ -75,6 +79,7 @@ public class SettingManager {
 
     public void setExcessFine(double excessFine) {
         ExcessFine = excessFine;
+        updateFile();
     }
 
     public double getServiceCharge() {
@@ -83,6 +88,7 @@ public class SettingManager {
 
     public void setServiceCharge(double serviceCharge) {
         ServiceCharge = serviceCharge;
+        updateFile();
     }
 
     public boolean isSeparateKA() {
@@ -91,6 +97,7 @@ public class SettingManager {
 
     public void setSeperateKA(boolean separateKA) {
         SeparateKA = separateKA;
+        updateFile();
     }
 
     public Price getPrice(String name) {
@@ -99,10 +106,12 @@ public class SettingManager {
 
     public void addPrice(Price newPrice) {
         PriceMap.put(newPrice.getName(), newPrice);
+        updateFile();
     }
 
     public void delPrice(String name) {
         PriceMap.remove(name);
+        updateFile();
     }
     //endregion
 }
