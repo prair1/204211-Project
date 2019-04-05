@@ -16,7 +16,7 @@ public class Logger {
 
     private Logger() {
         try {
-            writer = new FileWriter(SaverAndLoader.getFile("log " +
+            writer = new FileWriter(SaverAndLoader.getFile("Log " +
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy @ HH.mm.ss")) + ".txt"), true);
 
             writer.append(String.format("Session %s%n", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss"))));
