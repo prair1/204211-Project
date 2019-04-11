@@ -1,29 +1,21 @@
 package AppUI;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import AppService.SaverAndLoader;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
-import JfxApplication.AppLoader;
 import JfxApplication.SceneLoader;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class FXMLControllerSetup implements Initializable {
 
     @FXML
-    Button StartBtn;
+    Button startBtn;
 
     @FXML
     Button THBtn;
@@ -49,15 +41,15 @@ public class FXMLControllerSetup implements Initializable {
     }
 
     @FXML
-    private void StartBtnClick() throws Exception {
-        Stage stage = (Stage) StartBtn.getScene().getWindow();
+    private void startBtnClick() throws Exception {
+        Stage stage = (Stage) startBtn.getScene().getWindow();
 
         SceneLoader loader = new SceneLoader();
-        loader.Load(stage, "settingScene.fxml", "Setting");
+        loader.Load(stage, "settingScene.fxml", true);
     }
 
     private void langChange() {
-        StartBtn.setText(Text.START.get());
+        startBtn.setText(Text.START.get());
     }
 
 }
