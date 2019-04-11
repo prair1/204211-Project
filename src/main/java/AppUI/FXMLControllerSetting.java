@@ -14,6 +14,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -38,8 +39,7 @@ public class FXMLControllerSetting implements Initializable {
 
     }
 
-    private Course createCourseTable(ObservableList node) {
-        HBox courseBox = new HBox();
+    private Course createCourseTable(ObservableList<Node> node) {
         JFXTextField courseTxtF = new JFXTextField();
         courseTxtF.setStyle("-fx-text-fill: -fx-primarytext;" +
                             "-fx-prompt-text-fill:  #626262;"+
@@ -60,7 +60,8 @@ public class FXMLControllerSetting implements Initializable {
                 "-fx-min-height: 32;"+
                 "-fx-min-width: 53;"+
                 "-fx-max-height: 32;"+
-                "-fx-max-width: 53;"
+                "-fx-max-width: 53;" +
+                "-fx-padding: 50 0 0 0;"
 
 
 
@@ -84,9 +85,8 @@ public class FXMLControllerSetting implements Initializable {
         );
 
         JFXButton deleteBtn = new JFXButton();
-
-        ObservableList courseBoxChildren = courseBox.getChildren();
-        courseBoxChildren.addAll(courseTxtF, adultTxtF, kidsTxtF, deleteBtn);
+        HBox courseBox = new HBox(courseTxtF, adultTxtF, kidsTxtF, deleteBtn;
+        // TODO: set margin around here
         node.addAll(courseBox);
         return new Course(courseBox, courseTxtF, adultTxtF, kidsTxtF, deleteBtn);
     }
