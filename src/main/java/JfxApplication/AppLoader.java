@@ -11,14 +11,10 @@ public class AppLoader extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("setupScene.fxml"));
-
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-
-        stage.setTitle("Table Manager");
-        stage.setScene(scene);
+        SceneLoader loader = new SceneLoader();
+        loader.Load(stage, "setupSceneDark.fxml", "Setting");
         stage.show();
+
     }
 
     public static void main(String[] args) {

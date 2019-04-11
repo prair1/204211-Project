@@ -16,7 +16,7 @@
         </ImageView>
         <JFXButton fx:id="ENBtn" onMouseClicked="#ENButtonClick" style="-fx-background-color: #ff6f61;" text="EN" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="40.0" />
         <JFXButton fx:id="THBtn" layoutX="8.0" layoutY="361.0" onMouseClicked="#THButtonClick" style="-fx-background-color: #ff6f61;" text="TH" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
-        <JFXButton fx:id="StartBtn" layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="90.0" ripplerFill="#ff6666" snapToPixel="false" style="-fx-background-color: #ff6f61;" text="Start" textAlignment="CENTER" textFill="WHITE">
+        <JFXButton fx:id="StartBtn" onMouseClicked="#StartBtnClick" layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="90.0" ripplerFill="#ff6666" snapToPixel="false" style="-fx-background-color: #ff6f61;" text="{START}" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>

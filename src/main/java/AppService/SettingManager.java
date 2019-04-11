@@ -5,8 +5,9 @@ import AppUtil.FilePath;
 import AppUtil.Lang;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-public class SettingManager {
+public class SettingManager{
 
     private static SettingManager ourInstance = new SettingManager();
 
@@ -22,12 +23,11 @@ public class SettingManager {
 
     private Lang Language = Lang.English;
     private int TableCount;
-    private long TimeLimit = 100;
-    private long TimeExcess = 10;
-    private double ExcessFine = 50;
+    private long TimeLimit;
+    private long TimeExcess;
+    private double ExcessFine;
     private double ServiceCharge;
-    private boolean SeparateKA;
-    private HashMap<String, Price> PriceMap = new HashMap<>();
+    private LinkedHashMap<String, Price> PriceMap = new LinkedHashMap<>();
 
 
     private void updateFile() {
@@ -88,15 +88,6 @@ public class SettingManager {
 
     public void setServiceCharge(double serviceCharge) {
         ServiceCharge = serviceCharge;
-        updateFile();
-    }
-
-    public boolean isSeparateKA() {
-        return SeparateKA;
-    }
-
-    public void setSeperateKA(boolean separateKA) {
-        SeparateKA = separateKA;
         updateFile();
     }
 

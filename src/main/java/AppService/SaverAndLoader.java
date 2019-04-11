@@ -1,5 +1,6 @@
 package AppService;
 
+import AppUtil.FilePath;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -15,12 +16,17 @@ public class SaverAndLoader {
         return Paths.get(System.getProperty("user.dir"), "save", fileName).toString();
     }
 
-    public static void getFrom(SettingManager object, String file) {
+    public static void getFrom(String file) {
         Gson gson = new Gson();
         FileReader reader;
         try {
-            reader = new FileReader(getFile(file));
-            SettingManager.setInstance(gson.fromJson(reader, SettingManager.class));
+            if (file.contentEquals(FilePath.SETTING.path)) {
+                reader = new FileReader(getFile(file));
+                SettingManager.setInstance(gson.fromJson(reader, SettingManager.class));
+            }
+            else if (file.contentEquals(FilePath.TABLE.path)) {
+                // TODO
+            }
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
