@@ -23,8 +23,9 @@ public class SettingManager{
 
     private Lang Language = Lang.English;
     private int TableCount;
+    private boolean LimitTime;
     private long TimeLimit;
-    private long TimeExcess;
+    private long TimePerExcess;
     private double ExcessFine;
     private double ServiceCharge;
     private LinkedHashMap<String, Price> PriceMap = new LinkedHashMap<>();
@@ -64,12 +65,12 @@ public class SettingManager{
         updateFile();
     }
 
-    public long getTimeExcess() {
-        return TimeExcess;
+    public long getTimePerExcess() {
+        return TimePerExcess;
     }
 
-    public void setTimeExcess(long timeExcess) {
-        TimeExcess = timeExcess;
+    public void setTimePerExcess(long timeExcess) {
+        TimePerExcess = timeExcess;
         updateFile();
     }
 
@@ -91,11 +92,27 @@ public class SettingManager{
         updateFile();
     }
 
-    public Price getPrice(String name) {
-        return PriceMap.get(name);
+    public boolean isLimitTime() {
+        return LimitTime;
     }
 
-    public void addPrice(Price newPrice) {
+    public void setLimitTime(boolean limitTime) {
+        LimitTime = limitTime;
+    }
+
+    public LinkedHashMap<String, Price> getPriceMap() {
+        return PriceMap;
+    }
+    public double getPriceAdult(String name) {
+        return PriceMap.get(name).getPriceAdult();
+    }
+
+    public double getPriceKids(String name) {
+        return PriceMap.get(name).getPriceKids();
+    }
+
+    public void addPrice(String name, double priceKids, double priceAdult) {
+        Price newPrice = new Price(name, priceKids, priceAdult);
         PriceMap.put(newPrice.getName(), newPrice);
         updateFile();
     }

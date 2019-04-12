@@ -5,6 +5,12 @@ public class Price {
     private double PriceKids;
     private double PriceAdult;
 
+    public Price(String name, double priceKids, double priceAdult) {
+        Name = name;
+        PriceKids = priceKids;
+        PriceAdult = priceAdult;
+    }
+
     public String getName() {
         return Name;
     }

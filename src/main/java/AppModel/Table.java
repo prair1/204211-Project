@@ -89,7 +89,7 @@ abstract class Table {
 
     public double calExcessFine() {
         if (calExcessSeconds() > 0)
-            return Math.ceil((double) calExcessSeconds() / SettingManager.i().getTimeExcess()) * SettingManager.i().getExcessFine();
+            return Math.ceil((double) calExcessSeconds() / SettingManager.i().getTimePerExcess()) * SettingManager.i().getExcessFine();
         else
             return 0;
     }
