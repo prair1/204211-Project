@@ -17,9 +17,11 @@ public enum Text {
     PER("ต่อ", "Per"),
     SERVICECHARGE("ค่าบริการ", "Service charge"),
     COURSE("คอร์ส","Course"),
+    PRICE("ราคา", "Price"),
     ADULT("ผู้ใหญ","Adult"),
     KID("เด็ก","Kid"),
-    PRICE("ราคา", "Price");
+    BACK("กลับ", "Back"),
+    Save("เซฟ","Save");
 
 
 

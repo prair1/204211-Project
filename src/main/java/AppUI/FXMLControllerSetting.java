@@ -1,12 +1,10 @@
 package AppUI;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import AppModel.Course;
-import AppService.SaverAndLoader;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
@@ -19,7 +17,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -49,7 +46,7 @@ public class FXMLControllerSetting implements Initializable {
 
 
     @FXML
-    JFXComboBox langCob;
+    JFXComboBox<String> langCob;
     @FXML
     JFXTextField   tableTxtF;
     @FXML
@@ -78,11 +75,12 @@ public class FXMLControllerSetting implements Initializable {
         langCob.getItems().addAll("ไทย","English");
         langCob.getSelectionModel().select(SettingManager.i().getLanguage().ordinal());
 
+
     }
 
     @FXML
     void changeLanguage() {
-        switch (langCob.getValue().toString()) {
+        switch (langCob.getValue()) {
             case "ไทย":
                 SettingManager.i().setLanguage(Lang.Thai);
                 break;
@@ -94,7 +92,18 @@ public class FXMLControllerSetting implements Initializable {
     }
 
     @FXML
-    void addTable() {
+    void SaveBtnClick() {
+
+    }
+
+    @FXML
+    void getTableCountField() {
+        System.out.println("Hi");
+        System.out.println(tableTxtF.getText());
+    }
+
+    @FXML
+    void addCourseTable() {
         createCourseTable(tableBox.getChildren());
     }
 
