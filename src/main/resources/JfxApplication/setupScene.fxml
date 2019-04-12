@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: fffbe6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerSetup">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #393939;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerSetup">
     <children>
         <ImageView fitHeight="204.0" fitWidth="204.0" layoutX="198.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../Image/Logo.png" />
             </image>
         </ImageView>
-        <JFXButton fx:id="ENBtn" onMouseClicked="#ENButtonClick" style="-fx-background-color: #ff6f61;" text="EN" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="40.0" />
-        <JFXButton fx:id="THBtn" layoutX="8.0" layoutY="361.0" onMouseClicked="#THButtonClick" style="-fx-background-color: #ff6f61;" text="TH" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
-        <JFXButton fx:id="StartBtn" layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="90.0" ripplerFill="#a41b90" snapToPixel="false" style="-fx-background-color: #ff6f61;" text="Start" textAlignment="CENTER" textFill="WHITE">
+        <JFXButton fx:id="ENBtn" onMouseClicked="#ENButtonClick" style="-fx-background-color: #ff616f;" text="EN" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="40.0" />
+        <JFXButton fx:id="THBtn" layoutX="8.0" layoutY="361.0" onMouseClicked="#THButtonClick" style="-fx-background-color: #ff616f;" text="TH" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
+        <JFXButton fx:id="startBtn" layoutX="255.0" layoutY="218.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#startBtnClick" prefHeight="50.0" prefWidth="90.0" ripplerFill="#ff6666" snapToPixel="false" style="-fx-background-color: #ff616f;" text="{START}" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>

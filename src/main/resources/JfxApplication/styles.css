@@ -1,1 +1,21 @@
+* {
+    -fx-primary : #ffffff;
+    -fx-secondary :#c4001d;
+    -fx-primarytext : #ffffff;
 
+
+}
+
+courseTxtF
+{
+
+    -fx-text-fill: -fx-primarytext;
+    -fx-prompt-text-fill:  #626262;
+    -fx-font-size : 14px;
+    -jfx-focus-color: #ff616f;
+    -jfx-un-focus-color: #c4001d;
+    -fx-min-height: 32;
+    -fx-min-width: 100;
+    -fx-max-height: 32;
+    -fx-max-width: 100;
+}

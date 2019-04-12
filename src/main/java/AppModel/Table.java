@@ -96,36 +96,19 @@ abstract class Table {
 
     public void toLog() {
         String log;
-        if (SettingManager.i().isSeparateKA())
-            log = String.format("Customer %d (Created on %s)\n" +
-                            "Table number: %d\n" +
-                            "Type: %s\n" +
-                            "Time started: %s\n" +
-                            "Time finished: %s\n" +
-                            "Heads: %d (Kids: %d, Adult: %d)",
-                    Id,
-                    TimeCreated.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")),
-                    TableNum,
-                    Type,
-                    TimeStarted.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                    TimeFinished.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                    TotalHeads,
-                    KidHeads,
-                    AdultHeads);
-        else
-            log = String.format("Customer %d (Created on %s)\n" +
-                            "Table number: %d\n" +
-                            "Type: %s\n" +
-                            "Time started: %s\n" +
-                            "Time finished: %s\n" +
-                            "Heads: %d",
-                    Id,
-                    TimeCreated.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")),
-                    TableNum,
-                    Type,
-                    TimeStarted.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                    TimeFinished.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                    TotalHeads);
+        log = String.format("Customer %d (Created on %s)\n" +
+                        "Table number: %d\n" +
+                        "Type: %s\n" +
+                        "Time started: %s\n" +
+                        "Time finished: %s\n" +
+                        "Heads: %d",
+                Id,
+                TimeCreated.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")),
+                TableNum,
+                Type,
+                TimeStarted.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                TimeFinished.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+                TotalHeads);
         Logger.i().addLog(log);
     }
 }

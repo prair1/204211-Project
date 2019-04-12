@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerSetting">
+   <top>
+      <Pane prefHeight="66.0" prefWidth="800.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="534.0" prefWidth="378.0" style="-fx-background-color: #393939;">
+               <children>
+                  <Label fx:id="setLab" text="{SETTING}" textFill="#b2b2b2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="langLab" layoutX="24.0" layoutY="23.0" text="{LANGUAGE}" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="langCob" focusColor="#ff616f" layoutX="166.0" layoutY="20.0" prefHeight="26.0" prefWidth="33.0" unFocusColor="#ff6e6e" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="tableLab" layoutX="30.0" layoutY="18.0" text="{Table}" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="tableTxtF" focusColor="#ff616f" labelFloat="true" layoutX="165.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="150.0" promptText="{TABLE}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="150.0" prefWidth="350.0">
+                     <children>
+                        <Label fx:id="timitLab" layoutX="23.0" layoutY="21.0" text="{TIMELIMIT}" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXToggleButton fx:id="timitTog" layoutX="156.0" layoutY="2.0" prefHeight="58.0" prefWidth="45.0" toggleColor="#a7343f" toggleLineColor="#ff616f" />
+                        <JFXTextField fx:id="thourTxtF" focusColor="#ff616f" layoutX="241.0" layoutY="16.0" prefHeight="30.0" prefWidth="46.0" promptText="{HOUR}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="tminTxtF" focusColor="#ff616f" layoutX="311.0" layoutY="16.0" prefHeight="26.0" prefWidth="38.0" promptText="{MIN}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="tsecTxtF" focusColor="#ff616f" layoutX="368.0" layoutY="16.0" prefHeight="26.0" prefWidth="38.0" promptText="{SEC}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <Label layoutX="299.0" layoutY="18.0" prefHeight="22.0" prefWidth="9.0" text=":" textFill="#dddddd" />
+                        <Label layoutX="357.0" layoutY="18.0" prefHeight="22.0" prefWidth="9.0" text=":" textFill="#dddddd" />
+                        <JFXTextField fx:id="excessTxtF" focusColor="#ff616f" labelFloat="true" layoutX="126.0" layoutY="81.0" prefHeight="26.0" prefWidth="73.0" promptText="{EXCESSFINE}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <Label fx:id="perLab" layoutX="209.0" layoutY="85.0" text="{PER}" textFill="WHITE" />
+                        <JFXTextField fx:id="ehourTxtF" focusColor="#ff616f" layoutX="241.0" layoutY="78.0" prefHeight="30.0" prefWidth="53.0" promptText="{HOUR}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="eminTxtF" focusColor="#ff616f" layoutX="311.0" layoutY="78.0" prefHeight="26.0" prefWidth="38.0" promptText="{MIN}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="esecTxtF" focusColor="#ff616f" layoutX="368.0" layoutY="80.0" prefHeight="26.0" prefWidth="38.0" promptText="{SEC}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <Label layoutX="299.0" layoutY="84.0" prefHeight="22.0" prefWidth="9.0" text=":" textFill="#dddddd" />
+                        <Label layoutX="357.0" layoutY="82.0" prefHeight="22.0" prefWidth="9.0" text=":" textFill="#dddddd" />
+                        <Label fx:id="excessLab" layoutX="23.0" layoutY="85.0" text="{EXCESSFINE}" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="101.0" prefWidth="350.0">
+                     <children>
+                        <JFXTextField fx:id="scTxtF" focusColor="#ff616f" labelFloat="true" layoutX="203.0" layoutY="19.0" prefHeight="30.0" prefWidth="134.0" promptText="{SERVICECHARGE}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font></JFXTextField>
+                        <Label layoutX="352.0" layoutY="24.0" prefHeight="18.0" prefWidth="22.0" text="\%" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="scLab" layoutX="23.0" layoutY="25.0" text="{SERVICECHARGE}" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="tableBox" prefHeight="534.0" prefWidth="356.0" style="-fx-background-color: #393939;">
+               <children>
+                  <Pane prefHeight="82.0" prefWidth="356.0" />
+                  <HBox prefHeight="32.0" prefWidth="318.0">
+                     <children>
+                        <Label fx:id="coursLab" text="{COURSE}" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="{PRICE}" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="318.0">
+                     <children>
+                        <JFXButton fx:id="addBtn" onMouseClicked="#addTable" prefHeight="30.0" prefWidth="333.0" style="-fx-background-color: #464646;" text="[+]" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="34.0" prefWidth="318.0">
+                     <children>
+                        <JFXTextField focusColor="#ff616f" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="100.0" promptText="{COURSE}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField focusColor="#ff616f" labelFloat="true" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="53.0" promptText="{ADULT}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <JFXTextField focusColor="#ff616f" labelFloat="true" layoutX="110.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="53.0" promptText="{CHILD}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#c4001d">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <JFXButton text="[-]" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

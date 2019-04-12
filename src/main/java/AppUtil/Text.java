@@ -3,7 +3,20 @@ package AppUtil;
 import AppService.SettingManager;
 
 public enum Text {
-    START("เริ่ม", "Start");
+    //SETUP
+    START("เริ่ม", "Start"),
+    //SETTING
+    /*SETTING(),
+    LANGUAGE(),
+    TABLE(),
+    TIMELIMIT(),
+    HOUR(),
+    MIN(),
+    SEC(),
+    EXCESSFINE(),
+    PER(),
+    SERVICECHARGE();*/;
+
 
     private final String THTxt;
     private final String ENTxt;

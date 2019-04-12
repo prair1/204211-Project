@@ -3,19 +3,19 @@ package AppUI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import AppService.SaverAndLoader;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
-import javafx.event.ActionEvent;
+import JfxApplication.SceneLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class FXMLControllerSetup implements Initializable {
 
     @FXML
-    Button StartBtn;
+    Button startBtn;
 
     @FXML
     Button THBtn;
@@ -25,7 +25,7 @@ public class FXMLControllerSetup implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        langChange();
     }
 
     @FXML
@@ -40,8 +40,16 @@ public class FXMLControllerSetup implements Initializable {
         langChange();
     }
 
+    @FXML
+    private void startBtnClick() throws Exception {
+        Stage stage = (Stage) startBtn.getScene().getWindow();
+
+        SceneLoader loader = new SceneLoader();
+        loader.Load(stage, "settingScene.fxml", true);
+    }
+
     private void langChange() {
-        StartBtn.setText(Text.START.get());
+        startBtn.setText(Text.START.get());
     }
 
 }
