@@ -4,18 +4,26 @@ import AppService.SettingManager;
 
 public enum Text {
     //SETUP
-    START("เริ่ม", "Start"),
+    START("เริ่มต้น", "Start"),
     //SETTING
-    /*SETTING(),
-    LANGUAGE(),
-    TABLE(),
-    TIMELIMIT(),
-    HOUR(),
-    MIN(),
-    SEC(),
-    EXCESSFINE(),
-    PER(),
-    SERVICECHARGE();*/;
+    SETTING( "ตั้งค่า","Setting"),
+    LANGUAGE("ภาษา","Language"),
+    TABLE("จำนวนโต๊ะ", "Amount of table"),
+    TIMELIMIT("จำกัดเวลา", "Time limit"),
+    HOUR("ชั่วโมง", "Hour"),
+    MIN("นาที", "Min"),
+    SEC("วินาที", "Sec"),
+    EXCESSFINE("ค่าปรับ", "Excess fine"),
+    PER("ต่อ", "Per"),
+    SERVICECHARGE("ค่าบริการ", "Service charge"),
+    COURSE("คอร์ส","Course"),
+    ADULT("ผู้ใหญ","Adult"),
+    KID("เด็ก","Kid"),
+    PRICE("ราคา", "Price");
+
+
+
+
 
 
     private final String THTxt;
