@@ -8,6 +8,7 @@ import AppModel.Course;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -43,8 +44,8 @@ public class FXMLControllerSetting implements Initializable {
     Label courseLab;
     @FXML
     Label priceLab;
-
-
+    @FXML
+    JFXToggleButton timitTog;
     @FXML
     JFXComboBox<String> langCob;
     @FXML
@@ -66,6 +67,16 @@ public class FXMLControllerSetting implements Initializable {
     @FXML
     JFXTextField   scTxtF;
 
+    @FXML
+    Label col1;
+    @FXML
+    Label col2;
+    @FXML
+    Label col3;
+    @FXML
+    Label col4;
+
+
 
     ArrayList<Course> courseList = new ArrayList<>();
 
@@ -74,8 +85,6 @@ public class FXMLControllerSetting implements Initializable {
         langChange();
         langCob.getItems().addAll("ไทย","English");
         langCob.getSelectionModel().select(SettingManager.i().getLanguage().ordinal());
-
-
     }
 
     @FXML
@@ -92,8 +101,18 @@ public class FXMLControllerSetting implements Initializable {
     }
 
     @FXML
-    void SaveBtnClick() {
+    void saveBtnClick() {
 
+    }
+
+    @FXML
+    void timeLimitToggle() {
+        if (timitTog.isSelected()) {
+
+        }
+        else {
+
+        }
     }
 
     @FXML
@@ -175,13 +194,10 @@ public class FXMLControllerSetting implements Initializable {
         kidsTxtF.setPromptText(Text.KID.get());
         kidsTxtF.setLabelFloat(true);
 
-        JFXButton deleteBtn = new JFXButton("[-]");
-        deleteBtn.setStyle(
-
-                        "-fx-text-fill: -fx-primarytext;"+
-                        "-fx-font-size : 14px;"
-
-
+        JFXButton deleteBtn = new JFXButton("\uE800");
+        deleteBtn.setStyle("-fx-text-fill: -fx-primarytext;"+
+                        "-fx-font-size : 14px;"+
+                        "-fx-font-family: fontello;"
                       );
 
         HBox courseBox = new HBox(courseTxtF, adultTxtF, kidsTxtF, deleteBtn);
