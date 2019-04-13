@@ -13,14 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerCreateTable">
    <center>
       <GridPane alignment="CENTER" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4000244140625" minWidth="10.0" prefWidth="136.8" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.2" minWidth="10.0" prefWidth="128.0000122070313" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.99998779296874" minWidth="10.0" prefWidth="131.99998779296874" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4000244140625" minWidth="10.0" prefWidth="130.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.2" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.99998779296874" minWidth="10.0" prefWidth="130.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="95.60001220703126" minHeight="10.0" prefHeight="22.20000877380371" vgrow="SOMETIMES" />
@@ -29,7 +28,7 @@
             <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="112.20001220703125" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="{AMOUNT}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" text="{AMOUNT}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="30.0" top="20.0" />
                </GridPane.margin>
@@ -39,7 +38,7 @@
                   <Insets />
                </opaqueInsets>
                <children>
-                  <Label text="{ADULT}" textFill="WHITE">
+                  <Label fx:id="adultLab" text="{ADULT}" textFill="WHITE">
                      <opaqueInsets>
                         <Insets right="40.0" />
                      </opaqueInsets>
@@ -47,7 +46,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="{KID}" textFill="WHITE">
+                  <Label fx:id="kidLab" text="{KID}" textFill="WHITE">
                      <opaqueInsets>
                         <Insets right="40.0" />
                      </opaqueInsets>
@@ -57,24 +56,24 @@
                   </Label>
                </children>
             </VBox>
-            <JFXButton alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <JFXButton fx:id="backBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="10.0" left="30.0" />
+                  <Insets />
                </GridPane.margin>
             </JFXButton>
-            <JFXButton alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{OK}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <JFXButton fx:id="okBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{OK}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="10.0" right="30.0" />
+                  <Insets />
                </GridPane.margin>
             </JFXButton>
             <VBox alignment="TOP_CENTER" layoutX="144.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <children>
-                  <JFXTextField focusColor="#ff9999" promptText="{NUMBER}" unFocusColor="#ff9292">
+                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="10.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField focusColor="#ff9999" promptText="{NUMBER}" unFocusColor="#ff9292">
+                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
@@ -92,7 +91,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="102.0" prefWidth="400.0" style="-fx-background-color: #ff99a5;">
                <children>
-                  <Label text="{TABLE}" textFill="WHITE">
+                  <Label fx:id="tbLab" text="{TABLE}" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -100,7 +99,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField focusColor="#ff7d7d" prefHeight="51.0" prefWidth="125.0" unFocusColor="#ff4e4e">
+                  <JFXTextField fx:id="tbNumTxtF" focusColor="#ff8d9c" prefHeight="51.0" prefWidth="125.0" unFocusColor="#ff616f">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -110,7 +109,7 @@
                   </JFXTextField>
                </children>
             </HBox>
-            <JFXComboBox prefHeight="30.0" prefWidth="153.0" promptText="{COURSE}" />
+            <JFXComboBox fx:id="courseCob" prefHeight="30.0" prefWidth="153.0" promptText="{COURSE}" />
          </children>
       </VBox>
    </top>

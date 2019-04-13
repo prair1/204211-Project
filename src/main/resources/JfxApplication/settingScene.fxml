@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerSetting">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerSetting">
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
          <children>
@@ -179,9 +179,9 @@
                   </HBox>
                   <HBox prefHeight="32.0" prefWidth="318.0">
                      <children>
-                        <JFXButton fx:id="addBtn" onMouseClicked="#addCourseTable" prefHeight="30.0" prefWidth="333.0" style="-fx-background-color: #464646; -fx-font-family: fontello;" text="" textFill="WHITE">
+                        <JFXButton fx:id="addBtn" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#addCourseTable" prefHeight="30.0" prefWidth="333.0" style="-fx-background-color: #464646; -fx-font-family: fontello; -fx-font-size: 15px;" text="" textFill="WHITE">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="15.0" />
                            </font>
                         </JFXButton>
                      </children>

@@ -187,7 +187,7 @@ public class FXMLControllerSetting implements Initializable {
         for (JFXTextField txtF : txtFList) {
             txtF.setStyle("-fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
             if (txtF.getText().isEmpty()) {
-                txtF.setStyle("-fx-background-color: #c33936; -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
+                txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
                 isReady = false;
                 messageLab.setText(Text.MSG_EMPTY.get());
                 messageLab.setVisible(true);
@@ -198,14 +198,14 @@ public class FXMLControllerSetting implements Initializable {
             for (JFXTextField txtF : txtFList2) {
                 txtF.setStyle("-fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
                 if (txtF.getText().isEmpty()) {
-                    txtF.setStyle("-fx-background-color: #c33936; -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
+                    txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
                     messageLab.setVisible(true);
                 }
             }
         }
-        addBtn.setStyle("-fx-background-color: #464646; -fx-font-family:  fontello;");
+        addBtn.setStyle("-fx-background-color: #464646; -fx-font-family:  fontello; -fx-font-size: 15px");
         if (courseList.isEmpty()) {
             if (!isReady)
                 messageLab.setText(Text.MSG_EMPNOC.get());
@@ -213,27 +213,27 @@ public class FXMLControllerSetting implements Initializable {
                 messageLab.setText(Text.MSG_NOC.get());
             messageLab.setVisible(true);
             isReady = false;
-            addBtn.setStyle("-fx-background-color: #ff616f; -fx-font-family:  fontello;");
+            addBtn.setStyle("-fx-background-color: rgba(198,40,40,0.5); -fx-font-family:  fontello; -fx-font-size: 15px");
         }
         else {
             for (Course course : courseList) {
                 course.getCourseTxtF().setStyle(courseBoxStyle + "-fx-background-color: #393939");
                 if (course.getCourseTxtF().getText().isEmpty()) {
-                    course.getCourseTxtF().setStyle(courseBoxStyle + "-fx-background-color: #c33936");
+                    course.getCourseTxtF().setStyle(courseBoxStyle + "-fx-background-color: rgba(198,40,40,0.2)");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
                     messageLab.setVisible(true);
                 }
                 course.getAdultTxtF().setStyle(priceBoxStyle + "-fx-background-color: #393939");
                 if (course.getAdultTxtF().getText().isEmpty()) {
-                    course.getAdultTxtF().setStyle(priceBoxStyle + "-fx-background-color: #c33936");
+                    course.getAdultTxtF().setStyle(priceBoxStyle + "-fx-background-color: rgba(198,40,40,0.2)");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
                     messageLab.setVisible(true);
                 }
                 course.getKidsTxtF().setStyle(priceBoxStyle + "-fx-background-color: #393939");
                 if (course.getKidsTxtF().getText().isEmpty()) {
-                    course.getKidsTxtF().setStyle(priceBoxStyle + "-fx-background-color: #c33936");
+                    course.getKidsTxtF().setStyle(priceBoxStyle + "-fx-background-color: rgba(198,40,40,0.2)");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
                     messageLab.setVisible(true);
@@ -392,7 +392,7 @@ public class FXMLControllerSetting implements Initializable {
         kidsTxtF.setPromptText(Text.KID.get());
         kidsTxtF.setLabelFloat(true);
 
-        JFXButton deleteBtn = new JFXButton("\uE800");
+        JFXButton deleteBtn = new JFXButton("\uE801");
         deleteBtn.setStyle("-fx-text-fill: -fx-primarytext;" +
                 "-fx-font-size : 14px;" +
                 "-fx-font-family: fontello;"
