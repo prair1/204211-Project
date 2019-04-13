@@ -146,9 +146,9 @@ public class FXMLControllerSetting implements Initializable {
         scTxtF.setText(String.valueOf(SettingManager.i().getServiceCharge()));
         for (Map.Entry<String, Price> pm : SettingManager.i().getPriceMap().entrySet()) {
             Course newCourse = addCourseTable();
-            newCourse.courseTxtF.setText(pm.getKey());
-            newCourse.adultTxtF.setText(String.valueOf(pm.getValue().getPriceAdult()));
-            newCourse.kidsTxtF.setText(String.valueOf(pm.getValue().getPriceKids()));
+            newCourse.getCourseTxtF().setText(pm.getKey());
+            newCourse.getAdultTxtF().setText(String.valueOf(pm.getValue().getPriceAdult()));
+            newCourse.getKidsTxtF().setText(String.valueOf(pm.getValue().getPriceKids()));
         }
 
     }
@@ -206,23 +206,23 @@ public class FXMLControllerSetting implements Initializable {
         }
         else {
             for (Course course : courseList) {
-                course.courseTxtF.setStyle(courseBoxStyle + "-fx-background-color: #393939");
-                if (course.courseTxtF.getText().isEmpty()) {
-                    course.courseTxtF.setStyle(courseBoxStyle + "-fx-background-color: #c33936");
+                course.getCourseTxtF().setStyle(courseBoxStyle + "-fx-background-color: #393939");
+                if (course.getCourseTxtF().getText().isEmpty()) {
+                    course.getCourseTxtF().setStyle(courseBoxStyle + "-fx-background-color: #c33936");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
                     messageLab.setVisible(true);
                 }
-                course.adultTxtF.setStyle(priceBoxStyle + "-fx-background-color: #393939");
-                if (course.adultTxtF.getText().isEmpty()) {
-                    course.adultTxtF.setStyle(priceBoxStyle + "-fx-background-color: #c33936");
+                course.getAdultTxtF().setStyle(priceBoxStyle + "-fx-background-color: #393939");
+                if (course.getAdultTxtF().getText().isEmpty()) {
+                    course.getAdultTxtF().setStyle(priceBoxStyle + "-fx-background-color: #c33936");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
                     messageLab.setVisible(true);
                 }
-                course.kidsTxtF.setStyle(priceBoxStyle + "-fx-background-color: #393939");
-                if (course.kidsTxtF.getText().isEmpty()) {
-                    course.kidsTxtF.setStyle(priceBoxStyle + "-fx-background-color: #c33936");
+                course.getKidsTxtF().setStyle(priceBoxStyle + "-fx-background-color: #393939");
+                if (course.getKidsTxtF().getText().isEmpty()) {
+                    course.getKidsTxtF().setStyle(priceBoxStyle + "-fx-background-color: #c33936");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
                     messageLab.setVisible(true);
@@ -243,7 +243,7 @@ public class FXMLControllerSetting implements Initializable {
             SettingManager.i().setServiceCharge(Double.parseDouble(scTxtF.getText()));
 
             for (Course course: courseList) {
-                SettingManager.i().addPrice(course.courseTxtF.getText(), Double.parseDouble(course.adultTxtF.getText()), Double.parseDouble(course.kidsTxtF.getText()));
+                SettingManager.i().addPrice(course.getCourseTxtF().getText(), Double.parseDouble(course.getAdultTxtF().getText()), Double.parseDouble(course.getKidsTxtF().getText()));
             }
         }
     }
@@ -311,9 +311,9 @@ public class FXMLControllerSetting implements Initializable {
     void delCourseTable(Course currBox) {
         ObservableList<Node> nodes = tableBox.getChildren();
 
-        nodes.removeAll(currBox.kidsTxtF, currBox.adultTxtF, currBox.courseTxtF, currBox.deleteBtn, currBox.courseBox);
+        nodes.removeAll(currBox.getKidsTxtF(), currBox.getAdultTxtF(), currBox.getCourseTxtF(), currBox.getDeleteBtn(), currBox.getCourseBox());
         courseList.remove(currBox);
-        SettingManager.i().delPrice(currBox.courseTxtF.getText());
+        SettingManager.i().delPrice(currBox.getCourseTxtF().getText());
     }
 
     private void langChange() {
