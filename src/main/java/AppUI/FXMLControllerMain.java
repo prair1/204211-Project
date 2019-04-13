@@ -1,5 +1,6 @@
 package AppUI;
 
+import JfxApplication.SceneLoader;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,15 +33,22 @@ public class FXMLControllerMain implements Initializable {
     @FXML
     JFXButton newbookBtn;
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
     @FXML
-    private void createStatTable() {
+    void addActive() throws Exception {
+        Stage stage = new Stage();
+        Stage currStage = (Stage) newtableBtn.getScene().getWindow();
+        stage.initOwner(currStage);
+        SceneLoader loader = new SceneLoader();
+        loader.Load(stage, "tCreateTableScene.fxml", true);
+        stage.show();
+    }
+
+    private void createActiveTable() {
         ObservableList<Node> nodes = statFlow.getChildren();
 
 
@@ -52,14 +61,14 @@ public class FXMLControllerMain implements Initializable {
         timeSpLab.setStyle("-fx-font-size: 18px;" +
                 "-fx-text-fill: #000000");
 
-        VBox statBox = new VBox(nameLab, timeSpLab);
-        statBox.setPrefSize(80, 80);
-        statBox.setAlignment(Pos.TOP_CENTER);
+        VBox startBox = new VBox(nameLab, timeSpLab);
+        startBox.setPrefSize(80, 80);
+        startBox.setAlignment(Pos.TOP_CENTER);
         VBox.setMargin(nameLab, new Insets(10, 0, 0, 0));
         VBox.setMargin(timeSpLab, new Insets(10, 0, 0, 0));
 
         JFXButton tableBtn = new JFXButton();
-        tableBtn.setGraphic(statBox);
+        tableBtn.setGraphic(startBox);
         tableBtn.setPrefSize(80, 80);
         tableBtn.setAlignment(Pos.CENTER_LEFT);
         tableBtn.setText("");
