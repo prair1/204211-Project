@@ -1,5 +1,6 @@
 package AppModel;
 
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 public class TableBooking extends Table {
@@ -7,11 +8,12 @@ public class TableBooking extends Table {
     private byte[] customerName;
     private int TotalHeads;
 
-    public TableBooking(int id, int tableNum, String type, int totalHeads, LocalDateTime timeCheckin, String customerName) {
+    public TableBooking(int id, int tableNum, String type, int kidsHeads, int adultHeads, LocalDateTime timeCheckin, String customerName) {
         Id = id;
         TableNum = tableNum;
         Type = type;
-        TotalHeads = totalHeads;
+        KidHeads = kidsHeads;
+        AdultHeads = adultHeads;
         TimeCheckin = timeCheckin;
         TimeCreated = LocalDateTime.now();
         this.customerName = customerName.getBytes();
@@ -21,12 +23,16 @@ public class TableBooking extends Table {
         return TotalHeads;
     }
 
+    public String getCustomerName() {
+        return new String(customerName, StandardCharsets.UTF_8);
+    }
+
     public LocalDateTime getTimeCheckin() {
         return TimeCheckin;
     }
 
 
-    public TableActive startTable(int kidsHeads, int adultHeads) {
-        return new TableActive(Id, TableNum, Type, kidsHeads, adultHeads);
+    public TableActive startTable() {
+        return new TableActive(Id, TableNum, Type, KidHeads, AdultHeads);
     }
 }

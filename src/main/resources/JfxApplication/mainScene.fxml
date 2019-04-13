@@ -10,10 +10,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerMain">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -43,37 +42,13 @@
                <children>
                   <FlowPane fx:id="statFlow" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <JFXButton fx:id="newtableBtn" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: #ff6666;" text="" textFill="WHITE">
-                           <FlowPane.margin>
-                              <Insets left="20.0" top="20.0" />
-                           </FlowPane.margin>
+                        <JFXButton fx:id="newtableBtn" onMouseClicked="#createStatTable" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: #ff6666;" text="" textFill="WHITE">
                            <font>
                               <Font size="36.0" />
                            </font>
-                        </JFXButton>
-                        <JFXButton contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: #ff6666;" text=" " textAlignment="CENTER" textFill="WHITE">
                            <FlowPane.margin>
                               <Insets left="20.0" top="20.0" />
                            </FlowPane.margin>
-                           <graphic>
-                              <VBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="80.0">
-                                 <children>
-                                    <Label text="{TNAME}" textFill="WHITE">
-                                       <VBox.margin>
-                                          <Insets top="10.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="{SPENDTIME}">
-                                       <VBox.margin>
-                                          <Insets top="10.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </graphic>
                         </JFXButton>
                      </children>
                   </FlowPane>
@@ -86,30 +61,6 @@
                            <font>
                               <Font size="36.0" />
                            </font>
-                        </JFXButton>
-                        <JFXButton contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: #ff6666;" text=" " textAlignment="CENTER" textFill="WHITE">
-                           <FlowPane.margin>
-                              <Insets left="20.0" top="20.0" />
-                           </FlowPane.margin>
-                           <graphic>
-                              <VBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="80.0">
-                                 <children>
-                                    <Label text="{TNAME}" textFill="WHITE">
-                                       <VBox.margin>
-                                          <Insets top="10.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="{SPENDTIME}">
-                                       <VBox.margin>
-                                          <Insets top="10.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </graphic>
                         </JFXButton>
                      </children>
                   </FlowPane>
