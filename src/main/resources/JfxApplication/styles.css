@@ -19,3 +19,37 @@ courseTxtF
     -fx-max-height: 32;
     -fx-max-width: 100;
 }
+
+
+.jfx-combo-box .cell {
+    -fx-text-fill: #ffffff; /* change selected text (item) color */
+    -fx-background-color: #393939; /* change background color */
+    -fx-border-color: #393939;
+
+}
+
+.tab{
+    -fx-pref-height: 30;
+    -fx-pref-width:  300;
+    -fx-background-color: #494949;
+
+
+}
+
+.tab-header-background{
+    -fx-background-color: #393939;
+}
+.tab:selected{
+    -fx-background-color: #ff6666;
+    -fx-focus-traversable: false;
+
+}
+.jfx-tab-pane .tab-selected-line
+{
+    -fx-border-color: #ff6666;
+
+}
+.jfx-tab-pane .tab-selected-line{
+    -fx-pref-width: 300;
+    -fx-stroke-width: 50pt;
+}
