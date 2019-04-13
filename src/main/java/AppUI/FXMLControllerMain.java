@@ -21,11 +21,11 @@ public class FXMLControllerMain implements Initializable {
     @FXML
     Label mainLab;
     @FXML
-    Label statLab;
+    Label activeLab;
     @FXML
     Label bookLab;
     @FXML
-    FlowPane statFlow;
+    FlowPane activeFlow;
     @FXML
     FlowPane bookFlow;
     @FXML
