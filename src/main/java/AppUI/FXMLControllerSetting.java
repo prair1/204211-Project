@@ -5,6 +5,7 @@ import AppModel.Price;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
+import JfxApplication.SceneLoader;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -17,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -88,6 +90,7 @@ public class FXMLControllerSetting implements Initializable {
     @FXML
     Label messageLab;
 
+    // region styles for box
     private String priceBoxStyle = "-fx-text-fill: -fx-primarytext;" +
             "-fx-prompt-text-fill:  #626262;" +
             "-fx-font-size : 14px;" +
@@ -107,6 +110,7 @@ public class FXMLControllerSetting implements Initializable {
             "-fx-min-width: 100;" +
             "-fx-max-height: 32;" +
             "-fx-max-width: 100;";
+    // endregion
 
     private ArrayList<Course> courseList = new ArrayList<>();
 
@@ -115,6 +119,7 @@ public class FXMLControllerSetting implements Initializable {
         langChange();
         langCob.getItems().addAll("ไทย", "English");
         langCob.getSelectionModel().select(SettingManager.i().getLanguage().ordinal());
+        // region strict num only
         JFXTextField[] txtFListDouble = {excessTxtF, scTxtF};
         for (JFXTextField txtF : txtFListDouble) {
             txtF.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -131,20 +136,31 @@ public class FXMLControllerSetting implements Initializable {
                 }
             });
         }
-        //get back from setting
-        tableTxtF.setText(String.valueOf(SettingManager.i().getTableCount()));
+        // endregion
+        // region get back from setting
+        if (SettingManager.i().getTableCount() != -1) {
+            tableTxtF.setText(String.valueOf(SettingManager.i().getTableCount()));
+        }
+        else {
+            backBtn.setText(Text.START.get());
+            backBtn.setStyle("-fx-background-color:  #00796b");
+            backBtn.setVisible(false);
+        }
+
         timitTog.setSelected(SettingManager.i().isLimitTime());
         if (SettingManager.i().isLimitTime()) {
             togOn();
         }
         timeLimitToggle();
-        scTxtF.setText(String.valueOf(SettingManager.i().getServiceCharge()));
+        if (SettingManager.i().getServiceCharge() != -1)
+            scTxtF.setText(String.valueOf(SettingManager.i().getServiceCharge()));
         for (Map.Entry<String, Price> pm : SettingManager.i().getPriceMap().entrySet()) {
             Course newCourse = addCourseTable();
             newCourse.getCourseTxtF().setText(pm.getValue().getName());
             newCourse.getAdultTxtF().setText(String.valueOf(pm.getValue().getPriceAdult()));
             newCourse.getKidsTxtF().setText(String.valueOf(pm.getValue().getPriceKids()));
         }
+        // endregion
 
     }
 
@@ -242,7 +258,9 @@ public class FXMLControllerSetting implements Initializable {
                         Double.parseDouble(course.getAdultTxtF().getText()),
                         Double.parseDouble(course.getKidsTxtF().getText()));
             }
+            backBtn.setVisible(true);
         }
+
     }
 
     @FXML
@@ -281,15 +299,20 @@ public class FXMLControllerSetting implements Initializable {
     }
 
     private void togOn() {
-        String[] tiLim = secondToStr(SettingManager.i().getTimeLimit());
-        thourTxtF.setText(tiLim[0]);
-        tminTxtF.setText(tiLim[1]);
-        tsecTxtF.setText(tiLim[2]);
-        excessTxtF.setText(String.valueOf(SettingManager.i().getExcessFine()));
-        String[] tiEx = secondToStr(SettingManager.i().getTimePerExcess());
-        ehourTxtF.setText(tiEx[0]);
-        eminTxtF.setText(tiEx[1]);
-        esecTxtF.setText(tiEx[2]);
+        if (SettingManager.i().getTimeLimit() != -1) {
+            String[] tiLim = secondToStr(SettingManager.i().getTimeLimit());
+            thourTxtF.setText(tiLim[0]);
+            tminTxtF.setText(tiLim[1]);
+            tsecTxtF.setText(tiLim[2]);
+        }
+        if (SettingManager.i().getExcessFine() != -1)
+            excessTxtF.setText(String.valueOf(SettingManager.i().getExcessFine()));
+        if (SettingManager.i().getTimePerExcess() != -1) {
+            String[] tiEx = secondToStr(SettingManager.i().getTimePerExcess());
+            ehourTxtF.setText(tiEx[0]);
+            eminTxtF.setText(tiEx[1]);
+            esecTxtF.setText(tiEx[2]);
+        }
     }
 
     @FXML
@@ -303,6 +326,14 @@ public class FXMLControllerSetting implements Initializable {
         Course newCourse = createCourseTable();
         courseList.add(newCourse);
         return newCourse;
+    }
+
+    @FXML
+    void goBack() throws Exception {
+        Stage stage = (Stage) backBtn.getScene().getWindow();
+
+        SceneLoader loader = new SceneLoader();
+        loader.Load(stage, "setupScene.fxml", true);
     }
 
     private void delCourseTable(Course currBox) {
