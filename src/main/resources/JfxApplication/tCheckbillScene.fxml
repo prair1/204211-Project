@@ -12,35 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ff99a5;" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="{TABLE}" textFill="WHITE">
-               <font>
-                  <Font size="36.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-            </Label>
-            <Label text="{NAME}" textFill="WHITE">
-               <font>
-                  <Font size="36.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerCheckBill">
    <center>
       <GridPane alignment="CENTER" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4000244140625" minWidth="10.0" prefWidth="156.4000244140625" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.199951171875" minWidth="10.0" prefWidth="110.5999755859375" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4000244140625" minWidth="10.0" prefWidth="130.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.199951171875" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="95.60001220703126" minHeight="10.0" prefHeight="30.200000000000003" vgrow="SOMETIMES" />
@@ -53,22 +31,22 @@
             <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="83.20001220703125" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="{COURSE}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Label fx:id="courseTxtLab" alignment="CENTER" contentDisplay="CENTER" text="{COURSE}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="50.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="68.0" text="{TIME}" textFill="WHITE" GridPane.rowIndex="2">
+            <Label fx:id="timeLab" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="68.0" text="{TIME}" textFill="WHITE" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="201.0" text="{FINE}" textFill="WHITE" GridPane.rowIndex="3">
+            <Label fx:id="fineLab" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="201.0" text="{FINE}" textFill="WHITE" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="51.0" text="{SERVICECHARGE}" textFill="WHITE" GridPane.rowIndex="4">
+            <Label fx:id="serviceChargeLab" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="51.0" text="{SERVICECHARGE}" textFill="WHITE" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
@@ -88,12 +66,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="{ADULT}" textFill="WHITE">
+                        <Label fx:id="adultLab" text="{ADULT}" textFill="WHITE">
                            <opaqueInsets>
                               <Insets right="40.0" />
                            </opaqueInsets>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" text="{NUMBER}" textAlignment="RIGHT" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="kidNumLab" alignment="CENTER_RIGHT" text="{NUMBER}" textAlignment="RIGHT" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <opaqueInsets>
                               <Insets right="40.0" />
                            </opaqueInsets>
@@ -101,7 +79,7 @@
                               <Insets />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER" text="{NUMBER}" textFill="WHITE" GridPane.columnIndex="1">
+                        <Label fx:id="adultNumLab" alignment="CENTER" text="{NUMBER}" textFill="WHITE" GridPane.columnIndex="1">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -109,7 +87,7 @@
                               <Insets />
                            </GridPane.margin>
                         </Label>
-                        <Label text="{KID}" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label fx:id="kidLab" text="{KID}" textFill="WHITE" GridPane.rowIndex="1">
                            <opaqueInsets>
                               <Insets right="40.0" />
                            </opaqueInsets>
@@ -118,22 +96,22 @@
                   </GridPane>
                </children>
             </VBox>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="229.0" text="{TOTAL}" textFill="WHITE" GridPane.rowIndex="6">
+            <Label fx:id="totalLab" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="229.0" text="{TOTAL}" textFill="WHITE" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
             </Label>
-            <JFXButton alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+            <JFXButton fx:id="backBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="10.0" />
+                  <Insets />
                </GridPane.margin>
             </JFXButton>
-            <JFXButton alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{CHECKBILL}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+            <JFXButton fx:id="stopNBillBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{STOPBILL}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="10.0" right="40.0" />
+                  <Insets />
                </GridPane.margin>
             </JFXButton>
-            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="321.0" layoutY="105.0" text="{SHOWFINE}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Label fx:id="showFineLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="321.0" layoutY="105.0" text="{SHOWFINE}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
@@ -141,7 +119,7 @@
                   <Insets right="40.0" />
                </opaqueInsets>
             </Label>
-            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="323.0" layoutY="144.0" text="{SHOWSC}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+            <Label fx:id="showSCLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="323.0" layoutY="144.0" text="{SHOWSC}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
@@ -149,7 +127,7 @@
                   <Insets right="40.0" />
                </opaqueInsets>
             </Label>
-            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="323.0" layoutY="182.0" prefHeight="18.0" prefWidth="89.0" text="{SHOWTOTAL}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+            <Label fx:id="showTotalLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="323.0" layoutY="182.0" prefHeight="18.0" prefWidth="89.0" text="{SHOWTOTAL}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
@@ -159,7 +137,7 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <children>
-                  <JFXTextField alignment="TOP_LEFT" focusColor="#ff99a5" unFocusColor="#ff6565">
+                  <JFXTextField fx:id="otherFineAmountTxtF" alignment="TOP_LEFT" focusColor="#ff8d9c" unFocusColor="#ff616f">
                      <HBox.margin>
                         <Insets left="40.0" right="30.0" />
                      </HBox.margin>
@@ -169,14 +147,14 @@
                   </JFXTextField>
                </children>
             </HBox>
-            <JFXTextField alignment="TOP_LEFT" focusColor="#ff99a5" labelFloat="true" prefHeight="26.0" prefWidth="198.0" promptText="{OUTER}" unFocusColor="#ff6565" GridPane.rowIndex="5">
+            <JFXTextField fx:id="otherFineTxtF" alignment="TOP_LEFT" focusColor="#ff8d9c" labelFloat="true" prefHeight="26.0" prefWidth="198.0" promptText="{OTHER}" unFocusColor="#ff616f" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="50.0" right="10.0" />
                </GridPane.margin>
             </JFXTextField>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="{SHOWTIME}" textFill="WHITE">
+                  <Label fx:id="totalTimeLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="{TOTALTIME}" textFill="WHITE">
                      <opaqueInsets>
                         <Insets right="40.0" />
                      </opaqueInsets>
@@ -190,7 +168,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="{PRICE}" textFill="WHITE">
+                        <Label fx:id="adultPriceLab" text="{PRICE}" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="30.0" />
                            </HBox.margin>
@@ -202,7 +180,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="{PRICE}" textFill="WHITE">
+                        <Label fx:id="kidPriceLab" text="{PRICE}" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="30.0" />
                            </HBox.margin>
@@ -217,7 +195,7 @@
                   <Insets top="20.0" />
                </opaqueInsets>
             </VBox>
-            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="312.0" layoutY="144.0" text="{OVERTIME}" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Label fx:id="overTimeLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="312.0" layoutY="144.0" text="{OVERTIME}" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <opaqueInsets>
                   <Insets right="40.0" />
                </opaqueInsets>
@@ -228,4 +206,31 @@
          </children>
       </GridPane>
    </center>
+   <top>
+      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #cca6bc;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ff99a5;">
+               <children>
+                  <Label fx:id="tbLab" text="{TABLE}" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="tbNameLab" layoutX="148.0" layoutY="35.0" text="{NAME}" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label fx:id="courseLab" alignment="CENTER" prefHeight="30.0" prefWidth="153.0" text="{COURSE}" />
+         </children>
+      </VBox>
+   </top>
 </BorderPane>
