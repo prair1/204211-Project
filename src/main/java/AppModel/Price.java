@@ -1,37 +1,27 @@
 package AppModel;
 
+import java.nio.charset.StandardCharsets;
+
 public class Price {
-    private String Name;
+    private byte[] Name;
     private double PriceKids;
     private double PriceAdult;
 
-    public Price(String name, double priceKids, double priceAdult) {
+    public Price(byte[] name, double priceKids, double priceAdult) {
         Name = name;
         PriceKids = priceKids;
         PriceAdult = priceAdult;
     }
 
     public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
+        return new String(Name, StandardCharsets.UTF_8);
     }
 
     public double getPriceKids() {
         return PriceKids;
     }
 
-    public void setPriceKids(double priceKids) {
-        PriceKids = priceKids;
-    }
-
     public double getPriceAdult() {
         return PriceAdult;
-    }
-
-    public void setPriceAdult(double priceAdult) {
-        PriceAdult = priceAdult;
     }
 }

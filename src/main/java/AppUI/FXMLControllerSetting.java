@@ -1,32 +1,27 @@
 package AppUI;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.Set;
-
 import AppModel.Course;
 import AppModel.Price;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
-import com.jfoenix.controls.JFXToggleButton;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
-import javafx.scene.control.Label;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 public class FXMLControllerSetting implements Initializable {
 
@@ -93,7 +88,7 @@ public class FXMLControllerSetting implements Initializable {
     @FXML
     Label messageLab;
 
-    String priceBoxStyle = "-fx-text-fill: -fx-primarytext;" +
+    private String priceBoxStyle = "-fx-text-fill: -fx-primarytext;" +
             "-fx-prompt-text-fill:  #626262;" +
             "-fx-font-size : 14px;" +
             "-jfx-focus-color: #ff616f;" +
@@ -103,7 +98,7 @@ public class FXMLControllerSetting implements Initializable {
             "-fx-max-height: 32;" +
             "-fx-max-width: 53;";
 
-    String courseBoxStyle = "-fx-text-fill: -fx-primarytext;" +
+    private String courseBoxStyle = "-fx-text-fill: -fx-primarytext;" +
             "-fx-prompt-text-fill:  #626262;" +
             "-fx-font-size : 14px;" +
             "-jfx-focus-color: #ff616f;" +
@@ -113,7 +108,7 @@ public class FXMLControllerSetting implements Initializable {
             "-fx-max-height: 32;" +
             "-fx-max-width: 100;";
 
-    ArrayList<Course> courseList = new ArrayList<>();
+    private ArrayList<Course> courseList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -146,7 +141,7 @@ public class FXMLControllerSetting implements Initializable {
         scTxtF.setText(String.valueOf(SettingManager.i().getServiceCharge()));
         for (Map.Entry<String, Price> pm : SettingManager.i().getPriceMap().entrySet()) {
             Course newCourse = addCourseTable();
-            newCourse.getCourseTxtF().setText(pm.getKey());
+            newCourse.getCourseTxtF().setText(pm.getValue().getName());
             newCourse.getAdultTxtF().setText(String.valueOf(pm.getValue().getPriceAdult()));
             newCourse.getKidsTxtF().setText(String.valueOf(pm.getValue().getPriceKids()));
         }
@@ -241,9 +236,11 @@ public class FXMLControllerSetting implements Initializable {
             }
 
             SettingManager.i().setServiceCharge(Double.parseDouble(scTxtF.getText()));
-
-            for (Course course: courseList) {
-                SettingManager.i().addPrice(course.getCourseTxtF().getText(), Double.parseDouble(course.getAdultTxtF().getText()), Double.parseDouble(course.getKidsTxtF().getText()));
+            SettingManager.i().clearPrice();
+            for (Course course : courseList) {
+                SettingManager.i().addPrice(course.getCourseTxtF().getText(),
+                        Double.parseDouble(course.getAdultTxtF().getText()),
+                        Double.parseDouble(course.getKidsTxtF().getText()));
             }
         }
     }
@@ -289,10 +286,10 @@ public class FXMLControllerSetting implements Initializable {
         tminTxtF.setText(tiLim[1]);
         tsecTxtF.setText(tiLim[2]);
         excessTxtF.setText(String.valueOf(SettingManager.i().getExcessFine()));
-        String[] tiEx= secondToStr(SettingManager.i().getTimePerExcess());
-        ehourTxtF.setText(tiLim[0]);
-        eminTxtF.setText(tiLim[1]);
-        esecTxtF.setText(tiLim[2]);
+        String[] tiEx = secondToStr(SettingManager.i().getTimePerExcess());
+        ehourTxtF.setText(tiEx[0]);
+        eminTxtF.setText(tiEx[1]);
+        esecTxtF.setText(tiEx[2]);
     }
 
     @FXML
@@ -308,10 +305,14 @@ public class FXMLControllerSetting implements Initializable {
         return newCourse;
     }
 
-    void delCourseTable(Course currBox) {
+    private void delCourseTable(Course currBox) {
         ObservableList<Node> nodes = tableBox.getChildren();
 
-        nodes.removeAll(currBox.getKidsTxtF(), currBox.getAdultTxtF(), currBox.getCourseTxtF(), currBox.getDeleteBtn(), currBox.getCourseBox());
+        nodes.removeAll(currBox.getKidsTxtF(),
+                currBox.getAdultTxtF(),
+                currBox.getCourseTxtF(),
+                currBox.getDeleteBtn(),
+                currBox.getCourseBox());
         courseList.remove(currBox);
         SettingManager.i().delPrice(currBox.getCourseTxtF().getText());
     }
@@ -398,8 +399,6 @@ public class FXMLControllerSetting implements Initializable {
         second = second - hour * 3600;
         long min = second / 60;
         second = second - min * 60;
-        String[] time = {String.valueOf(hour), String.valueOf(min), String.valueOf(second)};
-
-        return time;
+        return new String[] {String.valueOf(hour), String.valueOf(min), String.valueOf(second)};
     }
 }

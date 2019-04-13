@@ -4,7 +4,7 @@ import AppModel.Price;
 import AppUtil.FilePath;
 import AppUtil.Lang;
 
-import java.util.HashMap;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 
 public class SettingManager{
@@ -32,7 +32,7 @@ public class SettingManager{
 
 
     private void updateFile() {
-        SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path, true);
+        SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path);
 
     }
 
@@ -104,22 +104,39 @@ public class SettingManager{
         return PriceMap;
     }
     public double getPriceAdult(String name) {
-        return PriceMap.get(name).getPriceAdult();
+        return PriceMap.get(byteNameConc(byteName(name))).getPriceAdult();
     }
 
     public double getPriceKids(String name) {
-        return PriceMap.get(name).getPriceKids();
+        return PriceMap.get(byteNameConc(byteName(name))).getPriceKids();
     }
 
     public void addPrice(String name, double priceKids, double priceAdult) {
-        Price newPrice = new Price(name, priceKids, priceAdult);
-        PriceMap.put(newPrice.getName(), newPrice);
+        Price newPrice = new Price(byteName(name), priceKids, priceAdult);
+        PriceMap.put(byteNameConc(byteName(newPrice.getName())), newPrice);
         updateFile();
     }
 
     public void delPrice(String name) {
-        PriceMap.remove(name);
+        PriceMap.remove(byteNameConc(byteName(name)));
+        updateFile();
+    }
+
+    public void clearPrice() {
+        PriceMap.clear();
         updateFile();
     }
     //endregion
+
+    private byte[] byteName(String name) {
+        return name.getBytes(StandardCharsets.UTF_8);
+    }
+
+    private String byteNameConc(byte[] bname) {
+        String[] strArray = new String[bname.length];
+
+        for (int i = 0; i < bname.length; i++)
+            strArray[i] = String.valueOf(bname[i]);
+        return String.join("", strArray);
+    }
 }

@@ -11,6 +11,14 @@ public class Course {
     private JFXTextField kidsTxtF;
     private JFXButton deleteBtn;
 
+    public Course(HBox courseBox, JFXTextField courseTxtF, JFXTextField adultTxtF, JFXTextField kidsTxtF, JFXButton deleteBtn) {
+        this.courseBox = courseBox;
+        this.courseTxtF = courseTxtF;
+        this.adultTxtF = adultTxtF;
+        this.kidsTxtF = kidsTxtF;
+        this.deleteBtn = deleteBtn;
+    }
+
     public HBox getCourseBox() {
         return courseBox;
     }
@@ -29,13 +37,5 @@ public class Course {
 
     public JFXButton getDeleteBtn() {
         return deleteBtn;
-    }
-
-    public Course(HBox courseBox, JFXTextField courseTxtF, JFXTextField adultTxtF, JFXTextField kidsTxtF, JFXButton deleteBtn) {
-        this.courseBox = courseBox;
-        this.courseTxtF = courseTxtF;
-        this.adultTxtF = adultTxtF;
-        this.kidsTxtF = kidsTxtF;
-        this.deleteBtn = deleteBtn;
     }
 }

@@ -5,10 +5,6 @@ import java.time.LocalDateTime;
 public class TableBooking extends Table {
     private LocalDateTime TimeCheckin;
 
-    public LocalDateTime getTimeCheckin() {
-        return TimeCheckin;
-    }
-
     public TableBooking(int id, int tableNum, String type, int totalHeads, LocalDateTime timeCheckin) {
         Id = id;
         TableNum = tableNum;
@@ -16,6 +12,10 @@ public class TableBooking extends Table {
         TotalHeads = totalHeads;
         TimeCheckin = timeCheckin;
         TimeCreated = LocalDateTime.now();
+    }
+
+    public LocalDateTime getTimeCheckin() {
+        return TimeCheckin;
     }
 
     public TableActive startTable(int totalHeads) {
