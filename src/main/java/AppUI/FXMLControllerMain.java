@@ -1,7 +1,5 @@
 package AppUI;
 
-package AppUI;
-
 import AppModel.Course;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.Initializable;

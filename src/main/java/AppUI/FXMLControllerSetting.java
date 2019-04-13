@@ -94,8 +94,8 @@ public class FXMLControllerSetting implements Initializable {
     private String priceBoxStyle = "-fx-text-fill: -fx-primarytext;" +
             "-fx-prompt-text-fill:  #626262;" +
             "-fx-font-size : 14px;" +
-            "-jfx-focus-color: #ff616f;" +
-            "-jfx-unfocus-color: #c4001d;" +
+            "-jfx-focus-color: #ff8d9c;" +
+            "-jfx-unfocus-color: #ff616f;" +
             "-fx-min-height: 32;" +
             "-fx-min-width: 53;" +
             "-fx-max-height: 32;" +
@@ -104,8 +104,8 @@ public class FXMLControllerSetting implements Initializable {
     private String courseBoxStyle = "-fx-text-fill: -fx-primarytext;" +
             "-fx-prompt-text-fill:  #626262;" +
             "-fx-font-size : 14px;" +
-            "-jfx-focus-color: #ff616f;" +
-            "-jfx-unfocus-color: #c4001d;" +
+            "-jfx-focus-color: #ff8d9c;" +
+            "-jfx-unfocus-color: #ff616f;" +
             "-fx-min-height: 32;" +
             "-fx-min-width: 100;" +
             "-fx-max-height: 32;" +
