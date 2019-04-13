@@ -16,7 +16,6 @@ abstract class Table {
     String Type;
     LocalDateTime TimeCreated;
     LocalDateTime TimeStarted;
-    int TotalHeads;
     int KidHeads;
     int AdultHeads;
 
@@ -48,17 +47,6 @@ abstract class Table {
 
     public LocalDateTime getTimeStarted() {
         return TimeStarted;
-    }
-
-    public int getTotalHeads() {
-        return TotalHeads;
-    }
-
-    public void setTotalHeads(int totalHeads) {
-        if (this instanceof TableBooking)
-            TotalHeads = totalHeads;
-        else
-            TotalHeads = KidHeads + AdultHeads;
     }
 
     public int getKidHeads() {
@@ -96,19 +84,21 @@ abstract class Table {
 
     public void toLog() {
         String log;
-        log = String.format("Customer %d (Created on %s)\n" +
-                        "Table number: %d\n" +
-                        "Type: %s\n" +
-                        "Time started: %s\n" +
-                        "Time finished: %s\n" +
-                        "Heads: %d",
+        log = String.format("Customer %d (Created on %s)%n" +
+                        "Table number: %d%n" +
+                        "Type: %s%n" +
+                        "Time started: %s%n" +
+                        "Time finished: %s%n" +
+                        "Kid Heads: %d%n" +
+                        "Adult Heads: %d%n",
                 Id,
                 TimeCreated.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")),
                 TableNum,
                 Type,
                 TimeStarted.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                 TimeFinished.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                TotalHeads);
+                KidHeads,
+                AdultHeads);
         Logger.i().addLog(log);
     }
 }

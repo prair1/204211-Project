@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 public class AppLoader extends Application {
 
-
+    
     @Override
     public void start(Stage stage) throws Exception {
         SceneLoader loader = new SceneLoader();

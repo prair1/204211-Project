@@ -7,7 +7,7 @@ plugins {
 group 'proj.TableManager'
 version 'PROJECT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 apply plugin: 'java'
 tasks.withType(JavaCompile) {

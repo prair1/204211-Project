@@ -20,14 +20,14 @@ public class SettingManager{
     }
 
     private SettingManager() {}
-
     private Lang Language = Lang.English;
-    private int TableCount;
+    // -1 indicate not set yet
+    private int TableCount = -1;
     private boolean LimitTime;
-    private long TimeLimit;
-    private long TimePerExcess;
-    private double ExcessFine;
-    private double ServiceCharge;
+    private long TimeLimit = -1;
+    private long TimePerExcess = -1;
+    private double ExcessFine = -1;
+    private double ServiceCharge = -1;
     private LinkedHashMap<String, Price> PriceMap = new LinkedHashMap<>();
 
 
@@ -103,6 +103,7 @@ public class SettingManager{
     public LinkedHashMap<String, Price> getPriceMap() {
         return PriceMap;
     }
+
     public double getPriceAdult(String name) {
         return PriceMap.get(byteNameConc(byteName(name))).getPriceAdult();
     }
