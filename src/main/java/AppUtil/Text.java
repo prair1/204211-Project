@@ -21,7 +21,11 @@ public enum Text {
     ADULT("ผู้ใหญ","Adult"),
     KID("เด็ก","Kid"),
     BACK("กลับ", "Back"),
-    Save("เซฟ","Save");
+    SAVE("เซฟ","Save"),
+    MSG_EMPTY("ใส่ให้ครบดิวะ","It's fucking empty"),
+    MSG_NOC("ไม่มีราคาอาหารอะสัส","Enter course pls"),
+    MSG_EMPNOC("ใส่ให้ครบดิวะ และ ไม่มีราคาอาหารอะสัส","It's fucking empty and Enter course pls"),
+    MSG_SUCCESS("เซฟ เสร็จ","Save Success");
 
 
 

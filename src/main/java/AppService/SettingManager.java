@@ -4,7 +4,7 @@ import AppModel.Price;
 import AppUtil.FilePath;
 import AppUtil.Lang;
 
-import java.util.HashMap;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 
 public class SettingManager{
@@ -23,15 +23,16 @@ public class SettingManager{
 
     private Lang Language = Lang.English;
     private int TableCount;
+    private boolean LimitTime;
     private long TimeLimit;
-    private long TimeExcess;
+    private long TimePerExcess;
     private double ExcessFine;
     private double ServiceCharge;
     private LinkedHashMap<String, Price> PriceMap = new LinkedHashMap<>();
 
 
     private void updateFile() {
-        SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path, true);
+        SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path);
 
     }
 
@@ -64,12 +65,12 @@ public class SettingManager{
         updateFile();
     }
 
-    public long getTimeExcess() {
-        return TimeExcess;
+    public long getTimePerExcess() {
+        return TimePerExcess;
     }
 
-    public void setTimeExcess(long timeExcess) {
-        TimeExcess = timeExcess;
+    public void setTimePerExcess(long timeExcess) {
+        TimePerExcess = timeExcess;
         updateFile();
     }
 
@@ -91,18 +92,51 @@ public class SettingManager{
         updateFile();
     }
 
-    public Price getPrice(String name) {
-        return PriceMap.get(name);
+    public boolean isLimitTime() {
+        return LimitTime;
     }
 
-    public void addPrice(Price newPrice) {
-        PriceMap.put(newPrice.getName(), newPrice);
+    public void setLimitTime(boolean limitTime) {
+        LimitTime = limitTime;
+    }
+
+    public LinkedHashMap<String, Price> getPriceMap() {
+        return PriceMap;
+    }
+    public double getPriceAdult(String name) {
+        return PriceMap.get(byteNameConc(byteName(name))).getPriceAdult();
+    }
+
+    public double getPriceKids(String name) {
+        return PriceMap.get(byteNameConc(byteName(name))).getPriceKids();
+    }
+
+    public void addPrice(String name, double priceKids, double priceAdult) {
+        Price newPrice = new Price(byteName(name), priceKids, priceAdult);
+        PriceMap.put(byteNameConc(byteName(newPrice.getName())), newPrice);
         updateFile();
     }
 
     public void delPrice(String name) {
-        PriceMap.remove(name);
+        PriceMap.remove(byteNameConc(byteName(name)));
+        updateFile();
+    }
+
+    public void clearPrice() {
+        PriceMap.clear();
         updateFile();
     }
     //endregion
+
+    private byte[] byteName(String name) {
+        return name.getBytes(StandardCharsets.UTF_8);
+    }
+
+    private String byteNameConc(byte[] bname) {
+        String[] strArray = new String[bname.length];
+
+        for (int i = 0; i < bname.length; i++)
+            strArray[i] = String.valueOf(bname[i]);
+        return String.join("", strArray);
+    }
 }

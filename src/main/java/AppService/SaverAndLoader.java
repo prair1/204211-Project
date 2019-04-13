@@ -33,13 +33,8 @@ public class SaverAndLoader {
         }
     }
 
-    public static void saveTo(Object object, String file, boolean prettyPrint) {
-        Gson gson;
-        if (prettyPrint)
-            gson = new GsonBuilder().setPrettyPrinting().create();
-        else
-            gson = new Gson();
-
+    public static void saveTo(Object object, String file) {
+        Gson gson = new Gson();
         FileWriter writer;
         try {
             writer = new FileWriter(getFile(file));

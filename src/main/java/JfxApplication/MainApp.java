@@ -13,7 +13,7 @@ public class MainApp {
         File directory = new File(SaverAndLoader.getFile(""));
         if (! directory.exists()){
             if (directory.mkdirs()) {
-                SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path, true);
+                SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path);
             }
         }
         // endregion

@@ -10,12 +10,12 @@ import static java.time.temporal.ChronoUnit.SECONDS;
 
 abstract class Table {
 
+    public LocalDateTime TimeFinished;
     int Id;
     int TableNum;
     String Type;
     LocalDateTime TimeCreated;
     LocalDateTime TimeStarted;
-    public LocalDateTime TimeFinished;
     int TotalHeads;
     int KidHeads;
     int AdultHeads;
@@ -89,7 +89,7 @@ abstract class Table {
 
     public double calExcessFine() {
         if (calExcessSeconds() > 0)
-            return Math.ceil((double) calExcessSeconds() / SettingManager.i().getTimeExcess()) * SettingManager.i().getExcessFine();
+            return Math.ceil((double) calExcessSeconds() / SettingManager.i().getTimePerExcess()) * SettingManager.i().getExcessFine();
         else
             return 0;
     }
