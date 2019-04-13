@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <GridPane alignment="CENTER" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4000244140625" minWidth="10.0" prefWidth="136.8" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.2" minWidth="10.0" prefWidth="128.0000122070313" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.99998779296874" minWidth="10.0" prefWidth="131.99998779296874" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="95.60001220703126" minHeight="10.0" prefHeight="22.20000877380371" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="158.40001983642577" minHeight="10.0" prefHeight="73.80000610351561" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="74.59998779296876" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="112.20001220703125" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="{AMOUNT}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="30.0" top="20.0" />
+               </GridPane.margin>
+            </Label>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label text="{ADULT}" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets right="40.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="{KID}" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets right="40.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <JFXButton alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="30.0" />
+               </GridPane.margin>
+            </JFXButton>
+            <JFXButton alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{OK}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" right="30.0" />
+               </GridPane.margin>
+            </JFXButton>
+            <VBox alignment="TOP_CENTER" layoutX="144.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <children>
+                  <JFXTextField focusColor="#ff9999" promptText="{NUMBER}" unFocusColor="#ff9292">
+                     <VBox.margin>
+                        <Insets left="40.0" right="30.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#ff9999" promptText="{NUMBER}" unFocusColor="#ff9292">
+                     <VBox.margin>
+                        <Insets left="40.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+               <opaqueInsets>
+                  <Insets top="20.0" />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <top>
+      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #cca6bc;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="400.0" style="-fx-background-color: #ff99a5;">
+               <children>
+                  <Label text="{TABLE}" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXTextField focusColor="#ff7d7d" prefHeight="51.0" prefWidth="125.0" unFocusColor="#ff4e4e">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <JFXComboBox prefHeight="30.0" prefWidth="153.0" promptText="{COURSE}" />
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
