@@ -329,11 +329,11 @@ public class FXMLControllerSetting implements Initializable {
     }
 
     @FXML
-    void goBack() throws Exception {
+    void goBack() {
         Stage stage = (Stage) backBtn.getScene().getWindow();
 
         SceneLoader loader = new SceneLoader();
-        loader.Load(stage, "setupScene.fxml", true);
+        loader.Load(stage, "mainScene.fxml", true);
     }
 
     private void delCourseTable(Course currBox) {

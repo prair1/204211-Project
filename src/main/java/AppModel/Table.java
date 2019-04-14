@@ -1,12 +1,16 @@
 package AppModel;
 
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
+
+import static AppUtil.Converter.byteName;
+import static AppUtil.Converter.strFromByte;
 
 abstract class Table {
 
     int Id;
     int TableNum;
-    String Type;
+    byte[] Type;
     LocalDateTime TimeCreated;
     LocalDateTime TimeStarted;
     int KidHeads;
@@ -26,11 +30,11 @@ abstract class Table {
     }
 
     public String getType() {
-        return Type;
+        return strFromByte(Type);
     }
 
     public void setType(String type) {
-        Type = type;
+        Type = byteName(type);
     }
 
     public LocalDateTime getTimeCreated() {

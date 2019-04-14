@@ -3,6 +3,9 @@ package AppModel;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
+import static AppUtil.Converter.byteName;
+import static AppUtil.Converter.strFromByte;
+
 public class TableBooking extends Table {
     private LocalDateTime TimeCheckin;
     private byte[] customerName;
@@ -11,12 +14,12 @@ public class TableBooking extends Table {
     public TableBooking(int id, int tableNum, String type, int kidsHeads, int adultHeads, LocalDateTime timeCheckin, String customerName) {
         Id = id;
         TableNum = tableNum;
-        Type = type;
+        Type = byteName(type);
         KidHeads = kidsHeads;
         AdultHeads = adultHeads;
         TimeCheckin = timeCheckin;
         TimeCreated = LocalDateTime.now();
-        this.customerName = customerName.getBytes();
+        this.customerName = byteName(customerName);
     }
 
     public int getTotalHeads() {
@@ -24,13 +27,12 @@ public class TableBooking extends Table {
     }
 
     public String getCustomerName() {
-        return new String(customerName, StandardCharsets.UTF_8);
+        return strFromByte(customerName);
     }
 
     public LocalDateTime getTimeCheckin() {
         return TimeCheckin;
     }
-
 
     public TableActive startTable() {
         return new TableActive(Id, TableNum, Type, KidHeads, AdultHeads);

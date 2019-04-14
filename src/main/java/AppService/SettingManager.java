@@ -7,6 +7,9 @@ import AppUtil.Lang;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 
+import static AppUtil.Converter.byteName;
+import static AppUtil.Converter.byteNameConc;
+
 public class SettingManager{
 
     private static SettingManager ourInstance = new SettingManager();
@@ -129,15 +132,5 @@ public class SettingManager{
     }
     //endregion
 
-    private byte[] byteName(String name) {
-        return name.getBytes(StandardCharsets.UTF_8);
-    }
 
-    private String byteNameConc(byte[] bname) {
-        String[] strArray = new String[bname.length];
-
-        for (int i = 0; i < bname.length; i++)
-            strArray[i] = String.valueOf(bname[i]);
-        return String.join("", strArray);
-    }
 }

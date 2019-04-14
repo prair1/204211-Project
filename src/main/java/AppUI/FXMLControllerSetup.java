@@ -41,7 +41,7 @@ public class FXMLControllerSetup implements Initializable {
     }
 
     @FXML
-    private void startBtnClick() throws Exception {
+    private void startBtnClick() {
         Stage stage = (Stage) startBtn.getScene().getWindow();
 
         SceneLoader loader = new SceneLoader();

@@ -1,5 +1,6 @@
 package JfxApplication;
 
+import AppService.SettingManager;
 import javafx.application.Application;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -9,11 +10,10 @@ public class AppLoader extends Application {
 
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         SceneLoader loader = new SceneLoader();
         Font.loadFont(AppLoader.class.getResource("fontello.ttf").toExternalForm(), 16.0);
-        Font.loadFont(AppLoader.class.getResource("NotoSans-Regular.ttf").toExternalForm(), 16.0);
-        loader.Load(stage, "mainScene.fxml", false);
+        loader.Load(stage,"mainScene.fxml", false);
         stage.setTitle("Table Manager");
         stage.show();
     }
