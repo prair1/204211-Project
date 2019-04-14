@@ -1,7 +1,7 @@
 .jfx-combo-box .cell {
     -fx-text-fill: #000000; /* change selected text (item) color */
-    -fx-background-color:  #cca6bc; /* change background color */
-    -fx-border-color:  #cca6bc;
+    -fx-background-color:  transparent; /* change background color */
+    -fx-border-color:  transparent;
 
 }
 
