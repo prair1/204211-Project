@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,7 +17,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerMain">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <BorderPane blendMode="SRC_ATOP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393939;">
          <top>
             <AnchorPane prefHeight="119.0" prefWidth="1000.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
                <children>
@@ -37,24 +39,32 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="208.00000610351563" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="419.9999938964844" minHeight="10.0" prefHeight="412.79998779296875" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="208.00000610351563" minHeight="10.0" prefHeight="41.599996948242186" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="457.6000091552734" minHeight="10.0" prefHeight="445.6000030517578" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <FlowPane fx:id="activeFlow" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                  <FlowPane fx:id="bookFlow" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.valignment="CENTER">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="371.0" prefWidth="443.0" style="-fx-background-color: #393939;" GridPane.rowIndex="1">
+                     <content>
+                        <FlowPane fx:id="activeFlow" prefHeight="450.0" prefWidth="483.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" />
+                     </content>
+                     <stylesheets>
+                        <URL value="@Scroll.css" />
+                        <URL value="@styles.css" />
+                     </stylesheets>
+                  </ScrollPane>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="371.0" prefWidth="443.0" style="-fx-background-color: #393939;" styleClass=".scroll-baractive:vertical .thumb" stylesheets="@styles.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <content>
+                        <FlowPane fx:id="activeFlow1" prefHeight="450.0" prefWidth="483.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" stylesheets="@styles.css" />
+                     </content>
+                  </ScrollPane>
+                  <HBox prefHeight="47.0" prefWidth="480.0" GridPane.valignment="CENTER">
                      <children>
                         <Label fx:id="activeLab" prefHeight="30.0" prefWidth="170.0" text="{ACTIVE}" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="newtableBtn" onMouseClicked="#addActive" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #ff6666;" text="" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </JFXButton>
+                        <JFXButton fx:id="newtableBtn" onMouseClicked="#addActive" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #ff6666;" text="" textFill="WHITE" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -64,33 +74,35 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="newbookBtn" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #82E1B1;" text="" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </JFXButton>
+                        <JFXButton fx:id="newbookBtn" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #82E1B1;" text="" textFill="WHITE" />
                      </children>
                   </HBox>
                </children>
             </GridPane>
          </center>
-         <bottom>
-            <AnchorPane prefHeight="30.0" prefWidth="1000.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
-               <children>
-                  <JFXButton onMouseClicked="#toSetting" fx:id="settingBtn" layoutX="941.0" layoutY="1.0" prefHeight="30.0" prefWidth="30.0" text="" textFill="#8a8a8a" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </JFXButton>
-               </children>
-            </AnchorPane>
-         </bottom>
          <left>
             <AnchorPane prefHeight="436.0" prefWidth="20.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER" />
          </left>
          <right>
             <AnchorPane prefHeight="200.0" prefWidth="20.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER" />
          </right>
+         <bottom>
+            <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="settingBtn" prefHeight="30.0" prefWidth="30.0" text="" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+               <opaqueInsets>
+                  <Insets right="30.0" />
+               </opaqueInsets>
+            </HBox>
+         </bottom>
       </BorderPane>
    </children>
 </StackPane>
