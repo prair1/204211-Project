@@ -18,9 +18,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerSetting">
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #393939;" stylesheets="@styles.css" BorderPane.alignment="CENTER">
          <children>
-            <GridPane prefWidth="600.0">
+            <GridPane prefWidth="600.0" stylesheets="@styles.css">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.8" minWidth="10.0" prefWidth="161.59998779296876" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="364.7999877929687" minWidth="0.0" prefWidth="351.2000122070312" />
@@ -33,7 +33,7 @@
                   <RowConstraints maxHeight="93.39999999999998" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="langLab" text="{LANGUAGE}" textFill="WHITE" GridPane.rowIndex="1">
+                  <Label fx:id="langLab" stylesheets="@styles.css" text="{LANGUAGE}" textFill="WHITE" GridPane.rowIndex="1">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -41,7 +41,7 @@
                         <Insets left="100.0" />
                      </GridPane.margin>
                   </Label>
-                  <AnchorPane prefHeight="52.0" prefWidth="448.0" GridPane.rowIndex="2">
+                  <AnchorPane prefHeight="52.0" prefWidth="448.0" stylesheets="@styles.css" GridPane.rowIndex="2">
                      <children>
                         <Label fx:id="tableLab" layoutX="100.0" layoutY="37.0" text="{Table}" textFill="WHITE" AnchorPane.leftAnchor="100.0">
                            <font>
@@ -50,7 +50,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="150.0" prefWidth="350.0" GridPane.rowIndex="3">
+                  <AnchorPane prefHeight="150.0" prefWidth="350.0" stylesheets="@styles.css" GridPane.rowIndex="3">
                      <children>
                         <Label fx:id="timitLab" layoutX="35.0" layoutY="21.0" text="{TIMELIMIT}" textFill="WHITE" AnchorPane.leftAnchor="100.0">
                            <font>
@@ -64,7 +64,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="101.0" prefWidth="350.0" GridPane.rowIndex="4">
+                  <AnchorPane prefHeight="101.0" prefWidth="350.0" stylesheets="@styles.css" GridPane.rowIndex="4">
                      <children>
                         <Label fx:id="scLab" layoutX="32.0" layoutY="37.0" text="{SERVICECHARGE}" textFill="WHITE" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="40.0">
                            <font>
@@ -78,7 +78,7 @@
                         <Insets left="12.0" />
                      </GridPane.margin>
                   </JFXComboBox>
-                  <JFXTextField fx:id="tableTxtF" focusColor="#ff8d9c" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#getTableCountField" prefHeight="30.0" prefWidth="115.0" promptText="{TABLE}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#ff616f" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <JFXTextField fx:id="tableTxtF" focusColor="#ff8d9c" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#getTableCountField" prefHeight="30.0" prefWidth="115.0" promptText="{TABLE}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" stylesheets="@styles.css" unFocusColor="#ff616f" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -86,7 +86,7 @@
                         <Insets left="12.0" />
                      </GridPane.margin>
                   </JFXTextField>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
                         <JFXToggleButton fx:id="timitTog" layoutY="2.0" onMouseClicked="#timeLimitToggle" prefHeight="58.0" prefWidth="45.0" toggleColor="#a7343f" toggleLineColor="#ff616f" AnchorPane.leftAnchor="0.0" />
                         <JFXTextField fx:id="thourTxtF" focusColor="#ff8d9c" labelFloat="true" layoutX="149.0" layoutY="14.0" prefHeight="30.0" prefWidth="60.0" promptText="{HOUR}" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #626262;" unFocusColor="#ff616f">
@@ -135,7 +135,7 @@
                         </JFXTextField>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <children>
                         <Label layoutX="129.0" layoutY="39.0" prefHeight="18.0" prefWidth="22.0" text="\%" textFill="WHITE">
                            <font>
@@ -154,7 +154,7 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <VBox fx:id="tableBox" prefHeight="494.0" prefWidth="383.0" style="-fx-background-color: #393939;">
+            <VBox fx:id="tableBox" prefHeight="494.0" prefWidth="383.0" style="-fx-background-color: #393939;" stylesheets="@styles.css">
                <children>
                   <Pane prefHeight="61.0" prefWidth="380.0" />
                   <HBox prefHeight="32.0" prefWidth="318.0">
@@ -198,7 +198,7 @@
       </HBox>
    </center>
    <bottom>
-      <AnchorPane prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #393939;" stylesheets="@styles.css" BorderPane.alignment="CENTER">
          <children>
             <JFXButton fx:id="saveBtn" layoutX="723.0" layoutY="-6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#saveBtnClick" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #ff616f;" text="{SAVE}" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
                <font>
