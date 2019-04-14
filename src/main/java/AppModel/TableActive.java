@@ -6,16 +6,27 @@ import AppService.SettingManager;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static AppUtil.Converter.byteName;
 import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class TableActive extends Table {
 
     private LocalDateTime TimeFinished;
 
-    public TableActive(int id, int tableNum, String type, int kidsHeads, int adultHeads) {
+    TableActive(int id, int tableNum, byte[] type, int kidsHeads, int adultHeads) {
         Id = id;
         TableNum = tableNum;
         Type = type;
+        KidHeads = kidsHeads;
+        AdultHeads = adultHeads;
+        TimeCreated = LocalDateTime.now();
+        TimeStarted = LocalDateTime.now();
+    }
+
+    public TableActive(int id, int tableNum, String type, int kidsHeads, int adultHeads) {
+        Id = id;
+        TableNum = tableNum;
+        Type = byteName(type);
         KidHeads = kidsHeads;
         AdultHeads = adultHeads;
         TimeCreated = LocalDateTime.now();

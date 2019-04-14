@@ -34,7 +34,7 @@ public class FXMLControllerMain implements Initializable {
     @FXML
     JFXButton newbookBtn;
     @FXML
-    JFXButton setBtn;
+    JFXButton settingBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,21 +45,27 @@ public class FXMLControllerMain implements Initializable {
     }
 
     @FXML
-    void addActive() throws Exception {
+    void addActive() {
         Stage stage = new Stage();
         Stage currStage = (Stage) newtableBtn.getScene().getWindow();
         stage.initOwner(currStage);
         SceneLoader loader = new SceneLoader();
-        loader.Load(stage, "tCreateTableScene.fxml", true);
+        loader.Load(stage, "tCreateTableScene.fxml", false);
         stage.show();
 
 
     }
 
-    private void createActiveTable() {
+    @FXML
+    void toSetting() {
+        Stage stage = (Stage) newtableBtn.getScene().getWindow();
+        SceneLoader loader = new SceneLoader();
+        loader.Load(stage, "settingScene.fxml", true);
+        stage.show();
+    }
+
+    void createActiveTable() {
         ObservableList<Node> nodes = activeFlow.getChildren();
-
-
 
         Label nameLab = new Label("B1");
         nameLab.setStyle("-fx-font-size: 18px;" +
