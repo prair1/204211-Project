@@ -13,6 +13,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.net.JarURLConnection;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,9 +33,14 @@ public class FXMLControllerMain implements Initializable {
     JFXButton newtableBtn;
     @FXML
     JFXButton newbookBtn;
+    @FXML
+    JFXButton setBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        newbookBtn.setStyle(" -fx-font-family:  fontello;");
+        newtableBtn.setStyle(" -fx-font-family:  fontello;");
+        setBtn.setStyle(" -fx-font-family:  fontello;");
 
     }
 
@@ -46,6 +52,8 @@ public class FXMLControllerMain implements Initializable {
         SceneLoader loader = new SceneLoader();
         loader.Load(stage, "tCreateTableScene.fxml", true);
         stage.show();
+
+
     }
 
     private void createActiveTable() {
