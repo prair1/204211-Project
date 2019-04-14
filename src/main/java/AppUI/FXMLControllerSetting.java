@@ -3,6 +3,7 @@ package AppUI;
 import AppModel.Course;
 import AppModel.Price;
 import AppService.SettingManager;
+import AppService.TableManager;
 import AppUtil.Lang;
 import AppUtil.Text;
 import JfxApplication.SceneLoader;
@@ -10,6 +11,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,11 +22,15 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
+
+import static AppService.TimeManager.secondToStr;
+import static AppService.TimeManager.strToSecond;
 
 public class FXMLControllerSetting implements Initializable {
 
@@ -181,6 +188,7 @@ public class FXMLControllerSetting implements Initializable {
     void saveBtnClick() {
         boolean isReady = true;
         messageLab.setText("[MessageText]");
+        messageLab.setStyle("-fx-text-fill: #ff0000");
         messageLab.setVisible(false);
         // region text checking
         JFXTextField[] txtFList = {tableTxtF, scTxtF};
@@ -244,6 +252,7 @@ public class FXMLControllerSetting implements Initializable {
 
         if (isReady) {
             SettingManager.i().setTableCount(Integer.parseInt(tableTxtF.getText()));
+            TableManager.i().reloadTableNum();
             SettingManager.i().setLimitTime(timitTog.isSelected());
             if (timitTog.isSelected()) {
                 SettingManager.i().setTimeLimit(strToSecond(thourTxtF.getText(), tminTxtF.getText(), tsecTxtF.getText()));
@@ -259,8 +268,14 @@ public class FXMLControllerSetting implements Initializable {
                         Double.parseDouble(course.getKidsTxtF().getText()));
             }
             backBtn.setVisible(true);
+            messageLab.setStyle("-fx-text-fill: #00ff00");
+            messageLab.setText(Text.MSG_SUCCESS.get());
+            messageLab.setVisible(true);
         }
-
+        Timeline hide = new Timeline(new KeyFrame(
+                Duration.seconds(1),
+                e -> messageLab.setVisible(false)));
+        hide.play();
     }
 
     @FXML
@@ -333,7 +348,7 @@ public class FXMLControllerSetting implements Initializable {
         Stage stage = (Stage) backBtn.getScene().getWindow();
 
         SceneLoader loader = new SceneLoader();
-        loader.Load(stage, "mainScene.fxml", true);
+        loader.Load(stage, "mainScene.fxml", true, "styles.css", backBtn.getScene().getWidth(), backBtn.getScene().getHeight());
     }
 
     private void delCourseTable(Course currBox) {
@@ -419,17 +434,5 @@ public class FXMLControllerSetting implements Initializable {
         return self;
 
 
-    }
-
-    private long strToSecond(String hour, String minute, String second) {
-        return (Long.parseLong(hour) * 3600) + (Long.parseLong(minute) * 60) + Long.parseLong(second);
-    }
-
-    private String[] secondToStr(long second) {
-        long hour = second / 3600;
-        second = second - hour * 3600;
-        long min = second / 60;
-        second = second - min * 60;
-        return new String[] {String.valueOf(hour), String.valueOf(min), String.valueOf(second)};
     }
 }

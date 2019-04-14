@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerCheckBill">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <GridPane alignment="CENTER" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -196,6 +196,14 @@
                </opaqueInsets>
             </VBox>
             <Label fx:id="overTimeLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="312.0" layoutY="144.0" text="{OVERTIME}" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <opaqueInsets>
+                  <Insets right="40.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="showSCPerLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="{SHOWSCPER}" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                <opaqueInsets>
                   <Insets right="40.0" />
                </opaqueInsets>

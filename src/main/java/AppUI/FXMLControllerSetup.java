@@ -45,7 +45,7 @@ public class FXMLControllerSetup implements Initializable {
         Stage stage = (Stage) startBtn.getScene().getWindow();
 
         SceneLoader loader = new SceneLoader();
-        loader.Load(stage, "settingScene.fxml", true);
+        loader.Load(stage, "settingScene.fxml", true, "styles.css");
     }
 
     private void langChange() {

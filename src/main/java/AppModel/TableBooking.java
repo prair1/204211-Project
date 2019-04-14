@@ -37,4 +37,8 @@ public class TableBooking extends Table {
     public TableActive startTable() {
         return new TableActive(Id, TableNum, Type, KidHeads, AdultHeads);
     }
+
+    public void updateTime() {
+
+    }
 }

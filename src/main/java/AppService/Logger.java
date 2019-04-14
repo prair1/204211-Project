@@ -30,7 +30,7 @@ public class Logger {
 
     public void addLog(String text) {
         try {
-            writer.append(String.format("-----------------------------------------------%n%s%n-----------------------------------------------%n", text));
+            writer.append(String.format("-----------------------------------------------%n%s-----------------------------------------------%n", text));
             writer.flush();
         }
         catch (IOException e) {

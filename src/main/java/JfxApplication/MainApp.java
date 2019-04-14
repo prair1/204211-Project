@@ -1,7 +1,6 @@
 package JfxApplication;
 
 import AppService.*;
-import AppUtil.FilePath;
 
 import java.io.File;
 
@@ -11,11 +10,12 @@ public class MainApp {
         File directory = new File(SaverAndLoader.getFile(""));
         if (! directory.exists()){
             if (directory.mkdirs()) {
-                SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path);
+                SaverAndLoader.saveTo(SettingManager.i(), "settings.json");
             }
         }
         // endregion
-        SaverAndLoader.getFrom(FilePath.SETTING.path);
+        SaverAndLoader.getFrom("settings.json");
+        TableManager.i();
         Logger.i();
         AppLoader.main(args);
     }

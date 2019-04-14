@@ -56,12 +56,12 @@
                   </Label>
                </children>
             </VBox>
-            <JFXButton fx:id="backBtn" onMouseClicked="#backClicked" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <JFXButton onMouseClicked="#backClicked" fx:id="backBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </JFXButton>
-            <JFXButton fx:id="okBtn" onMouseClicked="#okClicked" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{OK}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <JFXButton onMouseClicked="#okClicked" fx:id="okBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{OK}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -99,17 +99,14 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <JFXTextField fx:id="tbNumTxtF" focusColor="#ff8d9c" prefHeight="51.0" prefWidth="125.0" unFocusColor="#ff616f">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
+                  <JFXComboBox fx:id="tbNumCob" focusColor="#ff8d9c" prefHeight="50.0" prefWidth="125.0" unFocusColor="#ff616f">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
-                  </JFXTextField>
+                  </JFXComboBox>
                </children>
             </HBox>
-            <JFXComboBox fx:id="courseCob" prefHeight="30.0" prefWidth="153.0" promptText="{COURSE}" />
+            <JFXComboBox fx:id="courseCob" focusColor="#ff8d9c" prefHeight="30.0" prefWidth="153.0" promptText="{COURSE}" stylesheets="@Com-text.css" />
          </children>
       </VBox>
    </top>

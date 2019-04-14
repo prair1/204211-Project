@@ -1,12 +1,14 @@
 package AppModel;
 
+import javafx.scene.control.Label;
+
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 import static AppUtil.Converter.byteName;
 import static AppUtil.Converter.strFromByte;
 
-abstract class Table {
+public abstract class Table {
 
     int Id;
     int TableNum;
@@ -15,6 +17,7 @@ abstract class Table {
     LocalDateTime TimeStarted;
     int KidHeads;
     int AdultHeads;
+    Label TimeLab;
 
     //region getter-setter
     public int getId() {
@@ -60,5 +63,17 @@ abstract class Table {
     public void setAdultHeads(int adultHeads) {
         AdultHeads = adultHeads;
     }
+
+    public void setTimeLab(Label timeLab) {
+        TimeLab = timeLab;
+        updateTime();
+    }
+
+    public Label getTimeLab() {
+        return TimeLab;
+    }
+
     //endregion
+
+    abstract void updateTime();
 }

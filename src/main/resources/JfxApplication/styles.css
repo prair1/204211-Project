@@ -28,7 +28,7 @@ courseTxtF
 .jfx-combo-box .cell {
     -fx-text-fill: #ffffff; /* change selected text (item) color */
     -fx-background-color: #393939; /* change background color */
-    -fx-border-color: #393939;
+    -fx-border-color: transparent;
 
 }
 
@@ -36,8 +36,6 @@ courseTxtF
     -fx-pref-height: 30;
     -fx-pref-width:  300;
     -fx-background-color: #494949;
-
-
 }
 
 .tab-header-background{

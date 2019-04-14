@@ -13,7 +13,7 @@ public class AppLoader extends Application {
     public void start(Stage stage) {
         SceneLoader loader = new SceneLoader();
         Font.loadFont(AppLoader.class.getResource("fontello.ttf").toExternalForm(), 16.0);
-        loader.Load(stage,"mainScene.fxml", false);
+        loader.Load(stage,"mainScene.fxml", false, "styles.css");
         stage.setTitle("Table Manager");
         stage.show();
     }

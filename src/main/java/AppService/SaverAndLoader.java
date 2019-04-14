@@ -1,8 +1,6 @@
 package AppService;
 
-import AppUtil.FilePath;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,11 +18,11 @@ public class SaverAndLoader {
         Gson gson = new Gson();
         FileReader reader;
         try {
-            if (file.contentEquals(FilePath.SETTING.path)) {
+            if (file.contentEquals("settings.json")) {
                 reader = new FileReader(getFile(file));
                 SettingManager.setInstance(gson.fromJson(reader, SettingManager.class));
             }
-            else if (file.contentEquals(FilePath.TABLE.path)) {
+            else if (file.contentEquals("tables.json")) {
                 // TODO
             }
         }

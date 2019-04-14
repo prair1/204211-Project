@@ -1,10 +1,8 @@
 package AppService;
 
 import AppModel.Price;
-import AppUtil.FilePath;
 import AppUtil.Lang;
 
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 
 import static AppUtil.Converter.byteName;
@@ -35,7 +33,7 @@ public class SettingManager{
 
 
     private void updateFile() {
-        SaverAndLoader.saveTo(SettingManager.i(), FilePath.SETTING.path);
+        SaverAndLoader.saveTo(SettingManager.i(), "settings.json");
 
     }
 
@@ -113,6 +111,14 @@ public class SettingManager{
 
     public double getPriceKids(String name) {
         return PriceMap.get(byteNameConc(byteName(name))).getPriceKids();
+    }
+
+    public double getPriceAdult(byte[] name) {
+        return PriceMap.get(byteNameConc(name)).getPriceAdult();
+    }
+
+    public double getPriceKids(byte[] name) {
+        return PriceMap.get(byteNameConc(name)).getPriceKids();
     }
 
     public void addPrice(String name, double priceKids, double priceAdult) {
