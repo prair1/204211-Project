@@ -40,7 +40,7 @@ public class FXMLControllerMain implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         newbookBtn.setStyle(" -fx-font-family:  fontello;");
         newtableBtn.setStyle(" -fx-font-family:  fontello;");
-        setBtn.setStyle(" -fx-font-family:  fontello;");
+        settingBtn.setStyle(" -fx-font-family:  fontello;");
 
     }
 
