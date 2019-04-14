@@ -17,9 +17,6 @@ public class MainApp {
         // endregion
         SaverAndLoader.getFrom(FilePath.SETTING.path);
         Logger.i();
-        for (int i = 0; i< 10; i++)
-            System.out.println(TableManager.i().genId());
-
         AppLoader.main(args);
     }
 }

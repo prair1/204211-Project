@@ -50,7 +50,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="newtableBtn" onMouseClicked="#createStatTable" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #ff6666;" text="" textFill="WHITE">
+                        <JFXButton fx:id="newtableBtn" onMouseClicked="#addActive" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #ff6666;" text="" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>

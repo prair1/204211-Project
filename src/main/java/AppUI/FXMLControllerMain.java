@@ -49,7 +49,7 @@ public class FXMLControllerMain implements Initializable {
     }
 
     private void createActiveTable() {
-        ObservableList<Node> nodes = statFlow.getChildren();
+        ObservableList<Node> nodes = activeFlow.getChildren();
 
 
 
