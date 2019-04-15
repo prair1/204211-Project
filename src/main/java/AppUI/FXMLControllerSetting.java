@@ -271,11 +271,11 @@ public class FXMLControllerSetting implements Initializable {
             messageLab.setStyle("-fx-text-fill: #00ff00");
             messageLab.setText(Text.MSG_SUCCESS.get());
             messageLab.setVisible(true);
+            Timeline hide = new Timeline(new KeyFrame(
+                    Duration.seconds(1),
+                    e -> messageLab.setVisible(false)));
+            hide.play();
         }
-        Timeline hide = new Timeline(new KeyFrame(
-                Duration.seconds(1),
-                e -> messageLab.setVisible(false)));
-        hide.play();
     }
 
     @FXML

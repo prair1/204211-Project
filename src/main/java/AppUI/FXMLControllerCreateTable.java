@@ -40,6 +40,8 @@ public class FXMLControllerCreateTable implements Initializable {
     JFXComboBox<Integer> tbNumCob;
     @FXML
     JFXComboBox<String> courseCob;
+    @FXML
+    Label errorLab;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -70,6 +72,8 @@ public class FXMLControllerCreateTable implements Initializable {
             txtF.setStyle("-fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
             if (txtF.getText().isEmpty()) {
                 txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
+                errorLab.setText("Where is people");
+                errorLab.setVisible(true);
                 isReady = false;
             }
         }
@@ -79,13 +83,13 @@ public class FXMLControllerCreateTable implements Initializable {
                     Integer.parseInt(kidTxtF.getText()),
                     Integer.parseInt(adultTxtF.getText()
                     ));
-            ((Stage)okBtn.getScene().getWindow()).close();
+            goBack();
         }
 
     }
 
     @FXML
-    void backClicked() {
+    void goBack() {
         ((Stage)backBtn.getScene().getWindow()).close();
     }
 }

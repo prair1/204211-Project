@@ -32,8 +32,6 @@ public class FXMLControllerMain implements Initializable {
     @FXML
     Label activeLab;
     @FXML
-    Label bookLab;
-    @FXML
     FlowPane activeFlow;
     @FXML
     FlowPane bookFlow;
@@ -44,15 +42,13 @@ public class FXMLControllerMain implements Initializable {
     @FXML
     JFXButton settingBtn;
 
-    static ArrayList<TableActive> copyActives = new ArrayList<>();
-    static ArrayList<TableBooking> copyBookings = new ArrayList<>();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         newbookBtn.setStyle(" -fx-font-family:  fontello;");
         newtableBtn.setStyle(" -fx-font-family:  fontello;");
         settingBtn.setStyle(" -fx-font-family:  fontello;");
         reloadActive();
+        reloadBooked();
 
     }
 
@@ -76,14 +72,10 @@ public class FXMLControllerMain implements Initializable {
         stage.show();
     }
 
-    void reloadActive() {
+    private void reloadActive() {
         activeFlow.getChildren().clear();
-        copyActives.clear();
         for (Map.Entry<Integer, TableActive> table: TableManager.i().getTableActives().entrySet()) {
-            copyActives.add(0, table.getValue());
-        }
-        for (TableActive table: copyActives) {
-            createActiveTable(table.getId());
+            createActiveTable(table.getKey());
         }
     }
 
@@ -103,8 +95,39 @@ public class FXMLControllerMain implements Initializable {
         stage.show();
     }
 
+    @FXML
+    void addBooking() {
+        Stage stage = new Stage();
+        Stage currStage = (Stage) newbookBtn.getScene().getWindow();
+        stage.initOwner(currStage);
+        SceneLoader loader = new SceneLoader();
+        loader.Load(stage, "tBookingScene.fxml", false, "Com-text.css");
+        stage.setTitle("Booking");
+        stage.setOnHiding(e -> reloadBooked());
+        stage.show();
+    }
+
     private void createBookTable(int id) {
-        //todo
+        createTableBtn(id, bookFlow, "#00796b").setOnMouseClicked(e -> openBooked(id));
+    }
+
+    private void openBooked(int id) {
+        Stage stage = new Stage();
+        Stage currStage = (Stage) newbookBtn.getScene().getWindow();
+        stage.initOwner(currStage);
+        SceneLoader loader = new SceneLoader();
+        FXMLControllerBooked cont= new FXMLControllerBooked(id);
+        loader.Load(stage, "tBookedScene.fxml", false, "Com-text.css", cont);
+        stage.setTitle("Info");
+        stage.setOnHiding(e -> reloadBooked());
+        stage.show();
+    }
+
+    private void reloadBooked() {
+        bookFlow.getChildren().clear();
+        for (Map.Entry<Integer, TableBooking> table: TableManager.i().getTableBookings().entrySet()) {
+            createBookTable(table.getKey());
+        }
     }
 
     private JFXButton createTableBtn(int id, FlowPane flowPane, String btnColor) {
@@ -142,14 +165,4 @@ public class FXMLControllerMain implements Initializable {
         nodes.add(tableBtn);
         return tableBtn;
     }
-
-    public static void clockUpdate() {
-        for (TableActive table : copyActives) {
-            table.updateTime();
-        }
-        for (TableBooking table : copyBookings) {
-            table.updateTime();
-        }
-    }
-
 }

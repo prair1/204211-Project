@@ -27,11 +27,6 @@ public enum Text {
     MSG_EMPNOC("ใส่ให้ครบดิวะ และ ไม่มีราคาอาหารอะสัส","It's fucking empty and Enter course pls"),
     MSG_SUCCESS("เซฟ เสร็จ","Save Success");
 
-
-
-
-
-
     private final String THTxt;
     private final String ENTxt;
 

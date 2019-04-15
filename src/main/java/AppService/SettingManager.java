@@ -2,6 +2,7 @@ package AppService;
 
 import AppModel.Price;
 import AppUtil.Lang;
+import com.google.gson.annotations.Expose;
 
 import java.util.LinkedHashMap;
 
@@ -34,7 +35,6 @@ public class SettingManager{
 
     private void updateFile() {
         SaverAndLoader.saveTo(SettingManager.i(), "settings.json");
-
     }
 
     //region getter setter

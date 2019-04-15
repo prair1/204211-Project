@@ -1,6 +1,9 @@
 package AppService;
 
+import AppModel.TableActive;
+import AppModel.TableBooking;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -22,17 +25,40 @@ public class SaverAndLoader {
                 reader = new FileReader(getFile(file));
                 SettingManager.setInstance(gson.fromJson(reader, SettingManager.class));
             }
-            else if (file.contentEquals("tables.json")) {
-                // TODO
-            }
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public static void saveTo(Object object, String file) {
+    public static TableActive[] tableGetFromAct(String file) {
         Gson gson = new Gson();
+        FileReader reader;
+        try {
+            reader = new FileReader(getFile(file));
+            return gson.fromJson(reader, TableActive[].class);
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static TableBooking[] tableGetFromBook(String file) {
+        Gson gson = new Gson();
+        FileReader reader;
+        try {
+            reader = new FileReader(getFile(file));
+            return gson.fromJson(reader, TableBooking[].class);
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void saveTo(Object object, String file) {
+        Gson gson = new GsonBuilder().serializeNulls().create();
         FileWriter writer;
         try {
             writer = new FileWriter(getFile(file));

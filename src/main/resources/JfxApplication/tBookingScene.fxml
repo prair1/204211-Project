@@ -2,9 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
@@ -28,7 +26,8 @@
           <RowConstraints maxHeight="158.40001983642577" minHeight="4.0" prefHeight="56.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.60001220703123" minHeight="8.599963378906239" prefHeight="48.59996337890624" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="131.80003662109377" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" text="{AMOUNT}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
@@ -59,12 +58,12 @@
                   </Label>
                </children>
             </VBox>
-            <JFXButton fx:id="backBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <JFXButton fx:id="backBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </JFXButton>
-            <JFXButton fx:id="bookBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{BOOKING}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <JFXButton fx:id="bookBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{BOOKING}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -101,16 +100,23 @@
                   <Insets left="40.0" top="30.0" />
                </GridPane.margin>
             </Label>
-            <JFXDatePicker fx:id="dateP" defaultColor="#ff616f" prefHeight="28.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-            </JFXDatePicker>
-            <JFXTimePicker fx:id="timeP" defaultColor="#ff616f" prefHeight="28.0" prefWidth="116.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </JFXTimePicker>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <JFXComboBox fx:id="dayCob" />
+                  <Label text="/" textFill="WHITE" />
+                  <JFXComboBox fx:id="monthCob" />
+                  <Label text="/" textFill="WHITE" />
+                  <JFXComboBox fx:id="yearCob" />
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <children>
+                  <JFXComboBox fx:id="hourCob" />
+                  <Label text=":" textFill="WHITE" />
+                  <JFXComboBox fx:id="minCob" />
+               </children>
+            </HBox>
+            <Label fx:id="errorLab" text="{ERROR}" textFill="WHITE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </center>

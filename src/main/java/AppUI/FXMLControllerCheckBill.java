@@ -67,7 +67,7 @@ public class FXMLControllerCheckBill implements Initializable {
 
     TableActive table;
 
-    public FXMLControllerCheckBill(int id) {
+    FXMLControllerCheckBill(int id) {
         table = (TableActive) TableManager.i().findById(id);
     }
 
@@ -158,13 +158,11 @@ public class FXMLControllerCheckBill implements Initializable {
 
     }
 
-    @FXML
-    void amountChange() {
+    private void amountChange() {
         showTotalLab.setText(String.valueOf(calFinalPrice()));
     }
 
-    @FXML
-    void goBack() {
+    private void goBack() {
         ((Stage)backBtn.getScene().getWindow()).close();
     }
 }

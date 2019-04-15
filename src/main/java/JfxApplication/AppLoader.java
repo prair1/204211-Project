@@ -2,6 +2,7 @@ package JfxApplication;
 
 import AppService.SettingManager;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -15,6 +16,7 @@ public class AppLoader extends Application {
         Font.loadFont(AppLoader.class.getResource("fontello.ttf").toExternalForm(), 16.0);
         loader.Load(stage,"mainScene.fxml", false, "styles.css");
         stage.setTitle("Table Manager");
+        stage.setOnHidden(e -> Platform.exit());
         stage.show();
     }
 

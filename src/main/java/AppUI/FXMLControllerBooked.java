@@ -1,5 +1,8 @@
 package AppUI;
 
+import AppModel.TableActive;
+import AppModel.TableBooking;
+import AppService.TableManager;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,6 +45,12 @@ public class FXMLControllerBooked implements Initializable {
     Label tbNumLab;
     @FXML
     Label courseLab;
+
+    TableBooking table;
+
+    FXMLControllerBooked(int id) {
+        table = (TableBooking) TableManager.i().findById(id);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

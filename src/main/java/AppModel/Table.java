@@ -1,5 +1,6 @@
 package AppModel;
 
+import com.google.gson.annotations.Expose;
 import javafx.scene.control.Label;
 
 import java.nio.charset.StandardCharsets;
@@ -17,7 +18,7 @@ public abstract class Table {
     LocalDateTime TimeStarted;
     int KidHeads;
     int AdultHeads;
-    Label TimeLab;
+    transient Label TimeLab;
 
     //region getter-setter
     public int getId() {

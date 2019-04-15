@@ -54,7 +54,7 @@
                   </ScrollPane>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="371.0" prefWidth="443.0" style="-fx-background-color: #393939;" styleClass=".scroll-baractive:vertical .thumb" stylesheets="@styles.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <content>
-                        <FlowPane fx:id="activeFlow1" prefHeight="450.0" prefWidth="483.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" stylesheets="@styles.css" />
+                        <FlowPane fx:id="bookFlow" prefHeight="450.0" prefWidth="483.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" stylesheets="@styles.css" />
                      </content>
                   </ScrollPane>
                   <HBox prefHeight="47.0" prefWidth="480.0" GridPane.valignment="CENTER">
@@ -74,7 +74,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="newbookBtn" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #82E1B1;" text="" textFill="WHITE" />
+                        <JFXButton fx:id="newbookBtn" onMouseClicked="#addBooking" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #82E1B1;" text="" textFill="WHITE" />
                      </children>
                   </HBox>
                </children>
@@ -89,7 +89,7 @@
          <bottom>
             <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton fx:id="settingBtn" prefHeight="30.0" prefWidth="30.0" text="" textFill="WHITE">
+                  <JFXButton fx:id="settingBtn" onMouseClicked="#toSetting" prefHeight="30.0" prefWidth="30.0" text="" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>

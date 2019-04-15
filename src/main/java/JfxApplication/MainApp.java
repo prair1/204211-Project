@@ -11,11 +11,12 @@ public class MainApp {
         if (! directory.exists()){
             if (directory.mkdirs()) {
                 SaverAndLoader.saveTo(SettingManager.i(), "settings.json");
+                TableManager.i().updateFile();
             }
         }
         // endregion
         SaverAndLoader.getFrom("settings.json");
-        TableManager.i();
+        TableManager.i().getFile();
         Logger.i();
         AppLoader.main(args);
     }

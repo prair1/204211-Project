@@ -2,6 +2,7 @@ package AppModel;
 
 import AppService.Logger;
 import AppService.SettingManager;
+import com.google.gson.annotations.Expose;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,9 +15,12 @@ import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class TableActive extends Table {
 
-    private LocalDateTime TimeFinished;
-    private boolean Finished = false;
-    private double TotalPrice;
+
+    LocalDateTime TimeFinished;
+    boolean Finished = false;
+    double TotalPrice;
+
+    public TableActive() {}
 
     TableActive(int id, int tableNum, byte[] type, int kidsHeads, int adultHeads) {
         Id = id;
@@ -36,6 +40,19 @@ public class TableActive extends Table {
         AdultHeads = adultHeads;
         TimeCreated = LocalDateTime.now();
         TimeStarted = LocalDateTime.now();
+    }
+
+    TableActive(int id, int tableNum, byte[] type, LocalDateTime timeCreated, LocalDateTime timeStarted, int kidsHeads, int adultHeads, LocalDateTime timeFinished, boolean finished, double totalPrice) {
+        Id = id;
+        TableNum = tableNum;
+        Type = type;
+        KidHeads = kidsHeads;
+        AdultHeads = adultHeads;
+        TimeCreated = timeCreated;
+        TimeStarted = timeStarted;
+        TimeFinished = timeFinished;
+        Finished = finished;
+        TotalPrice = totalPrice;
     }
 
     public LocalDateTime getTimeFinished() {

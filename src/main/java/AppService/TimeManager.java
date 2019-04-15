@@ -17,7 +17,7 @@ public class TimeManager {
 
     private TimeManager() {
         clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            FXMLControllerMain.clockUpdate();
+            TableManager.i().clockUpdate();
         }), new KeyFrame(Duration.millis(500)));
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();

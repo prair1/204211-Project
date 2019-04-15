@@ -1,5 +1,7 @@
 package AppModel;
 
+import com.google.gson.annotations.Expose;
+
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
@@ -7,9 +9,11 @@ import static AppUtil.Converter.byteName;
 import static AppUtil.Converter.strFromByte;
 
 public class TableBooking extends Table {
-    private LocalDateTime TimeCheckin;
-    private byte[] customerName;
-    private int TotalHeads;
+
+    LocalDateTime TimeCheckin;
+    byte[] customerName;
+
+    public TableBooking() {}
 
     public TableBooking(int id, int tableNum, String type, int kidsHeads, int adultHeads, LocalDateTime timeCheckin, String customerName) {
         Id = id;
@@ -22,8 +26,15 @@ public class TableBooking extends Table {
         this.customerName = byteName(customerName);
     }
 
-    public int getTotalHeads() {
-        return TotalHeads;
+    public TableBooking(int id, int tableNum, byte[] type, LocalDateTime timeCreated, int kidsHeads, int adultHeads, LocalDateTime timeCheckin, byte[] customerName) {
+        Id = id;
+        TableNum = tableNum;
+        Type = type;
+        KidHeads = kidsHeads;
+        AdultHeads = adultHeads;
+        TimeCheckin = timeCheckin;
+        TimeCreated = timeCreated;
+        this.customerName = customerName;
     }
 
     public String getCustomerName() {
