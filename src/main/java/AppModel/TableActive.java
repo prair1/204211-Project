@@ -22,37 +22,24 @@ public class TableActive extends Table {
 
     public TableActive() {}
 
-    TableActive(int id, int tableNum, byte[] type, int kidsHeads, int adultHeads) {
+    TableActive(int id, int tableNum, byte[] course, int kidsNumber, int adultNumber) {
         Id = id;
         TableNum = tableNum;
-        Type = type;
-        KidHeads = kidsHeads;
-        AdultHeads = adultHeads;
+        Course = course;
+        KidNumber = kidsNumber;
+        AdultNumber = adultNumber;
         TimeCreated = LocalDateTime.now();
         TimeStarted = LocalDateTime.now();
     }
 
-    public TableActive(int id, int tableNum, String type, int kidsHeads, int adultHeads) {
+    public TableActive(int id, int tableNum, String course, int kidsNumber, int adultNumber) {
         Id = id;
         TableNum = tableNum;
-        Type = byteName(type);
-        KidHeads = kidsHeads;
-        AdultHeads = adultHeads;
+        Course = byteName(course);
+        KidNumber = kidsNumber;
+        AdultNumber = adultNumber;
         TimeCreated = LocalDateTime.now();
         TimeStarted = LocalDateTime.now();
-    }
-
-    TableActive(int id, int tableNum, byte[] type, LocalDateTime timeCreated, LocalDateTime timeStarted, int kidsHeads, int adultHeads, LocalDateTime timeFinished, boolean finished, double totalPrice) {
-        Id = id;
-        TableNum = tableNum;
-        Type = type;
-        KidHeads = kidsHeads;
-        AdultHeads = adultHeads;
-        TimeCreated = timeCreated;
-        TimeStarted = timeStarted;
-        TimeFinished = timeFinished;
-        Finished = finished;
-        TotalPrice = totalPrice;
     }
 
     public LocalDateTime getTimeFinished() {
@@ -130,11 +117,11 @@ public class TableActive extends Table {
     }
 
     public double calAdultsPrice() {
-        return AdultHeads * SettingManager.i().getPriceAdult(Type);
+        return AdultNumber * SettingManager.i().getPriceAdult(Course);
     }
 
     public double calKidsPrice() {
-        return KidHeads * SettingManager.i().getPriceKids(Type);
+        return KidNumber * SettingManager.i().getPriceKids(Course);
     }
 
     public void setTotalPrice(double totalPrice) {
@@ -145,20 +132,20 @@ public class TableActive extends Table {
         String log;
         log = String.format("Customer %d (Created on %s)%n" +
                         "Table number: %d%n" +
-                        "Type: %s%n" +
+                        "Course: %s%n" +
                         "Time started: %s%n" +
                         "Time finished: %s%n" +
-                        "Kid Heads: %d%n" +
-                        "Adult Heads: %d%n" +
+                        "Kid Number: %d%n" +
+                        "Adult Number: %d%n" +
                         "Total Price: %f%n",
                 Id,
                 TimeCreated.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")),
                 TableNum,
-                strFromByte(Type),
+                strFromByte(Course),
                 TimeStarted.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                 TimeFinished.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-                KidHeads,
-                AdultHeads,
+                KidNumber,
+                AdultNumber,
                 TotalPrice);
         Logger.i().addLog(log);
     }

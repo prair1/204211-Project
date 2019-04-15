@@ -13,11 +13,11 @@ public abstract class Table {
 
     int Id;
     int TableNum;
-    byte[] Type;
+    byte[] Course;
     LocalDateTime TimeCreated;
     LocalDateTime TimeStarted;
-    int KidHeads;
-    int AdultHeads;
+    int KidNumber;
+    int AdultNumber;
     transient Label TimeLab;
 
     //region getter-setter
@@ -33,12 +33,12 @@ public abstract class Table {
         TableNum = tableNum;
     }
 
-    public String getType() {
-        return strFromByte(Type);
+    public String getCourse() {
+        return strFromByte(Course);
     }
 
-    public void setType(String type) {
-        Type = byteName(type);
+    public void setCourse(String course) {
+        Course = byteName(course);
     }
 
     public LocalDateTime getTimeCreated() {
@@ -49,20 +49,20 @@ public abstract class Table {
         return TimeStarted;
     }
 
-    public int getKidHeads() {
-        return KidHeads;
+    public int getKidNumber() {
+        return KidNumber;
     }
 
-    public void setKidHeads(int kidHeads) {
-        KidHeads = kidHeads;
+    public void setKidNumber(int kidNumber) {
+        KidNumber = kidNumber;
     }
 
-    public int getAdultHeads() {
-        return AdultHeads;
+    public int getAdultNumber() {
+        return AdultNumber;
     }
 
-    public void setAdultHeads(int adultHeads) {
-        AdultHeads = adultHeads;
+    public void setAdultNumber(int adultNumber) {
+        AdultNumber = adultNumber;
     }
 
     public void setTimeLab(Label timeLab) {

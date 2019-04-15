@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +33,7 @@ public class FXMLControllerBooked implements Initializable {
     @FXML
     Label timeLab;
     @FXML
-    Label cliNameLab;
+    Label cusNameLab;
     @FXML
     Label dateLab;
     @FXML
@@ -54,6 +55,29 @@ public class FXMLControllerBooked implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backBtn.setOnMouseClicked(e -> goBack());
+        cancelBtn.setOnMouseClicked(e -> cancel());
+        activeBtn.setOnMouseClicked(e -> start());
+        tbNumLab.setText(String.valueOf(table.getTableNum()));
+        courseLab.setText(table.getCourse());
+        cusNameLab.setText(table.getCustomerName());
+        ANumLab.setText(String.valueOf(table.getAdultNumber()));
+        KNumLab.setText(String.valueOf(table.getKidNumber()));
+        dateLab.setText(table.getCheckinDate());
+        reserveLab.setText(table.getCheckinTime());
+    }
 
+    private void goBack() {
+        ((Stage)backBtn.getScene().getWindow()).close();
+    }
+
+    private void cancel() {
+        TableManager.i().delTableBooking(table.getId());
+        goBack();
+    }
+
+    private void start() {
+        TableManager.i().startTable(table.getId());
+        goBack();
     }
 }

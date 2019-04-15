@@ -105,7 +105,7 @@
                   <Insets left="40.0" top="30.0" />
                </GridPane.margin>
             </Label>
-            <Label fx:id="cliNameLab" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="68.0" text="{CLIENTNAME}" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Label fx:id="cusNameLab" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="68.0" text="{CUSNAME}" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="20.0" />
                </GridPane.margin>

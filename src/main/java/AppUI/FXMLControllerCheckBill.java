@@ -75,9 +75,9 @@ public class FXMLControllerCheckBill implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // region table Label
         tbNameLab.setText(String.valueOf(table.getTableNum()));
-        courseLab.setText(table.getType());
-        adultNumLab.setText(String.valueOf(table.getAdultHeads()));
-        kidNumLab.setText(String.valueOf(table.getKidHeads()));
+        courseLab.setText(table.getCourse());
+        adultNumLab.setText(String.valueOf(table.getAdultNumber()));
+        kidNumLab.setText(String.valueOf(table.getKidNumber()));
         adultPriceLab.setText(String.valueOf(table.calAdultsPrice()));
         kidPriceLab.setText(String.valueOf(table.calKidsPrice()));
         // endregion

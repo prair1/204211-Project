@@ -119,7 +119,10 @@ public class FXMLControllerMain implements Initializable {
         FXMLControllerBooked cont= new FXMLControllerBooked(id);
         loader.Load(stage, "tBookedScene.fxml", false, "Com-text.css", cont);
         stage.setTitle("Info");
-        stage.setOnHiding(e -> reloadBooked());
+        stage.setOnHiding(e -> {
+            reloadBooked();
+            reloadActive();
+        });
         stage.show();
     }
 

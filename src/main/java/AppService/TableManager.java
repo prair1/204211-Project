@@ -72,16 +72,16 @@ public class TableManager {
         return ourInstance;
     }
 
-    public void newTableActive(int tableNum, String type, int kidsHeads, int adultHeads) {
+    public void newTableActive(int tableNum, String course, int kidsNumber, int adultNumber) {
         tableNumSet.remove(tableNum);
-        TableActive table = new TableActive(genId(), tableNum, type, kidsHeads, adultHeads);
+        TableActive table = new TableActive(genId(), tableNum, course, kidsNumber, adultNumber);
         tableActives.put(table.getId(), table);
         updateFile();
     }
 
-    public void newTableBooking(int tableNum, String type, String customerName,int kidsHeads, int adultHeads, LocalDateTime timeCheckin) {
+    public void newTableBooking(int tableNum, String course, String customerName,int kidsNumber, int adultNumber, LocalDateTime timeCheckin) {
         tableNumSet.remove(tableNum);
-        TableBooking table = new TableBooking(genId(), tableNum, type, kidsHeads, adultHeads, timeCheckin, customerName);
+        TableBooking table = new TableBooking(genId(), tableNum, course, kidsNumber, adultNumber, timeCheckin, customerName);
         tableBookings.put(table.getId(), table);
         updateFile();
     }
@@ -101,12 +101,19 @@ public class TableManager {
     public Table findById(int id) {
         Table table = null;
         if (tableActives.containsKey(id)) {
-            table = tableActives.get((id));
+            table = tableActives.get(id);
         }
         if (tableBookings.containsKey(id)) {
-            table = tableBookings.get((id));
+            table = tableBookings.get(id);
         }
         return table;
+    }
+
+    public void startTable(int id) {
+        TableBooking table = tableBookings.get(id);
+        tableBookings.remove(id);
+        tableActives.put(table.getId(), table.toActive());
+        updateFile();
     }
 
     public LinkedHashMap<Integer, TableActive> getTableActives() {
