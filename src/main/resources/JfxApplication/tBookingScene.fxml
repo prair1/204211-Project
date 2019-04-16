@@ -105,7 +105,7 @@
                   <JFXComboBox fx:id="minCob" prefHeight="26.0" prefWidth="60.0" styleClass="time-jfx-combo-box" stylesheets="@Com-text.css" />
                </children>
             </HBox>
-            <Label fx:id="errorLab" alignment="TOP_CENTER" layoutX="256.0" layoutY="273.0" prefHeight="20.0" prefWidth="130.0" text="{ERROR}" textFill="WHITE" visible="false" />
+            <Label fx:id="errorLab" alignment="TOP_CENTER" layoutX="141.0" layoutY="273.0" prefHeight="20.0" prefWidth="245.0" text="{ERROR}" textFill="#e53935" visible="false" />
          </children>
       </AnchorPane>
    </center>

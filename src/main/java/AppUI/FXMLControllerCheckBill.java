@@ -140,7 +140,7 @@ public class FXMLControllerCheckBill implements Initializable {
         showTotalLab.setText(String.valueOf(calFinalPrice()));
         otherFineAmountTxtF.setDisable(false);
         stopNBillBtn.setText(Text.END.get());
-        stopNBillBtn.setStyle("-fx-background-color: #b70101");
+        stopNBillBtn.setStyle("-fx-background-color: #00a856");
         stopNBillBtn.setOnMouseClicked(e -> endTable());
     }
 
