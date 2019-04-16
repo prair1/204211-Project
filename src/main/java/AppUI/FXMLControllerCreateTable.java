@@ -64,17 +64,30 @@ public class FXMLControllerCreateTable implements Initializable {
             courseCob.getItems().add(pm.getValue().getName());
         }
         courseCob.getSelectionModel().selectFirst();
+        tbLab.setText(Text.TTABLE.get());
+        courseCob.setPromptText(Text.COURSE.get());
+        amountLab.setText(Text.AMOUNT.get());
+        adultLab.setText(Text.ADULT.get());
+        kidLab.setText(Text.KID.get());
+        errorLab.setText(Text.ERR_PEMPTY.get());
+        backBtn.setText(Text.BACK.get());
+        okBtn.setText(Text.OK.get());
     }
 
     @FXML
     void okClicked() {
+        if (TableManager.i().tableEmpty()) {
+            errorLab.setText(Text.ERR_TEMPTY.get());
+            msgToVisible();
+            return;
+        }
         boolean isReady = true;
         JFXTextField[] txtFList = {adultTxtF, kidTxtF};
         for (JFXTextField txtF : txtFList) {
             txtF.setStyle("-fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
             if (txtF.getText().isEmpty()) {
                 txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
-                errorLab.setText("Where is people");
+                errorLab.setText(Text.ERR_PEMPTY.get());
                 msgToVisible();
                 isReady = false;
             }

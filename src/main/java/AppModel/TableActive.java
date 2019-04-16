@@ -59,13 +59,18 @@ public class TableActive extends Table {
         return TimeStarted.until(TimeFinished.minus(SettingManager.i().getTimeLimit(), SECONDS), SECONDS);
     }
 
+    public long getTime() {
+        long time;
+        if (SettingManager.i().isLimitTime())
+            time = 0 - TimeStarted.until(LocalDateTime.now().minus(SettingManager.i().getTimeLimit(), SECONDS), SECONDS);
+        else
+            time = TimeStarted.until(LocalDateTime.now(), SECONDS);
+        return time;
+    }
+
     public void updateTime() {
         if (!Finished) {
-            long time;
-            if (SettingManager.i().isLimitTime())
-                time = 0 - TimeStarted.until(LocalDateTime.now().minus(SettingManager.i().getTimeLimit(), SECONDS), SECONDS);
-            else
-                time = TimeStarted.until(LocalDateTime.now(), SECONDS);
+            long time = getTime();
 
             long times = Math.abs(time);
             String clock;

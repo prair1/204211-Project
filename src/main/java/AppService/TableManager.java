@@ -131,6 +131,10 @@ public class TableManager {
         return tableNumSet;
     }
 
+    public boolean tableEmpty() {
+        return tableNumSet.size() == 0;
+    }
+
     private int genId() {
         return random.nextInt() + random.nextInt() + random.nextInt();
     }

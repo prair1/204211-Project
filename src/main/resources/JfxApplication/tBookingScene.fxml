@@ -37,7 +37,7 @@
       </VBox>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="85.0" text="{AMOUNT}" textFill="WHITE" />
             <VBox alignment="TOP_CENTER" layoutX="155.0" layoutY="66.0" prefHeight="99.0" prefWidth="100.0">

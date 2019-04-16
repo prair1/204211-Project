@@ -5,9 +5,12 @@ import AppModel.TableActive;
 import AppModel.TableBooking;
 import AppService.SettingManager;
 import AppService.TableManager;
+import AppUtil.Text;
 import JfxApplication.SceneLoader;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,6 +38,8 @@ public class FXMLControllerMain implements Initializable {
     Label mainLab;
     @FXML
     Label activeLab;
+    @FXML
+    Label bookLab;
     @FXML
     FlowPane activeFlow;
     @FXML
@@ -193,8 +198,8 @@ public class FXMLControllerMain implements Initializable {
         catch (Exception e) {
             timeSpLab = new Label();
         }
-        TableManager.i().findById(id).setTimeLab(timeSpLab);
-
+        Table tab = TableManager.i().findById(id);
+        tab.setTimeLab(timeSpLab);
         timeSpLab.setStyle("-fx-font-size: 10px;" +
                 "-fx-text-fill: #ffffff;" +
                 "-fx-text-alignment: center");
@@ -213,6 +218,16 @@ public class FXMLControllerMain implements Initializable {
         tableBtn.setStyle("-fx-background-color:" + btnColor);
         FlowPane.setMargin(tableBtn, new Insets(20, 20, 0, 0));
         nodes.add(tableBtn);
+        Timeline colorChange = new Timeline(
+                new KeyFrame(Duration.ZERO, e-> {
+
+                }), new KeyFrame(Duration.millis(1))
+        );
+        timeSpLab.textProperty().addListener(e -> {
+            if (tab.getTime() == 0) {
+                colorChange.play();
+            }
+        });
         return tableBtn;
     }
 }

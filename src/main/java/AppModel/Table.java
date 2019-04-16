@@ -1,6 +1,7 @@
 package AppModel;
 
 import com.google.gson.annotations.Expose;
+import com.jfoenix.controls.JFXButton;
 import javafx.scene.control.Label;
 
 import java.nio.charset.StandardCharsets;
@@ -76,5 +77,6 @@ public abstract class Table {
 
     //endregion
 
+    public abstract long getTime();
     abstract void updateTime();
 }
