@@ -5,121 +5,13 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerBooking">
-   <center>
-      <GridPane alignment="CENTER" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4000244140625" minWidth="10.0" prefWidth="130.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="130.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="130.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="95.60001220703126" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="158.40001983642577" minHeight="4.0" prefHeight="56.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="8.599963378906239" prefHeight="48.59996337890624" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="131.80003662109377" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" text="{AMOUNT}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets left="40.0" top="20.0" />
-               </GridPane.margin>
-            </Label>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <children>
-                  <Label fx:id="adultLab" text="{ADULT}" textFill="WHITE">
-                     <opaqueInsets>
-                        <Insets right="40.0" />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="kidLab" text="{KID}" textFill="WHITE">
-                     <opaqueInsets>
-                        <Insets right="40.0" />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-            </VBox>
-            <JFXButton fx:id="backBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </JFXButton>
-            <JFXButton fx:id="bookBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{BOOKING}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </JFXButton>
-            <VBox alignment="TOP_CENTER" layoutX="144.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
-               <children>
-                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
-                     <VBox.margin>
-                        <Insets left="40.0" right="30.0" top="10.0" />
-                     </VBox.margin>
-                  </JFXTextField>
-                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
-                     <VBox.margin>
-                        <Insets left="40.0" right="30.0" top="20.0" />
-                     </VBox.margin>
-                  </JFXTextField>
-               </children>
-               <opaqueInsets>
-                  <Insets top="20.0" />
-               </opaqueInsets>
-            </VBox>
-            <Label fx:id="nameLab" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="171.0" text="{NAME}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets left="40.0" top="20.0" />
-               </GridPane.margin>
-            </Label>
-            <JFXTextField fx:id="nameTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
-               </GridPane.margin>
-            </JFXTextField>
-            <Label fx:id="timeLab" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="68.0" text="{TIME}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets left="40.0" top="30.0" />
-               </GridPane.margin>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <children>
-                  <JFXComboBox fx:id="dayCob" />
-                  <Label text="/" textFill="WHITE" />
-                  <JFXComboBox fx:id="monthCob" />
-                  <Label text="/" textFill="WHITE" />
-                  <JFXComboBox fx:id="yearCob" />
-               </children>
-            </HBox>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <children>
-                  <JFXComboBox fx:id="hourCob" />
-                  <Label text=":" textFill="WHITE" />
-                  <JFXComboBox fx:id="minCob" />
-               </children>
-            </HBox>
-            <Label fx:id="errorLab" text="{ERROR}" textFill="WHITE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-         </children>
-      </GridPane>
-   </center>
    <top>
       <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #cca6bc;" BorderPane.alignment="CENTER">
          <children>
@@ -144,4 +36,77 @@
          </children>
       </VBox>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="85.0" text="{AMOUNT}" textFill="WHITE" />
+            <VBox alignment="TOP_CENTER" layoutX="155.0" layoutY="66.0" prefHeight="99.0" prefWidth="100.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label fx:id="adultLab" text="{ADULT}" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets right="40.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="kidLab" text="{KID}" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets right="40.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <JFXButton fx:id="backBtn1" alignment="CENTER" layoutX="21.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="21.0" />
+            <JFXButton fx:id="bookBtn" alignment="CENTER" layoutX="285.0" layoutY="293.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{BOOKING}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <VBox alignment="TOP_CENTER" layoutX="275.0" layoutY="61.0" prefHeight="104.0" prefWidth="110.0">
+               <children>
+                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
+                     <VBox.margin>
+                        <Insets left="40.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
+                     <VBox.margin>
+                        <Insets left="40.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+               <opaqueInsets>
+                  <Insets top="20.0" />
+               </opaqueInsets>
+            </VBox>
+            <Label fx:id="nameLab" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="25.0" text="{NAME}" textFill="WHITE" />
+            <JFXTextField fx:id="nameTxtF" focusColor="#ff8d9c" layoutX="145.0" layoutY="21.0" unFocusColor="#ff616f" />
+            <Label fx:id="timeLab" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="185.0" text="{TIME}" textFill="WHITE" AnchorPane.leftAnchor="47.0" />
+            <HBox alignment="CENTER" layoutX="167.0" layoutY="179.0" prefHeight="48.0" prefWidth="211.0" AnchorPane.rightAnchor="40.0">
+               <children>
+                  <JFXComboBox fx:id="dayCob" prefWidth="60.0" styleClass="time-jfx-combo-box" stylesheets="@Com-text.css" />
+                  <Label text="/" textFill="WHITE" />
+                  <JFXComboBox fx:id="monthCob" prefWidth="60.0" styleClass="time-jfx-combo-box" stylesheets="@Com-text.css" />
+                  <Label text="/" textFill="WHITE" />
+                  <JFXComboBox fx:id="yearCob" prefHeight="26.0" prefWidth="80.0" styleClass="time-jfx-combo-box" stylesheets="@Com-text.css" />
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" layoutX="151.0" layoutY="227.0" prefHeight="27.0" prefWidth="124.0" AnchorPane.rightAnchor="125.0">
+               <children>
+                  <JFXComboBox fx:id="hourCob" prefHeight="27.0" prefWidth="60.0" styleClass="time-jfx-combo-box" stylesheets="@Com-text.css" />
+                  <Label text=":" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="1.0" right="1.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXComboBox fx:id="minCob" prefHeight="26.0" prefWidth="60.0" styleClass="time-jfx-combo-box" stylesheets="@Com-text.css" />
+               </children>
+            </HBox>
+            <Label fx:id="errorLab1" alignment="TOP_CENTER" layoutX="256.0" layoutY="273.0" prefHeight="20.0" prefWidth="130.0" text="{ERROR}" textFill="WHITE" visible="false" />
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>

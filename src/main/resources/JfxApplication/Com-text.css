@@ -13,3 +13,10 @@
 .text-field {
     -fx-text-fill:  #ffffff;
 }
+
+.time-jfx-combo-box .cell {
+    -fx-text-fill: #ffffff; /* change selected text (item) color */
+    -fx-background-color: #393939; /* change background color */
+    -fx-border-color:  transparent;
+
+}
