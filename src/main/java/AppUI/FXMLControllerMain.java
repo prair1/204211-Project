@@ -8,9 +8,7 @@ import AppService.TableManager;
 import AppUtil.Text;
 import JfxApplication.SceneLoader;
 import com.jfoenix.controls.JFXButton;
-import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,8 +16,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -195,19 +193,43 @@ public class FXMLControllerMain implements Initializable {
         tableBtn.setPrefSize(80, 80);
         tableBtn.setAlignment(Pos.CENTER_LEFT);
         tableBtn.setText("");
-        tableBtn.setStyle("-fx-background-color:" + btnColor);
+        if (tab.getTime() < 0) {
+            Color vColor = new Color(198.0/255.0, 40.0/255.0, 40.0/255.0, 1);
+            tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor),vColor));
+        }
+        else {
+            tableBtn.setStyle("-fx-background-color:" + btnColor);
+        }
         FlowPane.setMargin(tableBtn, new Insets(20, 20, 0, 0));
         nodes.add(tableBtn);
-        Timeline colorChange = new Timeline(
-                new KeyFrame(Duration.ZERO, e-> {
+        Animation animation = new Transition() {
 
-                }), new KeyFrame(Duration.millis(1))
-        );
+            {
+                setCycleDuration(Duration.millis(500));
+                setInterpolator(Interpolator.EASE_IN);
+            }
+
+            @Override
+            protected void interpolate(double frac) {
+                Color vColor = new Color(40.0/255.0, 40.0/255.0, 40.0/255.0, frac);
+                tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor),vColor));
+            }
+        };
         timeSpLab.textProperty().addListener(e -> {
             if (tab.getTime() == 0) {
-                colorChange.play();
+                animation.play();
+            }
+            else if (tab.getTime() < 0) {
+                Color vColor = new Color(40.0/255.0, 40.0/255.0, 40.0/255.0, 1);
+                tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor),vColor));
             }
         });
         return tableBtn;
+    }
+    private String mixRGB(Color currColor, Color colorNext) {
+        int red = (int) (((currColor.getRed() * (1-colorNext.getOpacity())) + (colorNext.getRed() * colorNext.getOpacity())) * 255);
+        int green = (int) (((currColor.getGreen()* (1-colorNext.getOpacity())) + (colorNext.getGreen() * colorNext.getOpacity())) * 255);
+        int blue = (int) (((currColor.getBlue()* (1-colorNext.getOpacity())) + (colorNext.getBlue() * colorNext.getOpacity())) * 255);
+        return String.format( "#%02X%02X%02X",red, green, blue);
     }
 }

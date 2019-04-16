@@ -93,6 +93,7 @@ public class FXMLControllerCheckBill implements Initializable {
                 stopNBillBtn.setStyle("-fx-background-color: #af4444");
                 stopNBillBtn.setOnMouseClicked(e -> stopTimer());
                 totalTimeLab.setText("pls stop clock");
+                totalTimeLab.setStyle("-fx-text-fill: #e53935");
                 showSCLab.setVisible(false);
                 showTotalLab.setVisible(false);
                 otherFineAmountTxtF.setDisable(true);
@@ -128,6 +129,7 @@ public class FXMLControllerCheckBill implements Initializable {
     private void stopTimer() {
         table.setFinished();
         totalTimeLab.setText(table.getTxtTime('t'));
+        totalTimeLab.setStyle("-fx-text-fill: #ffffff");
         overTimeLab.setText(table.getTxtTime('o'));
         showFineLab.setText(String.valueOf(table.calExcessFine()));
         showSCLab.setVisible(true);

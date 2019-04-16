@@ -18,7 +18,7 @@ public enum Text {
     SERVICECHARGE("ค่าบริการ", "Service charge"),
     COURSE("คอร์ส","Course"),
     PRICE("ราคา", "Price"),
-    ADULT("ผู้ใหญ","Adult"),
+    ADULT("ผู้ใหญ่","Adult"),
     KID("เด็ก","Kid"),
     BACK("กลับ", "Back"),
     SAVE("เซฟ","Save"),
@@ -50,9 +50,10 @@ public enum Text {
     STOP("คิดเงิน","Check bill"),
     END("ออก","Exit"),
     ERR_PEMPTY("กรุณากรอกข้อมูลให้ครบ","Please fill in the information"),
-    ERR_TIMEIN("กรุณากรอกข้อมูลให้ครบ", "Please fill in the information"),
-    ERR_MUL("กรุณากรอกข้อมูลให้ครบ" ,"Please fill in the information"),
-    ERR_TEMPTY("กรุณากรอกข้อมูลให้ครบ","Please fill in the information");
+    ERR_TIMEIN("กรุณากรอกเวลาให้ถูกต้อง", "Please enter the correct time"),
+    ERR_MUL("กรุณากรอกข้อมูลให้ถูกต้อง" ,"Please enter the correct information"),
+    ERR_TEMPTY("โต๊ะหมด","Full Table"),
+    MSG_STOPCLOCK("หยุดนาฬิกาพลีส", "pls stop clock");
 
     private final String THTxt;
     private final String ENTxt;
