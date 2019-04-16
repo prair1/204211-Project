@@ -43,7 +43,7 @@
                 <RowConstraints maxHeight="457.6000091552734" minHeight="10.0" prefHeight="445.6000030517578" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="450.0" style="-fx-background-color: #393939;" GridPane.rowIndex="1">
+                  <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="450.0" style="-fx-background-color: #393939;" GridPane.rowIndex="1">
                      <content>
                         <FlowPane fx:id="activeFlow" prefHeight="440.0" prefWidth="485.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" />
                      </content>
@@ -52,7 +52,7 @@
                         <URL value="@styles.css" />
                      </stylesheets>
                   </ScrollPane>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="450.0" style="-fx-background-color: #393939;" styleClass=".scroll-baractive:vertical .thumb" stylesheets="@mainsceneStyles.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="450.0" style="-fx-background-color: #393939;" styleClass=".scroll-baractive:vertical .thumb" stylesheets="@mainsceneStyles.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <content>
                         <FlowPane fx:id="bookFlow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="485.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" stylesheets="@mainsceneStyles.css" />
                      </content>
