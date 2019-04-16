@@ -147,11 +147,6 @@
                   </JFXTextField>
                </children>
             </HBox>
-            <JFXTextField fx:id="otherFineTxtF" alignment="TOP_LEFT" focusColor="#ff8d9c" labelFloat="true" prefHeight="26.0" prefWidth="198.0" promptText="{OTHER}" unFocusColor="#ff616f" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets left="50.0" right="10.0" />
-               </GridPane.margin>
-            </JFXTextField>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
                   <Label fx:id="totalTimeLab" alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="{TOTALTIME}" textFill="WHITE">
@@ -209,6 +204,11 @@
                </opaqueInsets>
                <GridPane.margin>
                   <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="otherFineLab" text="{OTHER}" textFill="WHITE" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="50.0" />
                </GridPane.margin>
             </Label>
          </children>

@@ -139,6 +139,7 @@ public class FXMLControllerMain implements Initializable {
         nameLab.setStyle("-fx-font-size: 18px;" +
                 "-fx-text-fill: #ffffff");
 
+
         Label timeSpLab;
         try {
             timeSpLab = new Label(TableManager.i().findById(id).getTimeLab().getText());
@@ -149,13 +150,15 @@ public class FXMLControllerMain implements Initializable {
         TableManager.i().findById(id).setTimeLab(timeSpLab);
 
         timeSpLab.setStyle("-fx-font-size: 10px;" +
-                "-fx-text-fill: #ffffff");
+                "-fx-text-fill: #ffffff;"+
+                "-fx-text-alignment: CENTER");
+        timeSpLab.setAlignment(Pos.CENTER);
 
         VBox theBox = new VBox(nameLab, timeSpLab);
         theBox.setPrefSize(80, 80);
         theBox.setAlignment(Pos.TOP_CENTER);
         VBox.setMargin(nameLab, new Insets(10, 0, 0, 0));
-        VBox.setMargin(timeSpLab, new Insets(10, 0, 0, 0));
+        VBox.setMargin(timeSpLab, new Insets(5, 0, 0, 0));
 
         JFXButton tableBtn = new JFXButton();
         tableBtn.setGraphic(theBox);

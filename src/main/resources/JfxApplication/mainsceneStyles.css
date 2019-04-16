@@ -30,3 +30,7 @@
     -fx-shape : " ";
     -fx-padding :0.0 0.15em;
 }
+
+.JFX-button{
+    -fx-font-size: 16px;
+}

@@ -49,7 +49,7 @@ public class FXMLControllerCheckBill implements Initializable {
     @FXML
     JFXTextField otherFineAmountTxtF;
     @FXML
-    JFXTextField otherFineTxtF;
+    Label otherFineLab;
     @FXML
     Label totalTimeLab;
     @FXML
