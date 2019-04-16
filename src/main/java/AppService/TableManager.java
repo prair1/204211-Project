@@ -3,6 +3,10 @@ package AppService;
 import AppModel.Table;
 import AppModel.TableActive;
 import AppModel.TableBooking;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -13,24 +17,23 @@ public class TableManager {
     private Random random = new Random();
     LinkedHashMap<Integer, TableActive> tableActives = new LinkedHashMap<>();
     LinkedHashMap<Integer, TableBooking> tableBookings = new LinkedHashMap<>();
-
+    Timeline clock;
 
     private TreeSet<Integer> tableNumSet = new TreeSet<>();
 
     private TableManager() {
-
         reloadTableNum();
+        clock = new Timeline(new KeyFrame(Duration.ZERO, e -> clockUpdate()), new KeyFrame(Duration.millis(500)));
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+
     }
 
     public void updateFile() {
-        ArrayList<TableActive> saveActive = new ArrayList<>();
-        for (TableActive tab: tableActives.values())
-            saveActive.add(tab);
+        ArrayList<TableActive> saveActive = new ArrayList<>(tableActives.values());
         SaverAndLoader.saveTo(saveActive.toArray(), "tableActives.json");
 
-        ArrayList<TableBooking> saveBooking = new ArrayList<>();
-        for (TableBooking tab: tableBookings.values())
-            saveBooking.add(tab);
+        ArrayList<TableBooking> saveBooking = new ArrayList<>(tableBookings.values());
         SaverAndLoader.saveTo(saveBooking.toArray(), "tableBookings.json");
     }
 
@@ -128,11 +131,11 @@ public class TableManager {
         return tableNumSet;
     }
 
-    public int genId() {
+    private int genId() {
         return random.nextInt() + random.nextInt() + random.nextInt();
     }
 
-    public void clockUpdate() {
+    private void clockUpdate() {
         for (TableActive table: tableActives.values()) {
             table.updateTime();
         }

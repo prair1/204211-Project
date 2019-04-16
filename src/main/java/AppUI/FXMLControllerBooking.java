@@ -6,10 +6,12 @@ import AppService.TableManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -109,9 +111,8 @@ public class FXMLControllerBooking implements Initializable {
             if (txtF.getText().isEmpty()) {
                 txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
                 errorLab.setText("Where is people");
-                errorLab.setVisible(true);
+                msgToVisible();
                 isReady = false;
-
             }
         }
         LocalDateTime timeCheckin = LocalDateTime.of(Integer.parseInt(yearCob.getValue()),
@@ -128,7 +129,7 @@ public class FXMLControllerBooking implements Initializable {
                 box.setStyle("-fx-background-color: rgba(198,40,40,0.2);");
             }
             errorLab.setText(isReady ? "Oh no Time Invalid" : "Multiple Error!");
-            errorLab.setVisible(true);
+            msgToVisible();
             isReady = false;
         }
 
@@ -186,5 +187,20 @@ public class FXMLControllerBooking implements Initializable {
     @FXML
     void goBack() {
         ((Stage) backBtn.getScene().getWindow()).close();
+    }
+
+    private void msgToVisible() {
+        errorLab.setOpacity(0);
+        errorLab.setVisible(true);
+        FadeTransition ft = new FadeTransition(Duration.millis(150), errorLab);
+        ft.setFromValue(0);
+        ft.setToValue(1);
+        ft.play();
+        FadeTransition ft2 = new FadeTransition(Duration.millis(150), errorLab);
+        ft2.setDelay(Duration.seconds(3));
+        ft2.setFromValue(1);
+        ft2.setToValue(0);
+        ft2.play();
+        ft2.setOnFinished(e->errorLab.setVisible(false));
     }
 }

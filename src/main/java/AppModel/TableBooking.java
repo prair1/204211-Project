@@ -8,7 +8,6 @@ import com.google.gson.annotations.Expose;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
-import static AppService.TimeManager.sepTime;
 import static AppUtil.Converter.byteName;
 import static AppUtil.Converter.strFromByte;
 import static java.time.temporal.ChronoUnit.SECONDS;

@@ -9,10 +9,7 @@ import com.google.gson.annotations.Expose;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static AppService.TimeManager.secondToStr;
-import static AppService.TimeManager.sepTime;
-import static AppUtil.Converter.byteName;
-import static AppUtil.Converter.strFromByte;
+import static AppUtil.Converter.*;
 import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class TableActive extends Table {

@@ -46,6 +46,7 @@ public class FXMLControllerMain implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        TableManager.i().getFile();
         newbookBtn.setStyle(" -fx-font-family:  fontello;");
         newtableBtn.setStyle(" -fx-font-family:  fontello;");
         settingBtn.setStyle(" -fx-font-family:  fontello;");
@@ -121,7 +122,7 @@ public class FXMLControllerMain implements Initializable {
     private void createBookTable(int id, int index) {
         JFXButton btn= createTableBtn(id, bookFlow, "#00796b");
         btn.setOpacity(0);
-        btn.setOnMouseClicked(e -> openCheckBill(id));
+        btn.setOnMouseClicked(e -> openBooked(id));
         FadeTransition ft = new FadeTransition(Duration.millis(500), btn);
         ft.setDelay(Duration.millis(100*index));
         ft.setFromValue(0);

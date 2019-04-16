@@ -30,8 +30,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import static AppService.TimeManager.secondToStr;
-import static AppService.TimeManager.strToSecond;
+import static AppUtil.Converter.sepTime;
 
 public class FXMLControllerSetting implements Initializable {
 
@@ -443,5 +442,14 @@ public class FXMLControllerSetting implements Initializable {
         ft2.setToValue(0);
         ft2.play();
         ft2.setOnFinished(e->messageLab.setVisible(false));
+    }
+
+    public static long strToSecond(String hour, String minute, String second) {
+        return (Long.parseLong(hour) * 3600) + (Long.parseLong(minute) * 60) + Long.parseLong(second);
+    }
+
+    public static String[] secondToStr(long second) {
+        long[] time = sepTime(second);
+        return new String[] {String.valueOf(time[0]), String.valueOf(time[1]), String.valueOf(time[2])};
     }
 }
