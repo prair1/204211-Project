@@ -14,7 +14,7 @@ public class AppLoader extends Application {
     public void start(Stage stage) {
         SceneLoader loader = new SceneLoader();
         Font.loadFont(AppLoader.class.getResource("fontello.ttf").toExternalForm(), 16.0);
-        loader.Load(stage,"mainScene.fxml", false, "styles.css");
+        loader.Load(stage,"mainScene.fxml", false);
         stage.setTitle("Table Manager");
         stage.setOnHidden(e -> Platform.exit());
         stage.show();

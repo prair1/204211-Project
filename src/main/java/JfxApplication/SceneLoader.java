@@ -9,12 +9,11 @@ import java.io.IOException;
 
 public class SceneLoader {
 
-    public void Load(Stage stage, String path, boolean resizeAble, String styleSheet) {
+    public void Load(Stage stage, String path, boolean resizeAble) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(path));
 
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource(styleSheet).toExternalForm());
             stage.setResizable(resizeAble);
             stage.setScene(scene);
         }

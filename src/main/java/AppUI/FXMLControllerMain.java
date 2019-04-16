@@ -49,7 +49,6 @@ public class FXMLControllerMain implements Initializable {
         settingBtn.setStyle(" -fx-font-family:  fontello;");
         reloadActive();
         reloadBooked();
-
     }
 
     @FXML
@@ -58,7 +57,7 @@ public class FXMLControllerMain implements Initializable {
         Stage currStage = (Stage) newtableBtn.getScene().getWindow();
         stage.initOwner(currStage);
         SceneLoader loader = new SceneLoader();
-        loader.Load(stage, "tCreateTableScene.fxml", false, "Com-text.css");
+        loader.Load(stage, "tCreateTableScene.fxml", false);
         stage.setTitle("Create");
         stage.setOnHiding(e -> reloadActive());
         stage.show();
@@ -101,7 +100,7 @@ public class FXMLControllerMain implements Initializable {
         Stage currStage = (Stage) newbookBtn.getScene().getWindow();
         stage.initOwner(currStage);
         SceneLoader loader = new SceneLoader();
-        loader.Load(stage, "tBookingScene.fxml", false, "Com-text.css");
+        loader.Load(stage, "tBookingScene.fxml", false);
         stage.setTitle("Booking");
         stage.setOnHiding(e -> reloadBooked());
         stage.show();

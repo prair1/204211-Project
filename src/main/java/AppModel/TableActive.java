@@ -2,6 +2,8 @@ package AppModel;
 
 import AppService.Logger;
 import AppService.SettingManager;
+import AppUtil.Lang;
+import AppUtil.Text;
 import com.google.gson.annotations.Expose;
 
 import java.time.LocalDateTime;
@@ -68,17 +70,23 @@ public class TableActive extends Table {
             else
                 time = TimeStarted.until(LocalDateTime.now(), SECONDS);
 
-            long[] times = sepTime(Math.abs(time));
-            String clock = String.format("%02d: %02d: %02d", times[0], times[1], times[2]);
+            long times = Math.abs(time);
+            String clock;
+            if (times > 3600)
+                clock = (times / 3600) + " " + Text.HOUR.get() + (times / 3600 > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
+            else if (times > 60)
+                clock = (times / 60) + " " + Text.MIN.get() + (times / 60 > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
+            else
+                clock = (times) + " " + Text.SEC.get() + (times > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
 
             if (SettingManager.i().isLimitTime()) {
                 if (time > 0)
-                    TimeLab.setText(clock + "r");
+                    TimeLab.setText(String.format(Text.ACTIVE_REMAIN.get(), clock));
                 else
-                    TimeLab.setText(clock + "ec");
+                    TimeLab.setText(String.format(Text.ACTIVE_EXCESS.get(), clock));
             }
             else
-                TimeLab.setText(clock + "e");
+                TimeLab.setText(String.format(Text.ACTIVE_ELAPSED.get(), clock));
         }
     }
 
