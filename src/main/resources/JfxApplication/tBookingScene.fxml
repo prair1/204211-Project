@@ -13,9 +13,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerBooking">
    <top>
-      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #cca6bc;" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #439889;" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="400.0" style="-fx-background-color: #ff99a5;">
+            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="400.0" style="-fx-background-color: #00695c;">
                <children>
                   <Label fx:id="tbLab" text="{TABLE}" textFill="WHITE">
                      <font>
@@ -64,15 +64,15 @@
                </children>
             </VBox>
             <JFXButton fx:id="backBtn" alignment="CENTER" layoutX="21.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="21.0" />
-            <JFXButton fx:id="bookBtn" alignment="CENTER" layoutX="285.0" layoutY="293.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{BOOKING}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <JFXButton fx:id="bookBtn" alignment="CENTER" layoutX="285.0" layoutY="293.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #00a856;" text="{BOOKING}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
             <VBox alignment="TOP_CENTER" layoutX="275.0" layoutY="61.0" prefHeight="104.0" prefWidth="110.0">
                <children>
-                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="adultTxtF" alignment="CENTER_RIGHT" focusColor="#ff8d9c" maxWidth="-Infinity" prefWidth="35.0" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="kidTxtF" alignment="CENTER_RIGHT" focusColor="#ff8d9c" maxWidth="-Infinity" prefWidth="35.0" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
@@ -83,7 +83,7 @@
                </opaqueInsets>
             </VBox>
             <Label fx:id="nameLab" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="25.0" text="{NAME}" textFill="WHITE" />
-            <JFXTextField fx:id="nameTxtF" focusColor="#ff8d9c" layoutX="145.0" layoutY="21.0" styleClass="text-field" stylesheets="@Com-text.css" unFocusColor="#ff616f" />
+            <JFXTextField fx:id="nameTxtF" alignment="CENTER" focusColor="#ff8d9c" layoutX="145.0" layoutY="21.0" styleClass="text-field" stylesheets="@Com-text.css" unFocusColor="#ff616f" />
             <Label fx:id="timeLab" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="185.0" text="{TIME}" textFill="WHITE" AnchorPane.leftAnchor="47.0" />
             <HBox alignment="CENTER" layoutX="167.0" layoutY="179.0" prefHeight="48.0" prefWidth="211.0" AnchorPane.rightAnchor="40.0">
                <children>

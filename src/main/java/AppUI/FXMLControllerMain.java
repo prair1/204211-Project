@@ -46,6 +46,14 @@ public class FXMLControllerMain implements Initializable {
     JFXButton newbookBtn;
     @FXML
     JFXButton settingBtn;
+    @FXML
+    AnchorPane apPane;
+    @FXML
+    StackPane spPane;
+    @FXML
+    VBox aVbox;
+    @FXML
+    VBox bVbox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,9 +63,19 @@ public class FXMLControllerMain implements Initializable {
         settingBtn.setStyle(" -fx-font-family:  fontello;");
         reloadActive();
         reloadBooked();
-        mainLab.setText(Text.MAIN.get());
-        activeLab.setText(Text.ACTIVE.get());
-        bookLab.setText(Text.BOOKING.get());
+        spPane.widthProperty().addListener(e -> {
+            double w = spPane.getWidth() - 1000;
+            apPane.setPrefWidth(20 + w/5);
+            aVbox.setMinWidth(505 + w/3);
+            aVbox.setMaxWidth(500 + w/3);
+            bVbox.setMinWidth(505 + w/3);
+            bVbox.setMaxWidth(500 + w/3);
+            activeFlow.setMinWidth(505 + w/3);
+            activeFlow.setMaxWidth(500 + w/3);
+            bookFlow.setMinWidth(505 + w/3);
+            bookFlow.setMaxWidth(510 + w/3);
+
+        });
     }
 
     @FXML
@@ -126,7 +144,7 @@ public class FXMLControllerMain implements Initializable {
     }
 
     private void createBookTable(int id, int index) {
-        JFXButton btn= createTableBtn(id, bookFlow, "#00796b");
+        JFXButton btn= createTableBtn(id, bookFlow, "#00695c");
         btn.setOpacity(0);
         btn.setOnMouseClicked(e -> openBooked(id));
         FadeTransition ft = new FadeTransition(Duration.millis(500), btn);

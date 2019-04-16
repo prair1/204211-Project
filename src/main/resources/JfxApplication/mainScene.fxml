@@ -7,19 +7,17 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@mainsceneStyles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerMain">
+<StackPane fx:id="spPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1070.0" style="-fx-background-color: #393939;" stylesheets="@mainsceneStyles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerMain">
    <children>
       <BorderPane blendMode="SRC_ATOP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393939;">
          <top>
-            <AnchorPane prefHeight="119.0" prefWidth="1000.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="-Infinity" prefHeight="130.0" prefWidth="1070.0" style="-fx-background-color: #393939;" BorderPane.alignment="TOP_LEFT">
                <children>
                   <Label fx:id="mainLab" layoutX="102.0" layoutY="16.0" text="{MAIN}" textFill="#b2b2b2" AnchorPane.leftAnchor="95.0" AnchorPane.topAnchor="20.0">
                      <font>
@@ -32,64 +30,10 @@
                </children>
             </AnchorPane>
          </top>
-         <center>
-            <GridPane style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="208.00000610351563" minHeight="10.0" prefHeight="41.599996948242186" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="457.6000091552734" minHeight="10.0" prefHeight="445.6000030517578" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="450.0" style="-fx-background-color: #393939;" GridPane.rowIndex="1">
-                     <content>
-                        <FlowPane fx:id="activeFlow" prefHeight="440.0" prefWidth="485.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" />
-                     </content>
-                     <stylesheets>
-                        <URL value="@Scroll.css" />
-                        <URL value="@styles.css" />
-                     </stylesheets>
-                  </ScrollPane>
-                  <ScrollPane hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="450.0" style="-fx-background-color: #393939;" styleClass=".scroll-baractive:vertical .thumb" stylesheets="@mainsceneStyles.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <content>
-                        <FlowPane fx:id="bookFlow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="485.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" stylesheets="@mainsceneStyles.css" />
-                     </content>
-                  </ScrollPane>
-                  <HBox prefHeight="47.0" prefWidth="480.0" GridPane.valignment="CENTER">
-                     <children>
-                        <Label fx:id="activeLab" prefHeight="30.0" prefWidth="170.0" text="{ACTIVE}" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <JFXButton fx:id="newtableBtn" onMouseClicked="#addActive" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #ff6666;" text="" textFill="WHITE" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <children>
-                        <Label fx:id="bookLab" prefHeight="30.0" prefWidth="170.0" text="{BOOKING}" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <JFXButton fx:id="newbookBtn" onMouseClicked="#addBooking" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #82E1B1;" text="" textFill="WHITE" />
-                     </children>
-                  </HBox>
-               </children>
-            </GridPane>
-         </center>
-         <left>
-            <AnchorPane prefHeight="436.0" prefWidth="20.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER" />
-         </left>
-         <right>
-            <AnchorPane prefHeight="200.0" prefWidth="20.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER" />
-         </right>
          <bottom>
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton fx:id="settingBtn" depthTest="DISABLE" ellipsisString=".." maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#toSetting" prefHeight="30.0" prefWidth="30.0" styleClass="JFX-button" stylesheets="@mainsceneStyles.css" text="" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <JFXButton fx:id="settingBtn" alignment="CENTER" depthTest="DISABLE" ellipsisString=".." maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#toSetting" prefHeight="40.0" prefWidth="40.0" ripplerFill="#ffffff00" styleClass="JFX-button" stylesheets="@mainsceneStyles.css" text="" textFill="WHITE" wrapText="true">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -103,6 +47,64 @@
                </opaqueInsets>
             </HBox>
          </bottom>
+         <left>
+            <VBox fx:id="aVbox" prefHeight="490.0" prefWidth="490.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="480.0">
+                     <children>
+                        <Label fx:id="activeLab" prefHeight="30.0" prefWidth="140.0" text="{ACTIVE}" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="newtableBtn" onMouseClicked="#addActive" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #ff6666;" styleClass="newtable-JFX-button" stylesheets="@mainsceneStyles.css" text="" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #393939; -fx-border-color: #393939;">
+                     <stylesheets>
+
+                        <URL value="@styles.css" />
+                     </stylesheets>
+                     <content>
+                        <FlowPane fx:id="activeFlow" prefHeight="1000.0" prefWidth="510.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <right>
+            <VBox fx:id="bVbox" prefHeight="490.0" prefWidth="490.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="400.0">
+                     <children>
+                        <Label fx:id="bookLab" prefHeight="30.0" prefWidth="140.0" text="{BOOKING}" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="newbookBtn" onMouseClicked="#addBooking" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #82E1B1;" styleClass="booking-JFX-button" stylesheets="@mainsceneStyles.css" text="" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="463.0" prefWidth="490.0" style="-fx-background-color: #393939;" styleClass=".scroll-baractive:vertical .thumb" stylesheets="@mainsceneStyles.css">
+                     <content>
+                        <FlowPane fx:id="bookFlow" prefHeight="1000.0" prefWidth="500.0" style="-fx-background-color: #393939; -fx-border-color: #393939;" stylesheets="@mainsceneStyles.css" />
+                     </content>
+                  </ScrollPane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets right="20.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <center>
+            <AnchorPane fx:id="apPane" maxWidth="-Infinity" prefHeight="436.0" prefWidth="20.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </children>
 </StackPane>

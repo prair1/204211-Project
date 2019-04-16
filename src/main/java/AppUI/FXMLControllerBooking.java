@@ -140,7 +140,7 @@ public class FXMLControllerBooking implements Initializable {
         }
         if (timeCheckin.isBefore(LocalDateTime.now())) {
             for (JFXComboBox box : cob) {
-                box.setStyle("-fx-background-color: rgba(198,40,40,0.2);");
+                box.setStyle("-fx-background-color: rgba(239, 83, 80,0.3);");
             }
             errorLab.setText(isReady ? Text.ERR_TIMEIN.get() : Text.ERR_MUL.get());
             msgToVisible();
