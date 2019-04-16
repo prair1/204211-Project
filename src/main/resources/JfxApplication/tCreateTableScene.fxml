@@ -5,91 +5,13 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerCreateTable">
-   <center>
-      <GridPane alignment="CENTER" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4000244140625" minWidth="10.0" prefWidth="130.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.2" minWidth="10.0" prefWidth="130.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.99998779296874" minWidth="10.0" prefWidth="130.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="95.60001220703126" minHeight="10.0" prefHeight="22.20000877380371" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="158.40001983642577" minHeight="10.0" prefHeight="73.80000610351561" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="148.40001220703127" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="83.59998779296876" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" text="{AMOUNT}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets left="30.0" top="20.0" />
-               </GridPane.margin>
-            </Label>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <children>
-                  <Label fx:id="adultLab" text="{ADULT}" textFill="WHITE">
-                     <opaqueInsets>
-                        <Insets right="40.0" />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="kidLab" text="{KID}" textFill="WHITE">
-                     <opaqueInsets>
-                        <Insets right="40.0" />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-            </VBox>
-            <JFXButton fx:id="backBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </JFXButton>
-            <JFXButton fx:id="okBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#okClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{OK}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </JFXButton>
-            <VBox alignment="TOP_CENTER" layoutX="144.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <children>
-                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
-                     <VBox.margin>
-                        <Insets left="40.0" right="30.0" top="10.0" />
-                     </VBox.margin>
-                  </JFXTextField>
-                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
-                     <VBox.margin>
-                        <Insets left="40.0" right="30.0" top="20.0" />
-                     </VBox.margin>
-                  </JFXTextField>
-               </children>
-               <opaqueInsets>
-                  <Insets top="20.0" />
-               </opaqueInsets>
-            </VBox>
-            <Label fx:id="errorLab" alignment="BASELINE_LEFT" text="{ERROR}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets right="15.0" />
-               </GridPane.margin></Label>
-         </children>
-      </GridPane>
-   </center>
    <top>
       <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #58a5f0;" BorderPane.alignment="CENTER">
          <children>
@@ -114,4 +36,26 @@
          </children>
       </VBox>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="50.0" text="{AMOUNT}" textFill="WHITE" />
+            <JFXButton fx:id="backBtn" alignment="CENTER" layoutX="18.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goBack" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #696969;" text="{BACK}" textFill="WHITE" AnchorPane.leftAnchor="20.0" />
+            <JFXButton fx:id="okBtn" alignment="CENTER" layoutX="286.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#okClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #00a856;" text="{OK}" textFill="WHITE" AnchorPane.rightAnchor="20.0" />
+            <Label fx:id="errorLab" alignment="BOTTOM_RIGHT" layoutX="178.0" layoutY="280.0" prefHeight="18.0" prefWidth="201.0" text="{ERROR}" textFill="#e53935" visible="false" />
+            <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" layoutX="312.0" layoutY="46.0" prefWidth="35.0" unFocusColor="#ff616f" />
+            <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" layoutX="312.0" layoutY="94.0" prefWidth="35.0" unFocusColor="#ff616f" />
+            <Label fx:id="adultLab" layoutX="178.0" layoutY="50.0" text="{ADULT}" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets right="40.0" />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="kidLab" layoutX="186.0" layoutY="98.0" text="{KID}" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets right="40.0" />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>

@@ -150,7 +150,7 @@ public class FXMLControllerSetting implements Initializable {
         }
         else {
             backBtn.setText(Text.START.get());
-            backBtn.setStyle("-fx-background-color:  #00796b");
+            backBtn.setStyle("-fx-background-color:  #00a856");
             backBtn.setVisible(false);
         }
 
@@ -188,13 +188,13 @@ public class FXMLControllerSetting implements Initializable {
     void saveBtnClick() {
         boolean isReady = true;
         messageLab.setText("[MessageText]");
-        messageLab.setStyle("-fx-text-fill: #ff0000");
+        messageLab.setStyle("-fx-text-fill: #e53935");
         // region text checking
         JFXTextField[] txtFList = {tableTxtF, scTxtF};
         for (JFXTextField txtF : txtFList) {
             txtF.setStyle("-fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
             if (txtF.getText().isEmpty()) {
-                txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
+                txtF.setStyle("-fx-background-color: rgba(239, 83, 80,0.3); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
                 isReady = false;
                 messageLab.setText(Text.MSG_EMPTY.get());
                 msgToVisible();
@@ -267,7 +267,7 @@ public class FXMLControllerSetting implements Initializable {
                         Double.parseDouble(course.getKidsTxtF().getText()));
             }
             backBtn.setVisible(true);
-            messageLab.setStyle("-fx-text-fill: #00ff00");
+            messageLab.setStyle("-fx-text-fill: #81c784");
             messageLab.setText(Text.MSG_SUCCESS.get());
             msgToVisible();
         }
