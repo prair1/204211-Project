@@ -11,8 +11,8 @@ public enum Text {
     TABLE("จำนวนโต๊ะ", "Amount of table"),
     TIMELIMIT("จำกัดเวลา", "Time limit"),
     HOUR("ชั่วโมง", "Hour"),
-    MIN("นาที", "Min"),
-    SEC("วินาที", "Sec"),
+    MIN("นาที", "Minute"),
+    SEC("วินาที", "Second"),
     EXCESSFINE("ค่าปรับ", "Excess fine"),
     PER("ต่อ", "Per"),
     SERVICECHARGE("ค่าบริการ", "Service charge"),
@@ -25,7 +25,12 @@ public enum Text {
     MSG_EMPTY("ใส่ให้ครบดิวะ","It's fucking empty"),
     MSG_NOC("ไม่มีราคาอาหารอะสัส","Enter course pls"),
     MSG_EMPNOC("ใส่ให้ครบดิวะ และ ไม่มีราคาอาหารอะสัส","It's fucking empty and Enter course pls"),
-    MSG_SUCCESS("เซฟ เสร็จ","Save Success");
+    MSG_SUCCESS("เซฟ เสร็จ","Save Success"),
+    BOOK_REMAIN("เหลืออีก %s", "%s\nremaining"),
+    BOOK_EXCESS("เกินมา %s", "%s\nexcess"),
+    ACTIVE_REMAIN("เหลืออีก %s", "%s\nremaining"),
+    ACTIVE_EXCESS("เกินมา %s", "%s\nexcess"),
+    ACTIVE_ELAPSED("ผ่านไป %s", "%s\nelapsed");
 
     private final String THTxt;
     private final String ENTxt;

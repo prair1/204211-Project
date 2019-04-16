@@ -1,6 +1,8 @@
 package AppModel;
 
 import AppService.SettingManager;
+import AppUtil.Lang;
+import AppUtil.Text;
 import com.google.gson.annotations.Expose;
 
 import java.nio.charset.StandardCharsets;
@@ -44,12 +46,18 @@ public class TableBooking extends Table {
     public void updateTime() {
         long time = LocalDateTime.now().until(TimeCheckin, SECONDS);
 
-        long[] times = sepTime(Math.abs(time));
-        String clock = String.format("%02d: %02d: %02d", times[0], times[1], times[2]);
-        if (time > 0)
-            TimeLab.setText(clock + "r");
+        long times = Math.abs(time);
+        String clock;
+        if (times > 3600)
+            clock = (times / 3600) + " " + Text.HOUR.get() + (times / 3600 > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
+        else if (times > 60)
+            clock = (times / 60) + " " + Text.MIN.get() + (times / 60 > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
         else
-            TimeLab.setText(clock + "ec");
+            clock = (times) + " " + Text.SEC.get() + (times > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
+        if (time > 0)
+            TimeLab.setText(String.format(Text.BOOK_REMAIN.get(), clock));
+        else
+            TimeLab.setText(String.format(Text.BOOK_EXCESS.get(), clock));
     }
 
     public String getCheckinDate() {
