@@ -5,11 +5,6 @@
 
 }
 
-.text {
-    -fx-font-smoothing-type: gray;
-
-}
-
 .text-field {
     -fx-text-fill:  #ffffff;
 }

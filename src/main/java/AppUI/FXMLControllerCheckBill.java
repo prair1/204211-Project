@@ -1,7 +1,6 @@
 package AppUI;
 
 import AppModel.TableActive;
-import AppService.Logger;
 import AppService.SettingManager;
 import AppService.TableManager;
 import AppUtil.Text;
@@ -17,56 +16,55 @@ import java.util.ResourceBundle;
 
 public class FXMLControllerCheckBill implements Initializable {
 
-    @FXML
-    Label courseTxtLab;
-    @FXML
-    Label timeLab;
-    @FXML
-    Label fineLab;
-    @FXML
-    Label serviceChargeLab;
-    @FXML
-    Label adultLab;
-    @FXML
-    Label kidNumLab;
-    @FXML
-    Label adultNumLab;
-    @FXML
-    Label kidLab;
-    @FXML
-    Label totalLab;
-    @FXML
-    JFXButton backBtn;
-    @FXML
-    JFXButton stopNBillBtn;
-    @FXML
-    Label showFineLab;
-    @FXML
-    Label showSCPerLab;
-    @FXML
-    Label showSCLab;
-    @FXML
-    Label showTotalLab;
-    @FXML
-    JFXTextField otherFineAmountTxtF;
-    @FXML
-    Label otherFineLab;
-    @FXML
-    Label totalTimeLab;
-    @FXML
-    Label adultPriceLab;
-    @FXML
-    Label kidPriceLab;
-    @FXML
-    Label overTimeLab;
-    @FXML
-    Label tbLab;
-    @FXML
-    Label tbNameLab;
-    @FXML
-    Label courseLab;
-
     TableActive table;
+    @FXML
+    private Label courseTxtLab;
+    @FXML
+    private Label timeLab;
+    @FXML
+    private Label fineLab;
+    @FXML
+    private Label serviceChargeLab;
+    @FXML
+    private Label adultLab;
+    @FXML
+    private Label kidNumLab;
+    @FXML
+    private Label adultNumLab;
+    @FXML
+    private Label kidLab;
+    @FXML
+    private Label totalLab;
+    @FXML
+    private JFXButton backBtn;
+    @FXML
+    private JFXButton stopNBillBtn;
+    @FXML
+    private Label showFineLab;
+    @FXML
+    private Label showSCPerLab;
+    @FXML
+    private Label showSCLab;
+    @FXML
+    private Label showTotalLab;
+    @FXML
+    private JFXTextField otherFineAmountTxtF;
+    @FXML
+    private Label otherFineLab;
+    @FXML
+    private Label totalTimeLab;
+    @FXML
+    private Label adultPriceLab;
+    @FXML
+    private Label kidPriceLab;
+    @FXML
+    private Label overTimeLab;
+    @FXML
+    private Label tbLab;
+    @FXML
+    private Label tbNameLab;
+    @FXML
+    private Label courseLab;
 
     FXMLControllerCheckBill(int id) {
         table = (TableActive) TableManager.i().findById(id);
@@ -96,6 +94,8 @@ public class FXMLControllerCheckBill implements Initializable {
                 totalTimeLab.setStyle("-fx-text-fill: #e53935");
                 showSCLab.setVisible(false);
                 showTotalLab.setVisible(false);
+                overTimeLab.setVisible(false);
+                showFineLab.setVisible(false);
                 otherFineAmountTxtF.setDisable(true);
             }
         }
@@ -130,6 +130,8 @@ public class FXMLControllerCheckBill implements Initializable {
         table.setFinished();
         totalTimeLab.setText(table.getTxtTime('t'));
         totalTimeLab.setStyle("-fx-text-fill: #ffffff");
+        overTimeLab.setVisible(true);
+        showFineLab.setVisible(true);
         overTimeLab.setText(table.getTxtTime('o'));
         showFineLab.setText(String.valueOf(table.calExcessFine()));
         showSCLab.setVisible(true);
@@ -176,6 +178,6 @@ public class FXMLControllerCheckBill implements Initializable {
     }
 
     private void goBack() {
-        ((Stage)backBtn.getScene().getWindow()).close();
+        ((Stage) backBtn.getScene().getWindow()).close();
     }
 }

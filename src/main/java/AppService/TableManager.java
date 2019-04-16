@@ -15,21 +15,24 @@ public class TableManager {
 
     private static TableManager ourInstance = new TableManager();
     private Random random = new Random();
-    LinkedHashMap<Integer, TableActive> tableActives = new LinkedHashMap<>();
-    LinkedHashMap<Integer, TableBooking> tableBookings = new LinkedHashMap<>();
-    Timeline clock;
+    private LinkedHashMap<Integer, TableActive> tableActives = new LinkedHashMap<>();
+    private LinkedHashMap<Integer, TableBooking> tableBookings = new LinkedHashMap<>();
 
     private TreeSet<Integer> tableNumSet = new TreeSet<>();
 
     private TableManager() {
         reloadTableNum();
-        clock = new Timeline(new KeyFrame(Duration.ZERO, e -> clockUpdate()), new KeyFrame(Duration.millis(500)));
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> clockUpdate()), new KeyFrame(Duration.millis(500)));
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
 
     }
 
-    public void updateFile() {
+    public static TableManager i() {
+        return ourInstance;
+    }
+
+    private void updateFile() {
         ArrayList<TableActive> saveActive = new ArrayList<>(tableActives.values());
         SaverAndLoader.saveTo(saveActive.toArray(), "tableActives.json");
 
@@ -39,11 +42,11 @@ public class TableManager {
 
     public void getFile() {
         try {
-            for (TableActive table : SaverAndLoader.tableGetFromAct("tableActives.json")) {
+            for (TableActive table : Objects.requireNonNull(SaverAndLoader.tableGetFromAct())) {
                 tableNumSet.remove(table.getTableNum());
                 tableActives.put(table.getId(), table);
             }
-            for (TableBooking table : SaverAndLoader.tableGetFromBook("tableBookings.json")) {
+            for (TableBooking table : Objects.requireNonNull(SaverAndLoader.tableGetFromBook())) {
                 tableNumSet.remove(table.getTableNum());
                 tableBookings.put(table.getId(), table);
             }
@@ -54,25 +57,16 @@ public class TableManager {
 
     }
 
-    static void setInstance(TableManager newInstance) {
-        ourInstance = newInstance;
-        TableManager.i().reloadTableNum();
-    }
-
     public void reloadTableNum() {
         tableNumSet.clear();
         for (int i = 1; i <= SettingManager.i().getTableCount(); i++)
             tableNumSet.add(i);
-        for (Map.Entry<Integer, TableActive> table: tableActives.entrySet()) {
+        for (Map.Entry<Integer, TableActive> table : tableActives.entrySet()) {
             tableNumSet.remove(table.getValue().getTableNum());
         }
-        for (Map.Entry<Integer, TableBooking> table: tableBookings.entrySet()) {
+        for (Map.Entry<Integer, TableBooking> table : tableBookings.entrySet()) {
             tableNumSet.remove(table.getValue().getTableNum());
         }
-    }
-
-    public static TableManager i() {
-        return ourInstance;
     }
 
     public void newTableActive(int tableNum, String course, int kidsNumber, int adultNumber) {
@@ -82,7 +76,7 @@ public class TableManager {
         updateFile();
     }
 
-    public void newTableBooking(int tableNum, String course, String customerName,int kidsNumber, int adultNumber, LocalDateTime timeCheckin) {
+    public void newTableBooking(int tableNum, String course, String customerName, int kidsNumber, int adultNumber, LocalDateTime timeCheckin) {
         tableNumSet.remove(tableNum);
         TableBooking table = new TableBooking(genId(), tableNum, course, kidsNumber, adultNumber, timeCheckin, customerName);
         tableBookings.put(table.getId(), table);
@@ -140,10 +134,10 @@ public class TableManager {
     }
 
     private void clockUpdate() {
-        for (TableActive table: tableActives.values()) {
+        for (TableActive table : tableActives.values()) {
             table.updateTime();
         }
-        for (TableBooking table: tableBookings.values()) {
+        for (TableBooking table : tableBookings.values()) {
             table.updateTime();
         }
     }

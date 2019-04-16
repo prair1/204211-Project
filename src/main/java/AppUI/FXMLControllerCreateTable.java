@@ -1,8 +1,6 @@
 package AppUI;
 
-import AppModel.Course;
 import AppModel.Price;
-import AppModel.TableActive;
 import AppService.SettingManager;
 import AppService.TableManager;
 import AppUtil.Text;
@@ -23,27 +21,27 @@ import java.util.ResourceBundle;
 public class FXMLControllerCreateTable implements Initializable {
 
     @FXML
-    Label amountLab;
+    private Label amountLab;
     @FXML
-    Label adultLab;
+    private Label adultLab;
     @FXML
-    Label kidLab;
+    private Label kidLab;
     @FXML
-    JFXButton backBtn;
+    private JFXButton backBtn;
     @FXML
-    JFXButton okBtn;
+    private JFXButton okBtn;
     @FXML
-    JFXTextField adultTxtF;
+    private JFXTextField adultTxtF;
     @FXML
-    JFXTextField kidTxtF;
+    private JFXTextField kidTxtF;
     @FXML
-    Label tbLab;
+    private Label tbLab;
     @FXML
-    JFXComboBox<Integer> tbNumCob;
+    private JFXComboBox<Integer> tbNumCob;
     @FXML
-    JFXComboBox<String> courseCob;
+    private JFXComboBox<String> courseCob;
     @FXML
-    Label errorLab;
+    private Label errorLab;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -105,7 +103,7 @@ public class FXMLControllerCreateTable implements Initializable {
 
     @FXML
     void goBack() {
-        ((Stage)backBtn.getScene().getWindow()).close();
+        ((Stage) backBtn.getScene().getWindow()).close();
     }
 
     private void msgToVisible() {
@@ -120,6 +118,6 @@ public class FXMLControllerCreateTable implements Initializable {
         ft2.setFromValue(1);
         ft2.setToValue(0);
         ft2.play();
-        ft2.setOnFinished(e->errorLab.setVisible(false));
+        ft2.setOnFinished(e -> errorLab.setVisible(false));
     }
 }

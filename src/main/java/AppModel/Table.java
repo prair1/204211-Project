@@ -1,10 +1,7 @@
 package AppModel;
 
-import com.google.gson.annotations.Expose;
-import com.jfoenix.controls.JFXButton;
 import javafx.scene.control.Label;
 
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 import static AppUtil.Converter.byteName;
@@ -30,10 +27,6 @@ public abstract class Table {
         return TableNum;
     }
 
-    public void setTableNum(int tableNum) {
-        TableNum = tableNum;
-    }
-
     public String getCourse() {
         return strFromByte(Course);
     }
@@ -42,28 +35,16 @@ public abstract class Table {
         Course = byteName(course);
     }
 
-    public LocalDateTime getTimeCreated() {
-        return TimeCreated;
-    }
-
-    public LocalDateTime getTimeStarted() {
-        return TimeStarted;
-    }
-
     public int getKidNumber() {
         return KidNumber;
-    }
-
-    public void setKidNumber(int kidNumber) {
-        KidNumber = kidNumber;
     }
 
     public int getAdultNumber() {
         return AdultNumber;
     }
 
-    public void setAdultNumber(int adultNumber) {
-        AdultNumber = adultNumber;
+    public Label getTimeLab() {
+        return TimeLab;
     }
 
     public void setTimeLab(Label timeLab) {
@@ -71,12 +52,9 @@ public abstract class Table {
         updateTime();
     }
 
-    public Label getTimeLab() {
-        return TimeLab;
-    }
-
     //endregion
 
     public abstract long getTime();
+
     abstract void updateTime();
 }

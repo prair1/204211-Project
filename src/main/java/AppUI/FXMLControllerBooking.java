@@ -22,43 +22,43 @@ import java.util.ResourceBundle;
 public class FXMLControllerBooking implements Initializable {
 
     @FXML
-    Label amountLab;
+    private Label amountLab;
     @FXML
-    Label adultLab;
+    private Label adultLab;
     @FXML
-    Label kidLab;
+    private Label kidLab;
     @FXML
-    JFXButton backBtn;
+    private JFXButton backBtn;
     @FXML
-    JFXButton bookBtn;
+    private JFXButton bookBtn;
     @FXML
-    JFXTextField adultTxtF;
+    private JFXTextField adultTxtF;
     @FXML
-    JFXTextField kidTxtF;
+    private JFXTextField kidTxtF;
     @FXML
-    Label nameLab;
+    private Label nameLab;
     @FXML
-    JFXTextField nameTxtF;
+    private JFXTextField nameTxtF;
     @FXML
-    Label timeLab;
+    private Label timeLab;
     @FXML
-    JFXComboBox<Integer> dayCob;
+    private JFXComboBox<Integer> dayCob;
     @FXML
-    JFXComboBox<String> monthCob;
+    private JFXComboBox<String> monthCob;
     @FXML
-    JFXComboBox<String> yearCob;
+    private JFXComboBox<String> yearCob;
     @FXML
-    JFXComboBox<String> hourCob;
+    private JFXComboBox<String> hourCob;
     @FXML
-    JFXComboBox<String> minCob;
+    private JFXComboBox<String> minCob;
     @FXML
-    Label tbLab;
+    private Label tbLab;
     @FXML
-    JFXComboBox<Integer> tbNumCob;
+    private JFXComboBox<Integer> tbNumCob;
     @FXML
-    JFXComboBox<String> courseCob;
+    private JFXComboBox<String> courseCob;
     @FXML
-    Label errorLab;
+    private Label errorLab;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -215,6 +215,6 @@ public class FXMLControllerBooking implements Initializable {
         ft2.setFromValue(1);
         ft2.setToValue(0);
         ft2.play();
-        ft2.setOnFinished(e->errorLab.setVisible(false));
+        ft2.setOnFinished(e -> errorLab.setVisible(false));
     }
 }

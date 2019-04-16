@@ -3,12 +3,14 @@ package AppUI;
 import AppModel.Table;
 import AppModel.TableActive;
 import AppModel.TableBooking;
-import AppService.SettingManager;
 import AppService.TableManager;
 import AppUtil.Text;
 import JfxApplication.SceneLoader;
 import com.jfoenix.controls.JFXButton;
-import javafx.animation.*;
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.Transition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,47 +18,50 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.net.JarURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 
 public class FXMLControllerMain implements Initializable {
     @FXML
-    Label mainLab;
+    private Label mainLab;
     @FXML
-    Label activeLab;
+    private Label activeLab;
     @FXML
-    Label bookLab;
+    private Label bookLab;
     @FXML
-    FlowPane activeFlow;
+    private FlowPane activeFlow;
     @FXML
-    FlowPane bookFlow;
+    private FlowPane bookFlow;
     @FXML
-    JFXButton newtableBtn;
+    private JFXButton newtableBtn;
     @FXML
-    JFXButton newbookBtn;
+    private JFXButton newbookBtn;
     @FXML
-    JFXButton settingBtn;
+    private JFXButton settingBtn;
     @FXML
-    AnchorPane apPane;
+    private AnchorPane apPane;
     @FXML
-    StackPane spPane;
+    private StackPane spPane;
     @FXML
-    VBox aVbox;
+    private VBox aVbox;
     @FXML
-    VBox bVbox;
+    private VBox bVbox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainLab.setText(Text.MAIN.get());
+        activeLab.setText(Text.ACTIVE.get());
+        bookLab.setText(Text.BOOKING.get());
         TableManager.i().getFile();
         newbookBtn.setStyle(" -fx-font-family:  fontello;");
         newtableBtn.setStyle(" -fx-font-family:  fontello;");
@@ -65,16 +70,15 @@ public class FXMLControllerMain implements Initializable {
         reloadBooked();
         spPane.widthProperty().addListener(e -> {
             double w = spPane.getWidth() - 1000;
-            apPane.setPrefWidth(20 + w/5);
-            aVbox.setMinWidth(505 + w/3);
-            aVbox.setMaxWidth(500 + w/3);
-            bVbox.setMinWidth(505 + w/3);
-            bVbox.setMaxWidth(500 + w/3);
-            activeFlow.setMinWidth(505 + w/3);
-            activeFlow.setMaxWidth(500 + w/3);
-            bookFlow.setMinWidth(505 + w/3);
-            bookFlow.setMaxWidth(510 + w/3);
-
+            apPane.setPrefWidth(20 + w / 5);
+            aVbox.setMinWidth(505 + w / 3);
+            aVbox.setMaxWidth(500 + w / 3);
+            bVbox.setMinWidth(505 + w / 3);
+            bVbox.setMaxWidth(500 + w / 3);
+            activeFlow.setMinWidth(505 + w / 3);
+            activeFlow.setMaxWidth(500 + w / 3);
+            bookFlow.setMinWidth(505 + w / 3);
+            bookFlow.setMaxWidth(510 + w / 3);
         });
     }
 
@@ -101,18 +105,18 @@ public class FXMLControllerMain implements Initializable {
     private void reloadActive() {
         activeFlow.getChildren().clear();
         int i = 0;
-        for (Map.Entry<Integer, TableActive> table: TableManager.i().getTableActives().entrySet()) {
+        for (Map.Entry<Integer, TableActive> table : TableManager.i().getTableActives().entrySet()) {
             createActiveTable(table.getKey(), i);
             i++;
         }
     }
 
     private void createActiveTable(int id, int index) {
-        JFXButton btn= createTableBtn(id, activeFlow, "#0277bd");
+        JFXButton btn = createTableBtn(id, activeFlow, "#0277bd");
         btn.setOpacity(0);
         btn.setOnMouseClicked(e -> openCheckBill(id));
         FadeTransition ft = new FadeTransition(Duration.millis(500), btn);
-        ft.setDelay(Duration.millis(100*index));
+        ft.setDelay(Duration.millis(100 * index));
         ft.setFromValue(0);
         ft.setToValue(1);
 
@@ -124,7 +128,7 @@ public class FXMLControllerMain implements Initializable {
         Stage currStage = (Stage) newtableBtn.getScene().getWindow();
         stage.initOwner(currStage);
         SceneLoader loader = new SceneLoader();
-        FXMLControllerCheckBill cont= new FXMLControllerCheckBill(id);
+        FXMLControllerCheckBill cont = new FXMLControllerCheckBill(id);
         loader.Load(stage, "tCheckbillScene.fxml", false, "Com-text.css", cont);
         stage.setTitle("Info");
         stage.setOnHiding(e -> reloadActive());
@@ -144,11 +148,11 @@ public class FXMLControllerMain implements Initializable {
     }
 
     private void createBookTable(int id, int index) {
-        JFXButton btn= createTableBtn(id, bookFlow, "#00695c");
+        JFXButton btn = createTableBtn(id, bookFlow, "#00695c");
         btn.setOpacity(0);
         btn.setOnMouseClicked(e -> openBooked(id));
         FadeTransition ft = new FadeTransition(Duration.millis(500), btn);
-        ft.setDelay(Duration.millis(100*index));
+        ft.setDelay(Duration.millis(100 * index));
         ft.setFromValue(0);
         ft.setToValue(1);
 
@@ -160,7 +164,7 @@ public class FXMLControllerMain implements Initializable {
         Stage currStage = (Stage) newbookBtn.getScene().getWindow();
         stage.initOwner(currStage);
         SceneLoader loader = new SceneLoader();
-        FXMLControllerBooked cont= new FXMLControllerBooked(id);
+        FXMLControllerBooked cont = new FXMLControllerBooked(id);
         loader.Load(stage, "tBookedScene.fxml", false, "Com-text.css", cont);
         stage.setTitle("Info");
         stage.setOnHiding(e -> {
@@ -173,7 +177,7 @@ public class FXMLControllerMain implements Initializable {
     private void reloadBooked() {
         bookFlow.getChildren().clear();
         int i = 0;
-        for (Map.Entry<Integer, TableBooking> table: TableManager.i().getTableBookings().entrySet()) {
+        for (Map.Entry<Integer, TableBooking> table : TableManager.i().getTableBookings().entrySet()) {
             createBookTable(table.getKey(), i);
             i++;
         }
@@ -212,8 +216,8 @@ public class FXMLControllerMain implements Initializable {
         tableBtn.setAlignment(Pos.CENTER_LEFT);
         tableBtn.setText("");
         if (tab.getTime() < 0) {
-            Color vColor = new Color(198.0/255.0, 40.0/255.0, 40.0/255.0, 1);
-            tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor),vColor));
+            Color vColor = new Color(198.0 / 255.0, 40.0 / 255.0, 40.0 / 255.0, 1);
+            tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor), vColor));
         }
         else {
             tableBtn.setStyle("-fx-background-color:" + btnColor);
@@ -229,8 +233,8 @@ public class FXMLControllerMain implements Initializable {
 
             @Override
             protected void interpolate(double frac) {
-                Color vColor = new Color(40.0/255.0, 40.0/255.0, 40.0/255.0, frac);
-                tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor),vColor));
+                Color vColor = new Color(198.0 / 255.0, 40.0 / 255.0, 40.0 / 255.0, frac);
+                tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor), vColor));
             }
         };
         timeSpLab.textProperty().addListener(e -> {
@@ -238,16 +242,17 @@ public class FXMLControllerMain implements Initializable {
                 animation.play();
             }
             else if (tab.getTime() < 0) {
-                Color vColor = new Color(40.0/255.0, 40.0/255.0, 40.0/255.0, 1);
-                tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor),vColor));
+                Color vColor = new Color(198.0 / 255.0, 40.0 / 255.0, 40.0 / 255.0, 1);
+                tableBtn.setStyle("-fx-background-color:" + mixRGB(Color.web(btnColor), vColor));
             }
         });
         return tableBtn;
     }
+
     private String mixRGB(Color currColor, Color colorNext) {
-        int red = (int) (((currColor.getRed() * (1-colorNext.getOpacity())) + (colorNext.getRed() * colorNext.getOpacity())) * 255);
-        int green = (int) (((currColor.getGreen()* (1-colorNext.getOpacity())) + (colorNext.getGreen() * colorNext.getOpacity())) * 255);
-        int blue = (int) (((currColor.getBlue()* (1-colorNext.getOpacity())) + (colorNext.getBlue() * colorNext.getOpacity())) * 255);
-        return String.format( "#%02X%02X%02X",red, green, blue);
+        int red = (int) (((currColor.getRed() * (1 - colorNext.getOpacity())) + (colorNext.getRed() * colorNext.getOpacity())) * 255);
+        int green = (int) (((currColor.getGreen() * (1 - colorNext.getOpacity())) + (colorNext.getGreen() * colorNext.getOpacity())) * 255);
+        int blue = (int) (((currColor.getBlue() * (1 - colorNext.getOpacity())) + (colorNext.getBlue() * colorNext.getOpacity())) * 255);
+        return String.format("#%02X%02X%02X", red, green, blue);
     }
 }

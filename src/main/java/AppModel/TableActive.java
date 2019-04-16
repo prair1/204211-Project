@@ -4,7 +4,6 @@ import AppService.Logger;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
-import com.google.gson.annotations.Expose;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,11 +14,9 @@ import static java.time.temporal.ChronoUnit.SECONDS;
 public class TableActive extends Table {
 
 
-    LocalDateTime TimeFinished;
-    boolean Finished = false;
-    double TotalPrice;
-
-    public TableActive() {}
+    private LocalDateTime TimeFinished;
+    private boolean Finished = false;
+    private double TotalPrice;
 
     TableActive(int id, int tableNum, byte[] course, int kidsNumber, int adultNumber) {
         Id = id;
@@ -41,10 +38,6 @@ public class TableActive extends Table {
         TimeStarted = LocalDateTime.now();
     }
 
-    public LocalDateTime getTimeFinished() {
-        return TimeFinished;
-    }
-
     public void setFinished() {
         if (!Finished)
             TimeFinished = LocalDateTime.now();
@@ -55,7 +48,7 @@ public class TableActive extends Table {
         return Finished;
     }
 
-    public long calExcessSeconds() {
+    private long calExcessSeconds() {
         return TimeStarted.until(TimeFinished.minus(SettingManager.i().getTimeLimit(), SECONDS), SECONDS);
     }
 

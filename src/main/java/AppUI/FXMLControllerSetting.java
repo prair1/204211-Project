@@ -12,8 +12,6 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,67 +33,63 @@ import static AppUtil.Converter.sepTime;
 public class FXMLControllerSetting implements Initializable {
 
     @FXML
-    VBox tableBox;
+    private VBox tableBox;
     @FXML
-    Label setLab;
-
+    private Label setLab;
     @FXML
-    Label langLab;
+    private Label langLab;
     @FXML
-    Label tableLab;
+    private Label tableLab;
     @FXML
-    Label timitLab;
+    private Label timitLab;
     @FXML
-    Label excessLab;
+    private Label excessLab;
     @FXML
-    Label perLab;
+    private Label perLab;
     @FXML
-    Label scLab;
+    private Label scLab;
     @FXML
-    Label courseLab;
+    private Label courseLab;
     @FXML
-    Label priceLab;
+    private Label priceLab;
     @FXML
-    JFXToggleButton timitTog;
+    private JFXToggleButton timitTog;
     @FXML
-    JFXComboBox<String> langCob;
+    private JFXComboBox<String> langCob;
     @FXML
-    JFXTextField tableTxtF;
+    private JFXTextField tableTxtF;
     @FXML
-    JFXTextField thourTxtF;
+    private JFXTextField thourTxtF;
     @FXML
-    JFXTextField tminTxtF;
+    private JFXTextField tminTxtF;
     @FXML
-    JFXTextField tsecTxtF;
+    private JFXTextField tsecTxtF;
     @FXML
-    JFXTextField excessTxtF;
+    private JFXTextField excessTxtF;
     @FXML
-    JFXTextField ehourTxtF;
+    private JFXTextField ehourTxtF;
     @FXML
-    JFXTextField eminTxtF;
+    private JFXTextField eminTxtF;
     @FXML
-    JFXTextField esecTxtF;
+    private JFXTextField esecTxtF;
     @FXML
-    JFXTextField scTxtF;
-
+    private JFXTextField scTxtF;
     @FXML
-    Label col1;
+    private Label col1;
     @FXML
-    Label col2;
+    private Label col2;
     @FXML
-    Label col3;
+    private Label col3;
     @FXML
-    Label col4;
-
+    private Label col4;
     @FXML
-    JFXButton addBtn;
-
+    private JFXButton addBtn;
     @FXML
-    JFXButton backBtn;
+    private JFXButton backBtn;
     @FXML
-    JFXButton saveBtn;
+    private JFXButton saveBtn;
     @FXML
-    Label messageLab;
+    private Label messageLab;
 
     // region styles for box
     private String priceBoxStyle = "-fx-text-fill: -fx-primarytext;" +
@@ -120,6 +114,15 @@ public class FXMLControllerSetting implements Initializable {
     // endregion
 
     private ArrayList<Course> courseList = new ArrayList<>();
+
+    private static long strToSecond(String hour, String minute, String second) {
+        return (Long.parseLong(hour) * 3600) + (Long.parseLong(minute) * 60) + Long.parseLong(second);
+    }
+
+    private static String[] secondToStr(long second) {
+        long[] time = sepTime(second);
+        return new String[]{String.valueOf(time[0]), String.valueOf(time[1]), String.valueOf(time[2])};
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -441,15 +444,6 @@ public class FXMLControllerSetting implements Initializable {
         ft2.setFromValue(1);
         ft2.setToValue(0);
         ft2.play();
-        ft2.setOnFinished(e->messageLab.setVisible(false));
-    }
-
-    public static long strToSecond(String hour, String minute, String second) {
-        return (Long.parseLong(hour) * 3600) + (Long.parseLong(minute) * 60) + Long.parseLong(second);
-    }
-
-    public static String[] secondToStr(long second) {
-        long[] time = sepTime(second);
-        return new String[] {String.valueOf(time[0]), String.valueOf(time[1]), String.valueOf(time[2])};
+        ft2.setOnFinished(e -> messageLab.setVisible(false));
     }
 }

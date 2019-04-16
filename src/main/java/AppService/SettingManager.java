@@ -2,26 +2,15 @@ package AppService;
 
 import AppModel.Price;
 import AppUtil.Lang;
-import com.google.gson.annotations.Expose;
 
 import java.util.LinkedHashMap;
 
 import static AppUtil.Converter.byteName;
 import static AppUtil.Converter.byteNameConc;
 
-public class SettingManager{
+public class SettingManager {
 
     private static SettingManager ourInstance = new SettingManager();
-
-    public static SettingManager i() {
-        return ourInstance;
-    }
-
-    static void setInstance(SettingManager newInstance) {
-        ourInstance = newInstance;
-    }
-
-    private SettingManager() {}
     private Lang Language = Lang.English;
     // -1 indicate not set yet
     private int TableCount = -1;
@@ -31,7 +20,16 @@ public class SettingManager{
     private double ExcessFine = -1;
     private double ServiceCharge = -1;
     private LinkedHashMap<String, Price> PriceMap = new LinkedHashMap<>();
+    private SettingManager() {
+    }
 
+    public static SettingManager i() {
+        return ourInstance;
+    }
+
+    static void setInstance(SettingManager newInstance) {
+        ourInstance = newInstance;
+    }
 
     private void updateFile() {
         SaverAndLoader.saveTo(SettingManager.i(), "settings.json");
@@ -103,14 +101,6 @@ public class SettingManager{
 
     public LinkedHashMap<String, Price> getPriceMap() {
         return PriceMap;
-    }
-
-    public double getPriceAdult(String name) {
-        return PriceMap.get(byteNameConc(byteName(name))).getPriceAdult();
-    }
-
-    public double getPriceKids(String name) {
-        return PriceMap.get(byteNameConc(byteName(name))).getPriceKids();
     }
 
     public double getPriceAdult(byte[] name) {

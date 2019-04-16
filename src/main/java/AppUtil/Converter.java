@@ -7,11 +7,11 @@ public class Converter {
         return name.getBytes(StandardCharsets.UTF_8);
     }
 
-    public static String byteNameConc(byte[] bname) {
-        String[] strArray = new String[bname.length];
+    public static String byteNameConc(byte[] bName) {
+        String[] strArray = new String[bName.length];
 
-        for (int i = 0; i < bname.length; i++)
-            strArray[i] = String.valueOf(bname[i]);
+        for (int i = 0; i < bName.length; i++)
+            strArray[i] = String.valueOf(bName[i]);
         return String.join("", strArray);
     }
 
@@ -24,6 +24,6 @@ public class Converter {
         second = second - hour * 3600;
         long min = second / 60;
         second = second - min * 60;
-        return new long[] {hour, min, second};
+        return new long[]{hour, min, second};
     }
 }

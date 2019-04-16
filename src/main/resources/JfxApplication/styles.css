@@ -6,11 +6,6 @@
 
 }
 
-.text {
-    -fx-font-smoothing-type: gray;
-    
-}
-
 courseTxtF
 {
     -fx-text-fill: -fx-primarytext;

@@ -31,11 +31,11 @@ public class SaverAndLoader {
         }
     }
 
-    public static TableActive[] tableGetFromAct(String file) {
+    static TableActive[] tableGetFromAct() {
         Gson gson = new Gson();
         FileReader reader;
         try {
-            reader = new FileReader(getFile(file));
+            reader = new FileReader(getFile("tableActives.json"));
             return gson.fromJson(reader, TableActive[].class);
         }
         catch (FileNotFoundException e) {
@@ -44,11 +44,11 @@ public class SaverAndLoader {
         return null;
     }
 
-    public static TableBooking[] tableGetFromBook(String file) {
+    static TableBooking[] tableGetFromBook() {
         Gson gson = new Gson();
         FileReader reader;
         try {
-            reader = new FileReader(getFile(file));
+            reader = new FileReader(getFile("tableBookings.json"));
             return gson.fromJson(reader, TableBooking[].class);
         }
         catch (FileNotFoundException e) {

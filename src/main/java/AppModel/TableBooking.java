@@ -3,9 +3,7 @@ package AppModel;
 import AppService.SettingManager;
 import AppUtil.Lang;
 import AppUtil.Text;
-import com.google.gson.annotations.Expose;
 
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 import static AppUtil.Converter.byteName;
@@ -14,10 +12,8 @@ import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class TableBooking extends Table {
 
-    LocalDateTime TimeCheckin;
-    byte[] customerName;
-
-    public TableBooking() {}
+    private LocalDateTime TimeCheckin;
+    private byte[] customerName;
 
     public TableBooking(int id, int tableNum, String course, int kidsNumber, int adultNumber, LocalDateTime timeCheckin, String customerName) {
         Id = id;
@@ -34,10 +30,6 @@ public class TableBooking extends Table {
         return strFromByte(customerName);
     }
 
-    public LocalDateTime getTimeCheckin() {
-        return TimeCheckin;
-    }
-
     public TableActive toActive() {
         return new TableActive(Id, TableNum, Course, KidNumber, AdultNumber);
     }
@@ -51,7 +43,10 @@ public class TableBooking extends Table {
 
         long times = Math.abs(time);
         String clock;
-        if (times > 3600)
+        if (time > 86400) {
+            clock = (times / 86400) + " " + Text.DAY.get() + (times / 86400 > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
+        }
+        else if (times > 3600)
             clock = (times / 3600) + " " + Text.HOUR.get() + (times / 3600 > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");
         else if (times > 60)
             clock = (times / 60) + " " + Text.MIN.get() + (times / 60 > 1 && SettingManager.i().getLanguage() == Lang.English ? "s" : "");

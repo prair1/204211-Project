@@ -1,6 +1,5 @@
 package AppUI;
 
-import AppModel.TableActive;
 import AppModel.TableBooking;
 import AppService.TableManager;
 import AppUtil.Text;
@@ -16,39 +15,39 @@ import java.util.ResourceBundle;
 public class FXMLControllerBooked implements Initializable {
 
     @FXML
-    Label amountLab;
+    private Label amountLab;
     @FXML
-    Label adultLab;
+    private Label adultLab;
     @FXML
-    Label kidLab;
+    private Label kidLab;
     @FXML
-    JFXButton backBtn;
+    private JFXButton backBtn;
     @FXML
-    JFXButton activeBtn;
+    private JFXButton activeBtn;
     @FXML
-    Label ANumLab;
+    private Label ANumLab;
     @FXML
-    Label KNumLab;
+    private Label KNumLab;
     @FXML
-    Label nameLab;
+    private Label nameLab;
     @FXML
-    Label timeLab;
+    private Label timeLab;
     @FXML
-    Label cusNameLab;
+    private Label cusNameLab;
     @FXML
-    Label dateLab;
+    private Label dateLab;
     @FXML
-    Label reserveLab;
+    private Label reserveLab;
     @FXML
-    JFXButton cancelBtn;
+    private JFXButton cancelBtn;
     @FXML
-    Label tbLab;
+    private Label tbLab;
     @FXML
-    Label tbNumLab;
+    private Label tbNumLab;
     @FXML
-    Label courseLab;
+    private Label courseLab;
 
-    TableBooking table;
+    private TableBooking table;
 
     FXMLControllerBooked(int id) {
         table = (TableBooking) TableManager.i().findById(id);
@@ -78,7 +77,7 @@ public class FXMLControllerBooked implements Initializable {
     }
 
     private void goBack() {
-        ((Stage)backBtn.getScene().getWindow()).close();
+        ((Stage) backBtn.getScene().getWindow()).close();
     }
 
     private void cancel() {

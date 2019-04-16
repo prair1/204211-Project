@@ -15,13 +15,11 @@ import java.util.ResourceBundle;
 public class FXMLControllerSetup implements Initializable {
 
     @FXML
-    Button startBtn;
-
+    private Button startBtn;
     @FXML
-    Button THBtn;
-
+    private Button THBtn;
     @FXML
-    Button ENBtn;
+    private Button ENBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

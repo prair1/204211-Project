@@ -7,12 +7,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Logger {
     private static Logger ourInstance = new Logger();
-
-    public static Logger i() {
-        return ourInstance;
-    }
-
-    FileWriter writer;
+    private FileWriter writer;
 
     private Logger() {
         try {
@@ -27,6 +22,9 @@ public class Logger {
         }
     }
 
+    public static Logger i() {
+        return ourInstance;
+    }
 
     public void addLog(String text) {
         try {
