@@ -67,12 +67,12 @@
             <JFXButton fx:id="bookBtn" alignment="CENTER" layoutX="285.0" layoutY="293.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #00a856;" text="{BOOKING}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
             <VBox alignment="TOP_CENTER" layoutX="275.0" layoutY="61.0" prefHeight="104.0" prefWidth="110.0">
                <children>
-                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" maxWidth="-Infinity" prefWidth="35.0" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="adultTxtF" alignment="CENTER_RIGHT" focusColor="#ff8d9c" maxWidth="-Infinity" prefWidth="35.0" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" maxWidth="-Infinity" prefWidth="35.0" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="kidTxtF" alignment="CENTER_RIGHT" focusColor="#ff8d9c" maxWidth="-Infinity" prefWidth="35.0" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
@@ -83,7 +83,7 @@
                </opaqueInsets>
             </VBox>
             <Label fx:id="nameLab" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="25.0" text="{NAME}" textFill="WHITE" />
-            <JFXTextField fx:id="nameTxtF" focusColor="#ff8d9c" layoutX="145.0" layoutY="21.0" styleClass="text-field" stylesheets="@Com-text.css" unFocusColor="#ff616f" />
+            <JFXTextField fx:id="nameTxtF" alignment="CENTER" focusColor="#ff8d9c" layoutX="145.0" layoutY="21.0" styleClass="text-field" stylesheets="@Com-text.css" unFocusColor="#ff616f" />
             <Label fx:id="timeLab" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="185.0" text="{TIME}" textFill="WHITE" AnchorPane.leftAnchor="47.0" />
             <HBox alignment="CENTER" layoutX="167.0" layoutY="179.0" prefHeight="48.0" prefWidth="211.0" AnchorPane.rightAnchor="40.0">
                <children>
