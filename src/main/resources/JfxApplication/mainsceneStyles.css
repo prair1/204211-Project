@@ -34,3 +34,11 @@
 .JFX-button{
     -fx-font-size: 16px;
 }
+.newtable-JFX-button{
+    -fx-background-color:#0277bd;
+
+}
+.booking-JFX-button{
+    -fx-background-color: #00695c;
+
+}

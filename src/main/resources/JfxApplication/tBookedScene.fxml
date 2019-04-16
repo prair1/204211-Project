@@ -129,9 +129,9 @@
       </GridPane>
    </center>
    <top>
-      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #cca6bc;" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #439889;" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ff99a5;">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #00695c;">
                <children>
                   <Label fx:id="tbLab" text="{TABLE}" textFill="WHITE">
                      <font>

@@ -13,9 +13,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppUI.FXMLControllerBooking">
    <top>
-      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #cca6bc;" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="129.0" prefWidth="400.0" style="-fx-background-color: #439889;" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="400.0" style="-fx-background-color: #ff99a5;">
+            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="400.0" style="-fx-background-color: #00695c;">
                <children>
                   <Label fx:id="tbLab" text="{TABLE}" textFill="WHITE">
                      <font>
@@ -67,12 +67,12 @@
             <JFXButton fx:id="bookBtn" alignment="CENTER" layoutX="285.0" layoutY="293.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{BOOKING}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
             <VBox alignment="TOP_CENTER" layoutX="275.0" layoutY="61.0" prefHeight="104.0" prefWidth="110.0">
                <children>
-                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
