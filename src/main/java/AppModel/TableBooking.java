@@ -42,8 +42,12 @@ public class TableBooking extends Table {
         return new TableActive(Id, TableNum, Course, KidNumber, AdultNumber);
     }
 
+    public long getTime() {
+        return LocalDateTime.now().until(TimeCheckin, SECONDS);
+    }
+
     public void updateTime() {
-        long time = LocalDateTime.now().until(TimeCheckin, SECONDS);
+        long time = getTime();
 
         long times = Math.abs(time);
         String clock;

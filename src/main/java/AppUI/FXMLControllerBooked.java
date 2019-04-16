@@ -3,6 +3,7 @@ package AppUI;
 import AppModel.TableActive;
 import AppModel.TableBooking;
 import AppService.TableManager;
+import AppUtil.Text;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -65,6 +66,15 @@ public class FXMLControllerBooked implements Initializable {
         KNumLab.setText(String.valueOf(table.getKidNumber()));
         dateLab.setText(table.getCheckinDate());
         reserveLab.setText(table.getCheckinTime());
+        tbLab.setText(Text.TTABLE.get());
+        nameLab.setText(Text.NAME.get());
+        amountLab.setText(Text.AMOUNT.get());
+        adultLab.setText(Text.ADULT.get());
+        kidLab.setText(Text.KID.get());
+        timeLab.setText(Text.TIME.get());
+        backBtn.setText(Text.BACK.get());
+        cancelBtn.setText(Text.CANCEL.get());
+        activeBtn.setText(Text.TOACTIVE.get());
     }
 
     private void goBack() {

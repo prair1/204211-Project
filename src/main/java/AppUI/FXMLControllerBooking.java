@@ -3,6 +3,7 @@ package AppUI;
 import AppModel.Price;
 import AppService.SettingManager;
 import AppService.TableManager;
+import AppUtil.Text;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -99,18 +100,31 @@ public class FXMLControllerBooking implements Initializable {
         }
         hourCob.getSelectionModel().select(now.getHour());
         minCob.getSelectionModel().select(now.getMinute());
+        tbLab.setText(Text.TTABLE.get());
+        nameLab.setText(Text.NAME.get());
+        amountLab.setText(Text.AMOUNT.get());
+        adultLab.setText(Text.ADULT.get());
+        kidLab.setText(Text.KID.get());
+        timeLab.setText(Text.TIME.get());
+        backBtn.setText(Text.BACK.get());
+        bookBtn.setText(Text.BOOKING.get());
     }
 
 
     @FXML
     void bookClicked() {
+        if (TableManager.i().tableEmpty()) {
+            errorLab.setText(Text.ERR_TEMPTY.get());
+            msgToVisible();
+            return;
+        }
         boolean isReady = true;
         JFXTextField[] txtFList = {nameTxtF, adultTxtF, kidTxtF};
         for (JFXTextField txtF : txtFList) {
             txtF.setStyle("-fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
             if (txtF.getText().isEmpty()) {
                 txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
-                errorLab.setText("Where is people");
+                errorLab.setText(Text.ERR_PEMPTY.get());
                 msgToVisible();
                 isReady = false;
             }
@@ -128,7 +142,7 @@ public class FXMLControllerBooking implements Initializable {
             for (JFXComboBox box : cob) {
                 box.setStyle("-fx-background-color: rgba(198,40,40,0.2);");
             }
-            errorLab.setText(isReady ? "Oh no Time Invalid" : "Multiple Error!");
+            errorLab.setText(isReady ? Text.ERR_TIMEIN.get() : Text.ERR_MUL.get());
             msgToVisible();
             isReady = false;
         }

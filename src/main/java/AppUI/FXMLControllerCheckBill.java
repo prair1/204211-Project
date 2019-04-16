@@ -4,6 +4,7 @@ import AppModel.TableActive;
 import AppService.Logger;
 import AppService.SettingManager;
 import AppService.TableManager;
+import AppUtil.Text;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -88,7 +89,7 @@ public class FXMLControllerCheckBill implements Initializable {
                 stopTimer();
             }
             else {
-                stopNBillBtn.setText("stop");
+                stopNBillBtn.setText(Text.STOP.get());
                 stopNBillBtn.setStyle("-fx-background-color: #af4444");
                 stopNBillBtn.setOnMouseClicked(e -> stopTimer());
                 totalTimeLab.setText("pls stop clock");
@@ -98,7 +99,7 @@ public class FXMLControllerCheckBill implements Initializable {
             }
         }
         else {
-            stopNBillBtn.setText("end");
+            stopNBillBtn.setText(Text.END.get());
             stopNBillBtn.setStyle("-fx-background-color: #14ebc2");
             stopNBillBtn.setOnMouseClicked(e -> endTable());
             fineLab.setVisible(false);
@@ -111,6 +112,17 @@ public class FXMLControllerCheckBill implements Initializable {
         }
         showSCPerLab.setText(String.valueOf(SettingManager.i().getServiceCharge()));
         otherFineAmountTxtF.textProperty().addListener(e -> amountChange());
+
+        tbLab.setText(Text.TTABLE.get());
+        courseTxtLab.setText(Text.COURSE.get());
+        adultLab.setText(Text.ADULT.get());
+        kidLab.setText(Text.KID.get());
+        timeLab.setText(Text.TIME.get());
+        fineLab.setText(Text.FINE.get());
+        serviceChargeLab.setText(Text.SERVICECHARGE.get());
+        otherFineLab.setText(Text.OTHER.get());
+        totalLab.setText(Text.TOTAL.get());
+        backBtn.setText(Text.BACK.get());
     }
 
     private void stopTimer() {
@@ -123,10 +135,9 @@ public class FXMLControllerCheckBill implements Initializable {
         showTotalLab.setVisible(true);
         showTotalLab.setText(String.valueOf(calFinalPrice()));
         otherFineAmountTxtF.setDisable(false);
-        stopNBillBtn.setText("end");
+        stopNBillBtn.setText(Text.END.get());
         stopNBillBtn.setStyle("-fx-background-color: #14ebc2");
         stopNBillBtn.setOnMouseClicked(e -> endTable());
-
     }
 
     private void endTable() {

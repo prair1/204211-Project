@@ -37,7 +37,7 @@
       </VBox>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393939;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #494949;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="85.0" text="{AMOUNT}" textFill="WHITE" />
             <VBox alignment="TOP_CENTER" layoutX="155.0" layoutY="66.0" prefHeight="99.0" prefWidth="100.0">
@@ -67,12 +67,12 @@
             <JFXButton fx:id="bookBtn" alignment="CENTER" layoutX="285.0" layoutY="293.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bookClicked" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #14ebc2;" text="{BOOKING}" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
             <VBox alignment="TOP_CENTER" layoutX="275.0" layoutY="61.0" prefHeight="104.0" prefWidth="110.0">
                <children>
-                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="adultTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" promptText="{NUMBER}" unFocusColor="#ff616f">
+                  <JFXTextField fx:id="kidTxtF" focusColor="#ff8d9c" unFocusColor="#ff616f">
                      <VBox.margin>
                         <Insets left="40.0" right="30.0" top="20.0" />
                      </VBox.margin>
