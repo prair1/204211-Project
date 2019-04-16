@@ -7,6 +7,7 @@ import AppService.SettingManager;
 import AppService.TableManager;
 import JfxApplication.SceneLoader;
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.net.JarURLConnection;
 import java.net.URL;
@@ -73,13 +75,23 @@ public class FXMLControllerMain implements Initializable {
 
     private void reloadActive() {
         activeFlow.getChildren().clear();
+        int i = 0;
         for (Map.Entry<Integer, TableActive> table: TableManager.i().getTableActives().entrySet()) {
-            createActiveTable(table.getKey());
+            createActiveTable(table.getKey(), i);
+            i++;
         }
     }
 
-    private void createActiveTable(int id) {
-        createTableBtn(id, activeFlow, "#9f2424").setOnMouseClicked(e -> openCheckBill(id));
+    private void createActiveTable(int id, int index) {
+        JFXButton btn= createTableBtn(id, activeFlow, "#0277bd");
+        btn.setOpacity(0);
+        btn.setOnMouseClicked(e -> openCheckBill(id));
+        FadeTransition ft = new FadeTransition(Duration.millis(500), btn);
+        ft.setDelay(Duration.millis(100*index));
+        ft.setFromValue(0);
+        ft.setToValue(1);
+
+        ft.play();
     }
 
     private void openCheckBill(int id) {
@@ -106,8 +118,16 @@ public class FXMLControllerMain implements Initializable {
         stage.show();
     }
 
-    private void createBookTable(int id) {
-        createTableBtn(id, bookFlow, "#00796b").setOnMouseClicked(e -> openBooked(id));
+    private void createBookTable(int id, int index) {
+        JFXButton btn= createTableBtn(id, bookFlow, "#00796b");
+        btn.setOpacity(0);
+        btn.setOnMouseClicked(e -> openCheckBill(id));
+        FadeTransition ft = new FadeTransition(Duration.millis(500), btn);
+        ft.setDelay(Duration.millis(100*index));
+        ft.setFromValue(0);
+        ft.setToValue(1);
+
+        ft.play();
     }
 
     private void openBooked(int id) {
@@ -127,8 +147,10 @@ public class FXMLControllerMain implements Initializable {
 
     private void reloadBooked() {
         bookFlow.getChildren().clear();
+        int i = 0;
         for (Map.Entry<Integer, TableBooking> table: TableManager.i().getTableBookings().entrySet()) {
-            createBookTable(table.getKey());
+            createBookTable(table.getKey(), i);
+            i++;
         }
     }
 
@@ -150,9 +172,8 @@ public class FXMLControllerMain implements Initializable {
         TableManager.i().findById(id).setTimeLab(timeSpLab);
 
         timeSpLab.setStyle("-fx-font-size: 10px;" +
-                "-fx-text-fill: #ffffff;"+
-                "-fx-text-alignment: CENTER");
-        timeSpLab.setAlignment(Pos.CENTER);
+                "-fx-text-fill: #ffffff;" +
+                "-fx-text-alignment: center");
 
         VBox theBox = new VBox(nameLab, timeSpLab);
         theBox.setPrefSize(80, 80);

@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
@@ -189,7 +190,6 @@ public class FXMLControllerSetting implements Initializable {
         boolean isReady = true;
         messageLab.setText("[MessageText]");
         messageLab.setStyle("-fx-text-fill: #ff0000");
-        messageLab.setVisible(false);
         // region text checking
         JFXTextField[] txtFList = {tableTxtF, scTxtF};
         for (JFXTextField txtF : txtFList) {
@@ -198,7 +198,7 @@ public class FXMLControllerSetting implements Initializable {
                 txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
                 isReady = false;
                 messageLab.setText(Text.MSG_EMPTY.get());
-                messageLab.setVisible(true);
+                msgToVisible();
             }
         }
         if (timitTog.isSelected()) {
@@ -209,7 +209,7 @@ public class FXMLControllerSetting implements Initializable {
                     txtF.setStyle("-fx-background-color: rgba(198,40,40,0.2); -fx-text-fill: #fff; -fx-prompt-text-fill:  #626262");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
-                    messageLab.setVisible(true);
+                    msgToVisible();
                 }
             }
         }
@@ -219,7 +219,7 @@ public class FXMLControllerSetting implements Initializable {
                 messageLab.setText(Text.MSG_EMPNOC.get());
             else
                 messageLab.setText(Text.MSG_NOC.get());
-            messageLab.setVisible(true);
+            msgToVisible();
             isReady = false;
             addBtn.setStyle("-fx-background-color: rgba(198,40,40,0.5); -fx-font-family:  fontello; -fx-font-size: 15px");
         }
@@ -230,21 +230,21 @@ public class FXMLControllerSetting implements Initializable {
                     course.getCourseTxtF().setStyle(courseBoxStyle + "-fx-background-color: rgba(198,40,40,0.2)");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
-                    messageLab.setVisible(true);
+                    msgToVisible();
                 }
                 course.getAdultTxtF().setStyle(priceBoxStyle + "-fx-background-color: #393939");
                 if (course.getAdultTxtF().getText().isEmpty()) {
                     course.getAdultTxtF().setStyle(priceBoxStyle + "-fx-background-color: rgba(198,40,40,0.2)");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
-                    messageLab.setVisible(true);
+                    msgToVisible();
                 }
                 course.getKidsTxtF().setStyle(priceBoxStyle + "-fx-background-color: #393939");
                 if (course.getKidsTxtF().getText().isEmpty()) {
                     course.getKidsTxtF().setStyle(priceBoxStyle + "-fx-background-color: rgba(198,40,40,0.2)");
                     isReady = false;
                     messageLab.setText(Text.MSG_EMPTY.get());
-                    messageLab.setVisible(true);
+                    msgToVisible();
                 }
             }
         }
@@ -270,11 +270,7 @@ public class FXMLControllerSetting implements Initializable {
             backBtn.setVisible(true);
             messageLab.setStyle("-fx-text-fill: #00ff00");
             messageLab.setText(Text.MSG_SUCCESS.get());
-            messageLab.setVisible(true);
-            Timeline hide = new Timeline(new KeyFrame(
-                    Duration.seconds(1),
-                    e -> messageLab.setVisible(false)));
-            hide.play();
+            msgToVisible();
         }
     }
 
@@ -432,7 +428,20 @@ public class FXMLControllerSetting implements Initializable {
         Course self = new Course(courseBox, courseTxtF, adultTxtF, kidsTxtF, deleteBtn);
         deleteBtn.setOnMouseClicked(e -> delCourseTable(self));
         return self;
+    }
 
-
+    private void msgToVisible() {
+        messageLab.setOpacity(0);
+        messageLab.setVisible(true);
+        FadeTransition ft = new FadeTransition(Duration.millis(150), messageLab);
+        ft.setFromValue(0);
+        ft.setToValue(1);
+        ft.play();
+        FadeTransition ft2 = new FadeTransition(Duration.millis(150), messageLab);
+        ft2.setDelay(Duration.seconds(3));
+        ft2.setFromValue(1);
+        ft2.setToValue(0);
+        ft2.play();
+        ft2.setOnFinished(e->messageLab.setVisible(false));
     }
 }
