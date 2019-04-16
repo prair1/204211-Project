@@ -24,8 +24,8 @@
         <rowConstraints>
             <RowConstraints maxHeight="95.60001220703126" minHeight="10.0" prefHeight="22.20000877380371" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="158.40001983642577" minHeight="10.0" prefHeight="73.80000610351561" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="74.59998779296876" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="112.20001220703125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="148.40001220703127" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.60001220703123" minHeight="10.0" prefHeight="83.59998779296876" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label fx:id="amountLab" alignment="CENTER" contentDisplay="CENTER" text="{AMOUNT}" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -83,7 +83,10 @@
                   <Insets top="20.0" />
                </opaqueInsets>
             </VBox>
-            <Label fx:id="errorLab" text="{ERROR}" textFill="WHITE" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="errorLab" alignment="BASELINE_LEFT" text="{ERROR}" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin></Label>
          </children>
       </GridPane>
    </center>
